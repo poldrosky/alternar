@@ -107,7 +107,7 @@ class Point(object):
                                                                                 landsat.metadata['SUN_ELEVATION'],
                                                                                 self.radiance[b])
                                                                                 
-            else:
+            elif(self.radiance['61']>0):
                 self.band6 = 1282.71 / numpy.log(((666.09 * 0.95) / self.radiance['61'] ) +1 )
 
         self.NDVI =  (self.reflectance['4'] - self.reflectance['3']) / (self.reflectance['4'] + self.reflectance['3'])
@@ -117,9 +117,12 @@ class Point(object):
         self.pixelHeight = landsat.band[str(1)].pixelHeight
         self.originX = landsat.band[str(1)].originX
         self.originY = landsat.band[str(1)].originY
-        self.latitude = self.originX + (y * self.pixelWidth)
-        self.longitude = self.originY + (x * self.pixelHeight)
-
+        latitude = self.originX + (y * self.pixelWidth)
+        longitude = self.originY + (x * self.pixelHeight)
+        
+        self.latitude = latitude - (latitude%250)
+        self.longitude = longitude - (longitude%250)
+                
     def cloud(self):
         if(self.reflectance['3']<0.08):
             return 'non-cloud' # filter one less 0.08 is not cloud
@@ -232,23 +235,29 @@ def getESUN(bandNum, SIType):
     return ESUN[bandNum]    
 
 def rasterToDB(nameFolders):
-    #date_landsat = []
     for i in range(len(nameFolders)-1):
         if os.path.isfile(nameFolders[i]):
             os.system('rm -R '+nameFolders[i].split('.')[0])
         os.system('mkdir '+nameFolders[i].split('.')[0])
         os.system('tar -xvf '+nameFolders[i]+' -C '+nameFolders[i].split('.')[0])              
         landsat = Landsat(nameFolders[i].split('.')[0])
-        #date_landsat.append('{0}\t{1}'.format(landsat.idLandsat, landsat.DATE))
+        #date_landsat = '{0}\t{1}'.format(landsat.idLandsat, landsat.DATE)
+        #db.copyToTable('date_landsat',io.StringIO(date_landsat))
         reflectance = []
-        for x in range(landsat.band['1'].rows):
-            for y in range(landsat.band['1'].cols):
-                if(landsat.band['1'].array[x][y]!=0 and landsat.band['61'].array[x][y]!=0):
-                    SIType = 'ETM+ Thuillier'
-                    point = Point(landsat, x, y, SIType)
-                    if(point.NDVI>0.6):
+        discarded = []
+        for x in range(0,landsat.band['1'].rows,15):
+            for y in range(0,landsat.band['1'].cols,15):
+                SIType = 'ETM+ Thuillier'
+                point = Point(landsat, x, y, SIType)
+                if(landsat.band['1'].array[x][y]==0 or landsat.band['2'].array[x][y]==0 or
+                 landsat.band['3'].array[x][y]==0 or landsat.band['4'].array[x][y]==0 or
+                 landsat.band['5'].array[x][y]==0 or landsat.band['61'].array[x][y]==0):
+                     discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, 'not rated'))
+                     continue
+                if(point.NDVI>0.6):
                         cloud = point.cloud()
-                        reflectance.append('{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}'.format(point.idLandsat,
+                        if(cloud == 'non-cloud'):
+                            reflectance.append('{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}'.format(point.idLandsat,
                                                                                                            point.latitude,
                                                                                                            point.longitude,
                                                                                                            point.reflectance['1'],
@@ -257,24 +266,17 @@ def rasterToDB(nameFolders):
                                                                                                            point.reflectance['4'],
                                                                                                            point.reflectance['5'],
                                                                                                            point.band6,
-                                                                                                           point.reflectance['7'],
-                                                                                                           cloud))
-                        print(point.idLandsat,
-                              point.latitude,
-                              point.longitude,
-                              point.reflectance['1'],
-                              point.reflectance['2'],
-                              point.reflectance['3'],
-                              point.reflectance['4'],
-                              point.reflectance['5'],
-                              point.band6,
-                              point.reflectance['7'],
-                              cloud)
-                        
-        reflectance = '\n'.join(reflectance)                
+                                                                                                           point.reflectance['7']))
+                                                                                                           
+                        else:
+                            discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, cloud))                    
+                else:
+                    discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, 'no vegetation'))
+
+        reflectance = '\n'.join(reflectance)
+        discarded = '\n'.join(discarded)                
         db.copyToTable('reflectance',io.StringIO(reflectance))
-    #date_landsat = '\n'.join(date_landsat)
-    #db.copyToTable('date_landsat',io.StringIO(date_landsat))
+        db.copyToTable('discarded',io.StringIO(discarded))
                                   
 path = os.getcwd()
 path += '/L7'
