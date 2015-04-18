@@ -107,13 +107,24 @@ class Point(object):
         self.SIType = SIType
         self.radiance = {}
         self.reflectance = {}
+        self.QCAL = {}
+        cols = landsat.band['1'].cols
 
         for b in bandList:
-            self.radiance[b] = self.calcRadiance(landsat.band[b].LMAX, 
+            if(landsat.band[b].cols == cols):
+                self.QCAL[b] = landsat.band[b].array[x][y]
+                self.radiance[b] = self.calcRadiance(landsat.band[b].LMAX, 
                                                          landsat.band[b].LMIN,
                                                          landsat.band[b].QCALMAX,
-                                                         landsat.band[b].QCALMIN, landsat.band[b].array[x][y])                            
-        
+                                                         landsat.band[b].QCALMIN, self.QCAL[b])
+            
+            elif(landsat.band[b].cols == cols/2):
+                self.QCAL[b] = landsat.band[b].array[int(x/2)][int(y/2)]
+                self.radiance[b] = self.calcRadiance(landsat.band[b].LMAX, 
+                                                         landsat.band[b].LMIN,
+                                                         landsat.band[b].QCALMAX,
+                                                         landsat.band[b].QCALMIN, self.QCAL[b])
+            
             if(b!='61'):
                 self.reflectance[b] = self.calcReflectance(calcSolarDist(calcJDay(landsat.band[b].DATE)),
                                                                                 getESUN(landsat.band[b].band, SIType),
@@ -262,9 +273,9 @@ def rasterToDB(nameFolders):
             for y in range(0,landsat.band['1'].cols,15):
                 SIType = 'ETM+ Thuillier'
                 point = Point(landsat, x, y, SIType)
-                if(landsat.band['1'].array[x][y]==0 or landsat.band['2'].array[x][y]==0 or
-                 landsat.band['3'].array[x][y]==0 or landsat.band['4'].array[x][y]==0 or
-                 landsat.band['5'].array[x][y]==0 or landsat.band['61'].array[x][y]==0):
+                if(point.QCAL['1']==0 or point.QCAL['2']==0 or
+                 point.QCAL['3']==0 or point.QCAL['4']==0 or
+                 point.QCAL['5']==0 or point.QCAL['61']==0):
                      discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, 'not rated'))
                      continue
                 if(point.NDVI>0.6):
@@ -308,7 +319,7 @@ tiempo1 = time.time()
 
 db = Pdbc.DBConnector('landsat', 'omar', '1234', 'localhost', '5432')
                         
-filterImg = 'LE7*2001*'
+filterImg = 'LE7*'
 nameFolders = os.popen('ls '+filterImg+'bz').read().split("\n")	    
 
 rasterToDB(nameFolders)
