@@ -39,7 +39,8 @@ class Landsat(object):
             QCALMAX = "QUANTIZE_CAL_MAX_BAND_" + band
             QCALMIN = "QUANTIZE_CAL_MIN_BAND_" + band
             DATE = "DATE_ACQUIRED"
-            metadatalist = [BANDFILE, LMAX, LMIN, QCALMAX, QCALMIN, DATE]        
+            metadatalist = [BANDFILE, LMAX, LMIN, QCALMAX, QCALMIN, DATE]
+            return metadatalist        
 
         elif ("LMAX_BAND" + band) in self.metadata.keys():
             BANDFILE = "BAND" + band + "_FILE_NAME"
@@ -49,6 +50,18 @@ class Landsat(object):
             QCALMIN = "QCALMIN_BAND" + band
             DATE ="ACQUISITION_DATE"
             metadatalist = [BANDFILE, LMAX, LMIN, QCALMAX, QCALMIN, DATE]
+            return metadatalist
+            
+        elif(band == '61'):
+            if ("RADIANCE_MAXIMUM_BAND_6_VCID_1") in self.metadata.keys():
+                BANDFILE = "FILE_NAME_BAND_6_VCID_1"
+                LMAX = "RADIANCE_MAXIMUM_BAND_6_VCID_1"
+                LMIN = "RADIANCE_MINIMUM_BAND_6_VCID_1"
+                QCALMAX = "QUANTIZE_CAL_MAX_BAND_6_VCID_1"
+                QCALMIN = "QUANTIZE_CAL_MIN_BAND_6_VCID_1"
+                DATE = "DATE_ACQUIRED"
+                metadatalist = [BANDFILE, LMAX, LMIN, QCALMAX, QCALMIN, DATE] 
+                return metadatalist
 
         else:
             print('There was a problem reading the metadata for this file.')
@@ -120,8 +133,8 @@ class Point(object):
         latitude = self.originX + (y * self.pixelWidth)
         longitude = self.originY + (x * self.pixelHeight)
         
-        self.latitude = latitude - (latitude%250)
-        self.longitude = longitude - (longitude%250)
+        self.latitude = latitude - (latitude%450)
+        self.longitude = longitude - (longitude%450)
                 
     def cloud(self):
         if(self.reflectance['3']<0.08):
@@ -277,6 +290,7 @@ def rasterToDB(nameFolders):
         discarded = '\n'.join(discarded)                
         db.copyToTable('reflectance',io.StringIO(reflectance))
         db.copyToTable('discarded',io.StringIO(discarded))
+        os.system('rm -R '+nameFolders[i].split('.')[0])	
                                   
 path = os.getcwd()
 path += '/L7'
