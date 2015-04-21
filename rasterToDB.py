@@ -111,7 +111,6 @@ class Point(object):
         cols = landsat.band['1'].cols
         
         for b in bandList:
-            print(landsat.band[b].cols, cols, cols/2)
             if(landsat.band[b].cols == cols):
                 self.QCAL[b] = landsat.band[b].array[x][y]
                 self.radiance[b] = self.calcRadiance(landsat.band[b].LMAX, 
@@ -119,7 +118,7 @@ class Point(object):
                                                          landsat.band[b].QCALMAX,
                                                          landsat.band[b].QCALMIN, self.QCAL[b])
             
-            elif((landsat.band[b].cols - cols/2) <=0):
+            elif((landsat.band[b].cols - cols/2) <=1):
                 self.QCAL[b] = landsat.band[b].array[int(x/2)][int(y/2)]
                 self.radiance[b] = self.calcRadiance(landsat.band[b].LMAX, 
                                                          landsat.band[b].LMIN,
