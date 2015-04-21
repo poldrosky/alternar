@@ -272,7 +272,7 @@ def rasterToDB(nameFolders):
         for x in range(0,landsat.band['1'].rows,15):
             for y in range(0,landsat.band['1'].cols,15):
                 if(landsat.band['1'].array[x][y]==0 or landsat.band['2'].array[x][y]==0 or
-                 landsat.band['3'].array[x][y]==0 or landsat.band['4'].array[x][y] or
+                 landsat.band['3'].array[x][y]==0 or landsat.band['4'].array[x][y]==0 or
                  landsat.band['5'].array[x][y]==0):
                      continue
                 SIType = 'ETM+ Thuillier'
@@ -298,6 +298,7 @@ def rasterToDB(nameFolders):
                     discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, 'no vegetation'))
 
         reflectance = '\n'.join(reflectance)
+        print(reflectance)
         discarded = '\n'.join(discarded)                
         db.copyToTable('reflectance',io.StringIO(reflectance))
         db.copyToTable('discarded',io.StringIO(discarded))
