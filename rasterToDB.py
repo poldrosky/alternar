@@ -271,13 +271,14 @@ def rasterToDB(nameFolders):
         discarded = []
         for x in range(0,landsat.band['1'].rows,15):
             for y in range(0,landsat.band['1'].cols,15):
+                if(landsat.band['1'].array[x][y]==0 or landsat.band['2'].array[x][y]==0 or
+                 landsat.band['3'].array[x][y]==0 or landsat.band['4'].array[x][y] or
+                 landsat.band['5'].array[x][y]==0):
+                     continue
                 SIType = 'ETM+ Thuillier'
                 point = Point(landsat, x, y, SIType)
-                if(point.QCAL['1']==0 or point.QCAL['2']==0 or
-                 point.QCAL['3']==0 or point.QCAL['4']==0 or
-                 point.QCAL['5']==0 or point.QCAL['61']==0):
-                     discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, 'not rated'))
-                     continue
+                if (point.QCAL['61']==0):
+                    continue
                 if(point.NDVI>0.6):
                         cloud = point.cloud()
                         if(cloud == 'non-cloud'):
@@ -290,8 +291,7 @@ def rasterToDB(nameFolders):
                                                                                                            point.reflectance['4'],
                                                                                                            point.reflectance['5'],
                                                                                                            point.band6,
-                                                                                                           point.reflectance['7']))
-                                                                                                           
+                                                                                                           point.reflectance['7']))                                                                                                           
                         else:
                             discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, cloud))                    
                 else:
@@ -319,7 +319,7 @@ tiempo1 = time.time()
 
 db = Pdbc.DBConnector('landsat', 'omar', '1234', 'localhost', '5432')
                         
-filterImg = 'LE7*'
+filterImg = sys.argv[1]
 nameFolders = os.popen('ls '+filterImg+'bz').read().split("\n")	    
 
 rasterToDB(nameFolders)
