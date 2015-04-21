@@ -111,6 +111,7 @@ class Point(object):
         cols = landsat.band['1'].cols
         
         for b in bandList:
+            print(landsat.band[b].cols, cols, cols/2)
             if(landsat.band[b].cols == cols):
                 self.QCAL[b] = landsat.band[b].array[x][y]
                 self.radiance[b] = self.calcRadiance(landsat.band[b].LMAX, 
@@ -118,7 +119,7 @@ class Point(object):
                                                          landsat.band[b].QCALMAX,
                                                          landsat.band[b].QCALMIN, self.QCAL[b])
             
-            elif(landsat.band[b].cols == cols/2 or landsat.band[b].cols == cols/2 + 0.5):
+            elif((landsat.band[b].cols - cols/2) <=0):
                 self.QCAL[b] = landsat.band[b].array[int(x/2)][int(y/2)]
                 self.radiance[b] = self.calcRadiance(landsat.band[b].LMAX, 
                                                          landsat.band[b].LMIN,
@@ -141,11 +142,11 @@ class Point(object):
         self.pixelHeight = landsat.band[str(1)].pixelHeight
         self.originX = landsat.band[str(1)].originX
         self.originY = landsat.band[str(1)].originY
-        latitude = self.originX + (y * self.pixelWidth)
-        longitude = self.originY + (x * self.pixelHeight)
+        self.latitude = self.originX + (y * self.pixelWidth)
+        self.longitude = self.originY + (x * self.pixelHeight)
         
-        self.latitude = latitude - (latitude%450)
-        self.longitude = longitude - (longitude%450)
+        #self.latitude = latitude - (latitude%450)
+        #self.longitude = longitude - (longitude%450)
                 
     def cloud(self):
         if(self.reflectance['3']<0.08):
