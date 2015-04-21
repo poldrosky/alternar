@@ -298,7 +298,6 @@ def rasterToDB(nameFolders):
                     discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, 'no vegetation'))
 
         reflectance = '\n'.join(reflectance)
-        print(reflectance)
         discarded = '\n'.join(discarded)                
         db.copyToTable('reflectance',io.StringIO(reflectance))
         db.copyToTable('discarded',io.StringIO(discarded))
