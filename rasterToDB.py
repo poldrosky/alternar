@@ -131,7 +131,7 @@ class Point(object):
                                                                                 landsat.metadata['SUN_ELEVATION'],
                                                                                 self.radiance[b])
                                                                                 
-            elif(self.radiance['61']>0):
+            elif(self.radiance['61']>=0):
                 self.band6 = 1282.71 / numpy.log(((666.09 * 0.95) / self.radiance['61'] ) +1 )
 
         self.NDVI =  (self.reflectance['4'] - self.reflectance['3']) / (self.reflectance['4'] + self.reflectance['3'])
@@ -279,24 +279,21 @@ def rasterToDB(nameFolders):
                 point = Point(landsat, x, y, SIType)
                 if (point.QCAL['61']==0):
                     continue
-                if(point.NDVI>0.6):
-                        cloud = point.cloud()
-                        if(cloud == 'non-cloud'):
-                            reflectance.append('{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}'.format(point.idLandsat,
-                                                                                                           point.latitude,
-                                                                                                           point.longitude,
-                                                                                                           point.reflectance['1'],
-                                                                                                           point.reflectance['2'],
-                                                                                                           point.reflectance['3'],
-                                                                                                           point.reflectance['4'],
-                                                                                                           point.reflectance['5'],
-                                                                                                           point.band6,
-                                                                                                           point.reflectance['7']))                                                                                                           
-                        else:
-                            discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, cloud))                    
+                cloud = point.cloud()
+                if(cloud == 'non-cloud'):
+                    reflectance.append('{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}'.format(point.idLandsat,
+                                                                                                       point.latitude,
+                                                                                                       point.longitude,
+                                                                                                       point.reflectance['1'],
+                                                                                                       point.reflectance['2'],
+                                                                                                       point.reflectance['3'],
+                                                                                                       point.reflectance['4'],
+                                                                                                       point.reflectance['5'],
+                                                                                                       point.band6,
+                                                                                                       point.reflectance['7']))                                                                                                           
                 else:
-                    discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, 'no vegetation'))
-
+                    discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, cloud))
+                                    
         reflectance = '\n'.join(reflectance)
         discarded = '\n'.join(discarded)                
         db.copyToTable('reflectance',io.StringIO(reflectance))
