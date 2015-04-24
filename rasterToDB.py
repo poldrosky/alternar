@@ -154,7 +154,7 @@ class Point(object):
             return 'non-cloud' # filter two NDSI less 0.7 is not cloud
         elif(self.band6 > 300):
             return 'non-cloud' # filter three temp more 300 is not cloud
-        elif((self.reflectance['5']/self.band6) > 225):
+        elif(((1 - self.reflectance['5']) * self.band6) > 225):
             return 'ambiguous' # filter four 
         elif((self.reflectance['4']/self.reflectance['3']) > 2):
             return 'ambiguous' # filter five
@@ -301,7 +301,7 @@ def rasterToDB(nameFolders):
         os.system('rm -R '+nameFolders[i].split('.')[0])	
                                   
 path = os.getcwd()
-path += '/L7'
+path += '/L7Clipper'
 os.chdir(path)
 
 f = open('../d.csv', "r")
@@ -316,7 +316,7 @@ tiempo1 = time.time()
 
 db = Pdbc.DBConnector('landsat', 'omar', '1234', 'localhost', '5432')
                         
-filterImg = sys.argv[1]
+filterImg = 'LE7*'
 nameFolders = os.popen('ls '+filterImg+'bz').read().split("\n")	    
 
 rasterToDB(nameFolders)
