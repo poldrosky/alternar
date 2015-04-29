@@ -141,11 +141,11 @@ class Point(object):
         self.pixelHeight = landsat.band[str(1)].pixelHeight
         self.originX = landsat.band[str(1)].originX
         self.originY = landsat.band[str(1)].originY
-        self.latitude = self.originX + (y * self.pixelWidth)
-        self.longitude = self.originY + (x * self.pixelHeight)
+        latitude = self.originX + (y * self.pixelWidth)
+        longitude = self.originY + (x * self.pixelHeight)
         
-        #self.latitude = latitude - (latitude%450)
-        #self.longitude = longitude - (longitude%450)
+        self.latitude = latitude - (latitude%450)
+        self.longitude = longitude - (longitude%450)
                 
     def cloud(self):
         if(self.reflectance['3']<0.08):
@@ -162,7 +162,7 @@ class Point(object):
             return 'ambiguous' # filter six
         elif((self.reflectance['4']/self.reflectance['5']) < 1):
             return 'ambiguous' # filter seven
-        elif((self.reflectance['5']/self.band6) > 210):
+        elif(((1- self.reflectance['5']) * self.band6) > 210):
             return 'warn-cloud' # filter eight
         else:
             return 'cold-cloud' #filter eight
