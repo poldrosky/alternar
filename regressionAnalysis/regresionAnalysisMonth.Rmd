@@ -1,0 +1,93 @@
+---
+title: "ANALISIS DE OPORTUNDIDADES ENERGÉTICAS CON FUENTES. ALTERNATIVAS EN EL DEPARTAMENTO DE NARIÑO - ALTERNAR"
+author: Grupo de Investigación GIIEE
+date: "05/21/2015"
+output: 
+  pdf_document:
+    number_sections: yes
+    toc: true
+fontsize: 10pt
+classoption: landscape
+---
+#Análisis de Regresión año 2000 - 2003
+
+Este documento contiene un análisis para encontrar modelos de regresion de biomasa
+en el departamento de Nariño usando el paquete de minería de datos rminer, se evaluan 13 métodos de regresión y las métricas de error para estos.
+
+```{r, results='hide', echo=FALSE}
+library('DBI')
+library('RPostgreSQL')
+library('stringr')
+library('kknn')
+library('rminer')
+source('xtable_printbold.R')
+
+drv <- dbDriver("PostgreSQL")
+con <- dbConnect(drv, dbname="db",host="localhost",port=5432,
+                 user="user",password="pass")
+
+models=c("ctree", "rpart", "kknn", "mlp", "mlpe","ksvm", "randomForest", "mr",
+         "mars", "cubist", "pcr", "plsr", "cppls")
+
+
+tableBiomass <- function(value, month){
+query <- paste("SELECT * FROM(
+SELECT
+  latitude, longitude, avg(band1) as band1, avg(band2) as band2,
+   avg(band3) as band3, avg(band4) as band4, avg(band5) as band5,
+   avg(band6) as band6, avg(band7) as band7
+FROM 
+  reflectance
+JOIN
+	date_landsat
+USING
+	(id_landsat)
+WHERE
+	date between '01-01-2000' and '12-31-2003'
+GROUP BY
+	extract(month from date), latitude, longitude
+having
+	count(*) >=", value," and extract(month from date) =", month,") as foo
+JOIN
+	biomass_grid_450
+USING(latitude,longitude)")
+
+table <- dbGetQuery(con, query)
+return (table)
+}
+
+metricMatrix <- function(i){
+  biomass <- tableBiomass(5,i)
+  biomass=biomass[,c(3:10)]
+  cat("\\subsection{Conjunto de ",length(biomass[,1])," datos, mes ",i,", 5 muestras}")
+  H=holdout(biomass$bio,ratio=2/3,seed=12345)
+  metrica <- c()
+  matrix <- c()
+  for(m in models){
+    #cat("model:",m,"\n")
+    M=fit(bio~.,biomass[H$tr,],model=m)
+    P=predict(M,biomass[H$ts,])
+    metrica <- mmetric(biomass$bio[H$ts],P,"ALL")
+    matrix<- rbind(matrix, metrica)
+  }
+  rownames(matrix) <- models
+  matrix <- data.frame(matrix) 
+  return (matrix)
+}
+
+```
+
+
+```{r, results='asis', echo=FALSE}
+library(xtable)
+cat("\\clearpage")
+options(xtable.comment = FALSE)
+for(i in seq(1, 12, 1)){
+  matrix <- metricMatrix(i)
+  matrix <- matrix[,c(1,2,6,10,16,18)]
+  printbold(xtable(matrix, digits=5, caption = paste("Métricas de modelos analizados mes ",i,", 5 muestras")), each = "column", max = c(F,F,F,F,T,T))  
+  cat("\\clearpage")  
+}
+```
+
+
