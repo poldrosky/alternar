@@ -1,0 +1,11 @@
+\BOOKMARK [0][]{chapter*.2}{INTRODUCCI\323N}{}% 1
+\BOOKMARK [0][]{chapter.1}{Tutorial}{}% 2
+\BOOKMARK [1][]{section.1.1}{Instalaci\363n}{chapter.1}% 3
+\BOOKMARK [1][]{section.1.2}{An\341lisis exploratorio de datos}{chapter.1}% 4
+\BOOKMARK [1][]{section.1.3}{M\351todos de interpolaci\363n no geoestad\355sticos}{chapter.1}% 5
+\BOOKMARK [2][]{subsection.1.3.1}{Interpolaci\363n ponderada de distancia inversa}{section.1.3}% 6
+\BOOKMARK [2][]{subsection.1.3.2}{Regresi\363n lineal}{section.1.3}% 7
+\BOOKMARK [1][]{section.1.4}{Estimati\363n de correlaci\363n espacial: Variograma}{chapter.1}% 8
+\BOOKMARK [2][]{subsection.1.4.1}{An\341lisis exploratorio de variogramas}{section.1.4}% 9
+\BOOKMARK [1][]{section.1.5}{Ejemplo de Kriging Orninario}{chapter.1}% 10
+\BOOKMARK [1][]{section.1.6}{Para tener en cuenta}{chapter.1}% 11

@@ -1,0 +1,22 @@
+\section{Introducción}
+
+\IEEEPARstart{L}{os} recientes avances tecnológicos ....
+
+radio dado que cubre todos los objetos que se mueven en el patrón (Figura~\ref{fig:mapaNarino}). Una trayectoria satisface el 
+patrón anterior, siempre y cuando suficientes trayectorias están contenidos dentro del disco para el intervalo de
+tiempo especificado, es decir, la respuesta se basa no sólo en el comportamiento de una trayectoria dada, sino
+también en las más cercanas a ella. Uno de los enfoques para descubrir patrones móviles de agrupamiento consiste
+en encontrar un conjunto adecuado de discos en cada instante de tiempo y luego la fusión de los resultados de un 
+instante de tiempo a otro. Como consecuencia, el rendimiento y el número de patrones final depende del número
+de los discos y cómo éstos se combinan.
+
+\cite{jensen2007continuous}
+
+En el ejemplo de la figura~\ref{fig:mapaNarino} se muestra 
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 5cm]{mapaNarino.png}
+  \caption{Ejemplo de patrones de agrupamiento.}
+  \label{fig:mapaNarino}
+\end{figure}

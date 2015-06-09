@@ -1,0 +1,24 @@
+\chapter*{INTRODUCCIÓN}
+\addcontentsline{toc}{chapter}{INTRODUCCIÓN}
+ 
+Datos geoestadísticos son datos que podrían en principio ser medidos en cualquier lugar,
+pero que normalmente vienen como mediciones en un número limitado de ubicaciones de observación: piensa en la calidad de oro en un yacimiento o partículas en muestras
+de aires. El patrón de ubicaciones de observación general, no es de interés primordial, ya que a menudo resulta de consideraciones que van desde limitaciones
+económicas y físicas a ser 'representativos' o variedades de muestreo aleatorios.
+El interés es por lo general en la inferencia de los aspectos de la variable que no tiene medidas como mapas de los valores estimados,
+probabilidades de excedencia o estimaciones de los agregados más regiones indicadas o inferencia del proceso que generaron los datos.
+Otros problemas son la supervisión de la red de optimización: ¿Dónde deben ubicarse las nuevas observaciones o cuales ubicaciones de observación
+deben ser retirados de manera que el valor operacional de la vigilancia la red se maximiza.
+
+Problemas espaciales típicas donde se utilizan geoestadística son los siguientes:
+\begin{itemize}
+\item La estimación de las calidades de unidades de minerales explotables, basado en datos de perforación.
+\item  La interpolación de variables ambientales de la muestra o de la red de monitoreo de datos
+  (por ejemplo, la calidad del aire, la contaminación del suelo, la cabeza del agua subterránea, conductividad hidráulica).
+\item La interpolación de variables físicas o químicas a partir de datos de la muestra.
+\item La estimación de promedios espaciales a partir de datos continuos, espacialmente correlacionadas
+\end{itemize}
+
+
+\nocite{bivand2013applied}
+

@@ -1,0 +1,12 @@
+\select@language {spanish}
+\contentsline {chapter}{INTRODUCCI\IeC {\'O}N}{4}{chapter*.2}
+\contentsline {chapter}{\numberline {1}Tutorial}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Instalaci\IeC {\'o}n}{5}{section.1.1}
+\contentsline {section}{\numberline {1.2}An\IeC {\'a}lisis exploratorio de datos}{5}{section.1.2}
+\contentsline {section}{\numberline {1.3}M\IeC {\'e}todos de interpolaci\IeC {\'o}n no geoestad\IeC {\'\i }sticos}{6}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Interpolaci\IeC {\'o}n ponderada de distancia inversa}{6}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Regresi\IeC {\'o}n lineal}{7}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}Estimati\IeC {\'o}n de correlaci\IeC {\'o}n espacial: Variograma}{9}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}An\IeC {\'a}lisis exploratorio de variogramas}{9}{subsection.1.4.1}
+\contentsline {section}{\numberline {1.5}Ejemplo de Kriging Orninario}{9}{section.1.5}
+\contentsline {section}{\numberline {1.6}Para tener en cuenta}{11}{section.1.6}

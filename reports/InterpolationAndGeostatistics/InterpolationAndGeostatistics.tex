@@ -1,0 +1,131 @@
+\documentclass[bsc,letterpaper,12pt]{csthesis}
+%\documentclass[letterpaper,12pt,twoside]{csthesis} % para imprimir de lado y lado
+
+
+\paperwidth = 21.6cm		% Tamaño de la hoja
+\paperheight = 27.9cm
+
+%Margenes horizontales
+\hoffset = -2.54cm		% Se elimna el offset horizontal
+\oddsidemargin = 4cm
+\evensidemargin = 2cm
+\textwidth = 15.6cm
+
+%Margenes verticales
+\voffset = -2.54cm
+\topmargin = 3cm
+\headheight = 0cm
+\headsep = 0cm
+\textheight = 21.9cm
+\footskip = 1cm
+
+
+\usepackage[spanish]{babel}     % Idioma Capitulos y demas
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{cc/CreativeCommons}  %Licencia
+
+\usepackage{listings} % Ingresar Codigo Fuente
+\usepackage{verbatim}
+\usepackage{moreverb}
+\let\verbatiminput=\verbatimtabinput
+\def\verbatimtabsize{8}  % Tabulación en verbatim
+
+% Paquete para el manejo de hipervinculos
+\usepackage[b5paper, breaklinks=true, pdfborder={0 0 0},colorlinks=false,pageanchor=true, 
+plainpages=false,bookmarksopen=true,bookmarksopenlevel=3, hyperfootnotes=false]{hyperref}
+
+% Paquete para el manejo de tablas
+\usepackage{supertabular}
+
+% Paquetes para simbolos
+%\usepackage{mathcomp}
+\usepackage{latexsym}
+\usepackage{pifont}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{colortbl}
+\usepackage{multicol} 
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{algorithmic}
+\usepackage[Algoritmo]{algorithm}
+\usepackage{subfigure}
+
+
+% Manejo de imagenes PDF y EPS
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+\pdffalse % we are not running PDFLaTeX
+\else
+\pdfoutput=1 % we are running PDFLaTeX
+\pdftrue
+\fi
+
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\else
+\usepackage{graphicx}
+\fi
+
+\ifpdf
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+\else
+\DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+% Sangria de comienzo de parrafo
+\setlength{\parindent}{0cm}
+% Espacio vertical entre dos parrfos
+\setlength{\parskip}{0.3cm}
+
+% Definir el nombre de listas
+\addto\captionsspanish{%
+  \def\prefacename{Prefacio}%
+  \def\abstractname{RESUMEN}%
+  \def\chaptername{Cap\'{\i}tulo}%
+  \def\appendixname{Anexo}%
+  \def\listfigurename{Lista de figuras}%
+  \def\listtablename{Lista de cuadros}%
+  \def\indexname{\'Indice alfab\'etico}%
+  \def\figurename{Figura}%
+  \def\tablename{Tabla}%
+  \def\partname{Parte}%
+  \def\enclname{Adjunto}%
+  \def\ccname{Copia a}%
+  \def\headtoname{A}%
+  \def\pagename{P\'agina}%
+  \def\seename{v\'ease}%
+  \def\alsoname{v\'ease tambi\'en}%
+  \def\proofname{Demostraci\'on}%
+  \def\glossaryname{Glosario}}
+  \addto\captionsspanish{\def\contentsname{CONTENIDO}}
+  
+
+%para rotar tablas  
+\usepackage{rotating}
+
+
+
+%partir palabras
+\hyphenation{di-fe-ren-cia pro-pues-to pro-ble-mas po-pu-la-res cons-truccio-nes ne-ce-sa-ria-men-te}
+
+% Inico del documento
+\begin{document}
+\pagestyle{empty}% Sin número de página
+\input{portada.tex}
+\input{licencia.tex}
+\tableofcontents
+\input{introduction.tex}
+\input{contenido.tex
+}
+
+\bibliography{bibliography}
+\bibliographystyle{IEEEtran}
+
+
+
+\end{document}
+

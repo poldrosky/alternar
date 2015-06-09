@@ -1,0 +1,44 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{CreativeCommons}
+
+\newcommand\samplepage[2]{
+\newpage \begin{center} Command: {\tt \symbol{92}#1}
+\hrule
+\end{center} \vspace{1in} #2}
+
+
+\author{Joachim Thiemann and Peter Kabal}
+\title{Macros for Creative Common Licences in \LaTeX}
+\begin{document}
+\maketitle
+
+This package provides commands to place Creative Commons
+licence information for works created using the 
+\LaTeX\ typesetting system.  Note that this package itself is  
+licensed under the CC-BY license.  Licence manifests
+are reproduced here only as examples.
+
+To use these commands add the line
+\begin{verbatim}
+ \usepackage{CreativeCommons}
+\end{verbatim}
+to the preable of your document.  Then simply use
+the commands shown at the top of each of the following
+lines to place the licence deed into your document.
+Typically, this would be the second page of the document,
+on the back side of the title page for double-sided
+printing. 
+
+\begin{center}
+Version 1.0, 23 March 2011.
+\end{center}
+
+\samplepage{CCbyInfo}{\CCbyInfo}
+\samplepage{CCbysaInfo}{\CCbysaInfo}
+\samplepage{CCbyndInfo}{\CCbyndInfo}
+\samplepage{CCbyncInfo}{\CCbyncInfo}
+\samplepage{CCbyncsaInfo}{\CCbyncsaInfo}
+\samplepage{CCbyncndInfo}{\CCbyncndInfo}
+
+\end{document}

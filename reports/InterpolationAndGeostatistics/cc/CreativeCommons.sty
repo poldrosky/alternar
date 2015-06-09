@@ -1,0 +1,141 @@
+% Style file for LaTeX2e
+%   \usepackage{CreativeCommons}
+%
+% This package provides a Creative Commons licensing information page. It uses
+% Encapsulated PostScript or pdf files for the buttons and icons.
+%
+% macros:
+%    \CCbyInfo
+%    \CCbysaInfo
+%    \CCbyndInfo
+%    \CCbyncInfo
+%    \CCbyncsaInfo
+%    \CCbyncndInfo
+%      Generates CC logos and accompanying text
+%
+% This module also define macros for several Creative Commons icons and buttons.
+%
+% Example:
+%   \usepackage{CreativeCommons}
+%   \CCbyInfo
+
+\RequirePackage{graphics}
+\RequirePackage{color}
+\RequirePackage{url}
+
+\newlength{\imarg}
+\setlength{\imarg}{.75cm} % "internal" margin
+\newlength{\parw}
+\setlength{\parw}{\textwidth}
+\addtolength{\parw}{-2\imarg}
+
+\newcommand\CCLblock[5]{
+\begin{center}#1\end{center}
+\begin{list}{}{\setlength\leftmargin{\imarg}\setlength\rightmargin{\imarg}}
+{\color{black}\item[]{\bfseries You are free:}\vskip 1ex \setlength\tabcolsep{0.3em}
+\begin{tabular}{cl}#2	\end{tabular}\item[]{\bfseries Under the following conditions:}
+\vskip 1ex \setlength\tabcolsep{0.3em} \begin{tabular}{cl}#3 \end{tabular}\\[1ex]
+Subject to conditions outlined in the license.	} \vskip 2ex
+This work is licensed under the \emph{#4} License.	To view a copy of this license, 
+visit\\ \makebox[\parw]{\url{#5}}\\ or send a letter to Creative Commons, 171 Second Street, 
+Suite 300, San Francisco, California, 94105, USA. \end{list}
+}
+
+\newcommand\CCbyInfo{
+\CCLblock
+	{\CCbyButton{3.5cm}{!}}
+	{\CCshareLine\\[1ex] \CCremixLine}
+	{\CCattribLine}
+	{Creative Commons Attribution 3.0 Unported}
+	{http://creativecommons.org/licenses/by/3.0/}
+}
+
+\newcommand\CCbysaInfo{
+\CCLblock
+	{\CCbysaButton{3.5cm}{!}}
+	{\CCshareLine\\[1ex] \CCremixLine}
+	{\CCattribLine\\[1ex] \CCalikeLine}
+	{Creative Commons Attribution-Share\-Alike 3.0 Unported}
+	{http://creativecommons.org/licenses/by-sa/3.0/}
+}
+
+\newcommand\CCbyndInfo{
+\CCLblock
+	{\CCbyndButton{3.5cm}{!}}
+	{\CCshareLine}
+	{\CCattribLine\\[1ex] \CCndLine}
+	{Creative Commons Attribution-No\-Derivs 3.0 Unported}
+	{http://creativecommons.org/licenses/by-nd/3.0/}
+}
+
+\newcommand\CCbyncInfo{
+\CCLblock
+	{\CCbyncButton{3.5cm}{!}}
+	{\CCshareLine\\[1ex] \CCremixLine}
+	{\CCattribLine\\[1ex] \CCncLine}
+	{Creative Commons Attribution-Non\-Commercial 3.0 Unported}
+	{http://creativecommons.org/licenses/by-nc/3.0/}
+}
+
+\newcommand\CCbyncsaInfo{
+\CCLblock
+	{\CCbyncsaButton{3.5cm}{!}}
+	{\CCshareLine\\[1ex] \CCremixLine}
+	{\CCattribLine\\[1ex] \CCncLine\\[1ex] \CCalikeLine}
+	{Creative Commons Attribution-Non\-Commercial-ShareAlike 3.0 Unported}
+	{http://creativecommons.org/licenses/by-nc-sa/3.0/}
+}
+
+\newcommand\CCbyncndInfo{
+\CCLblock
+	{\CCbyncndButton{3.5cm}{!}}
+	{\CCshareLine}
+	{\CCattribLine\\[1ex] \CCncLine\\[1ex] \CCndLine}
+	{Creative Commons Attribution-Non\-Commercial-NoDerivs 3.0 Unported}
+	{http://creativecommons.org/licenses/by-nc-nd/3.0/}
+}
+
+% Statements
+\def\CCshareLine{
+\quad \CCshareIcon{!}{1cm} & \parbox[b]{9cm}{{\bfseries to Share --}
+                        to copy, distribute and transmit this work\\ \mbox{}}}
+
+\def\CCremixLine{
+\quad \CCremixIcon{!}{1cm}   & \parbox[b]{9cm}{{\bfseries to Remix --}
+                        to adapt this work\\ \mbox{}}}
+
+\def\CCattribLine{
+\quad \CCbyIcon{!}{1cm}   & \parbox[b]{9cm}{{\bfseries Attribution --}
+You must attribute the work in the manner specified by the author 
+or licensor (but not in any way that suggests that they endorse you 
+or your use of the work)}}
+
+\def\CCalikeLine{
+\quad \CCsaIcon{!}{1cm}   & \parbox[b]{9cm}{{\bfseries Share Alike --}
+If you alter, transform, or build upon this work, you may distribute 
+the resulting work only under the same or similar license to this one.}}
+
+\def\CCndLine{
+\quad \CCndIcon{!}{1cm}   & 
+\raisebox{.5em}{\parbox[b]{9cm}{{\bfseries No Derivative Works --}
+You may not alter, transform, or build upon this work.}}}
+
+\def\CCncLine{
+\quad \CCncIcon{!}{1cm}   & 
+\raisebox{.5em}{\parbox[b]{9cm}{{\bfseries Noncommercial --}
+You may not use this work for commercial purposes.}}}
+
+% Buttons and Icons
+\newcommand\CCbyButton[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Button-by}}}
+\newcommand\CCbysaButton[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Button-by-sa}}}
+\newcommand\CCbyndButton[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Button-by-nd}}}
+\newcommand\CCbyncButton[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Button-by-nc}}}
+\newcommand\CCbyncsaButton[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Button-by-nc-sa}}}
+\newcommand\CCbyncndButton[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Button-by-nc-nd}}}
+
+\newcommand\CCbyIcon[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Icon-by}}}
+\newcommand\CCncIcon[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Icon-nc}}}
+\newcommand\CCndIcon[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Icon-nd}}}
+\newcommand\CCsaIcon[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Icon-sa}}}
+\newcommand\CCshareIcon[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Icon-share}}}
+\newcommand\CCremixIcon[2]{\resizebox{#1}{#2}{\includegraphics{./cc/Icon-remix}}}
