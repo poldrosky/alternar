@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.3.4)  4 JUN 2015 12:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.3.4)  16 JUN 2015 02:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -403,10 +403,10 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfig@top=\skip51
 \subfig@bottom=\skip52
 ) (./main.aux
-LaTeX Info: Redefining \. on input line 32.
-LaTeX Info: Redefining \% on input line 32.
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
+LaTeX Info: Redefining \. on input line 30.
+LaTeX Info: Redefining \% on input line 30.
+LaTeX Info: Redefining \. on input line 38.
+LaTeX Info: Redefining \% on input line 38.
 )
 \openout1 = `main.aux'.
 
@@ -561,23 +561,19 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 15.
 
-<cut1.png, id=37, 1287.81125pt x 974.64125pt>
+<cut1.png, id=42, 1287.81125pt x 974.64125pt>
 File: cut1.png Graphic file (type png)
  <use cut1.png>
 Package pdftex.def Info: cut1.png used on input line 24.
-(pdftex.def)             Requested size: 113.81102pt x 86.12263pt.
+(pdftex.def)             Requested size: 142.26378pt x 107.65701pt.
 
-<cut2.png, id=39, 1287.81125pt x 974.64125pt>
+<cut2.png, id=44, 1287.81125pt x 974.64125pt>
 File: cut2.png Graphic file (type png)
  <use cut2.png>
 Package pdftex.def Info: cut2.png used on input line 26.
-(pdftex.def)             Requested size: 113.81102pt x 86.12263pt.
+(pdftex.def)             Requested size: 142.26378pt x 107.65701pt.
 
-Underfull \hbox (badness 6526) in paragraph at lines 26--26
-[]\T1/lmr/m/n/8 (b) Imá-ge-nes re-cor-ta-das de
- []
-
-<mapaNarino.png, id=41, 2219.29124pt x 2371.86125pt>
+<mapaNarino.png, id=46, 2219.29124pt x 2371.86125pt>
 File: mapaNarino.png Graphic file (type png)
  <use mapaNarino.png>
 Package pdftex.def Info: mapaNarino.png used on input line 37.
@@ -595,13 +591,52 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 42.
 
-<landsatET.pdf, id=44, 498.663pt x 403.26662pt>
+<landsatET.pdf, id=48, 498.663pt x 403.26662pt>
 File: landsatET.pdf Graphic file (type pdf)
  <use landsatET.pdf>
-Package pdftex.def Info: landsatET.pdf used on input line 62.
+Package pdftex.def Info: landsatET.pdf used on input line 49.
 (pdftex.def)             Requested size: 227.62204pt x 184.07732pt.
-)
-(./conclusion.tex
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 68.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 68.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+ <./mapaNarino.png> <./landsatET.pdf>]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 69.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 69.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 69.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 69.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 69.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 69.
+) (./conclusion.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand >>
@@ -627,34 +662,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 2.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 2.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 29.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 29.
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
- <./mapaNarino.png> <./landsatET.pdf>])
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -696,22 +704,22 @@ Package babel Info: Redefining spanish shorthand "?
  <./cut1.png> <./cut2.png>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
  (./main.aux
-LaTeX Info: Redefining \. on input line 32.
-LaTeX Info: Redefining \% on input line 32.
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
+LaTeX Info: Redefining \. on input line 30.
+LaTeX Info: Redefining \% on input line 30.
+LaTeX Info: Redefining \. on input line 38.
+LaTeX Info: Redefining \% on input line 38.
 )
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 122.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4FB62B6A4151513A06ED9FCA1ABDE681;485.
+(rerunfilecheck)             Checksum: B6E6E0042E2482C86E9B329391D18B87;561.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 122.
  ) 
 Here is how much of TeX's memory you used:
- 8160 strings out of 494958
- 120499 string characters out of 6179387
- 213965 words of memory out of 5000000
- 11234 multiletter control sequences out of 15000+600000
+ 8165 strings out of 494958
+ 120583 string characters out of 6179387
+ 213003 words of memory out of 5000000
+ 11237 multiletter control sequences out of 15000+600000
  174445 words of font info for 96 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  29i,7n,37p,328b,672s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -722,10 +730,10 @@ ic/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 r8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fon
 ts/type1/public/lm/lmri8.pfb>
-Output written on main.pdf (2 pages, 1030184 bytes).
+Output written on main.pdf (2 pages, 1025089 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 124 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
