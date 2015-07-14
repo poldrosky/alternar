@@ -34,7 +34,7 @@ inf = float("inf")
 global id
 id =0
 
-db = Pdbc.DBConnector('wind', 'omar', '123', 'localhost', '5432')
+db = Pdbc.DBConnector('db', 'user', 'pass', 'localhost', 'port')
 
 dictDirection = {'1':(337.5,22.5), '2':(22.5, 67.5), '3':(67.5,112.5), '4':(112.5,157.5),
              '5':(157.5,202.5), '6':(202.5, 247.5), '7':(247.5, 292.5), '8':(292.5, 337.5)}

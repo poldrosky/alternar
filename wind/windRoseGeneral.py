@@ -38,7 +38,7 @@ from windrose import WindroseAxes
 
 t1 = time.time()
 
-db = Pdbc.DBConnector('wind', 'omar', '123', 'localhost', '5432')
+db = Pdbc.DBConnector('db', 'user', 'pass', 'localhost', 'port')
 
 query = 'SELECT DISTINCT latitude, longitude FROM timeseries50 ORDER BY latitude, longitude LIMIT 1'
 stations = db.resultQuery(query)
