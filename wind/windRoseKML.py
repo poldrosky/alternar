@@ -28,7 +28,7 @@ from pyproj import Proj, transform
 from pykml.factory import KML_ElementMaker as KML
 from lxml import etree
 
-db = Pdbc.DBConnector('wind', 'omar', '123', '190.254.4.128', '5432')
+db = Pdbc.DBConnector('db', 'user', 'password', 'localhost', 'port')
 
 inf = float("inf")
 
@@ -60,10 +60,9 @@ def buildKML(patterns, latitude, longitude):
     for pattern in patterns:
         direction = pattern[:1]
         speed = int(pattern[1:])
-        #print(dictDirection[str(direction)],speed)
         origin = (latitude, longitude)
         points = []
-        for a in range(int(dictDirection[str(direction)][0]*10)+100,int(dictDirection[str(direction)][1]*10)-99):
+        for a in range(int(dictDirection[str(direction)][0]*10)+100,int(dictDirection[str(direction)][1]*10)-99,5):
             angle = a/10
             X = (speed * 200) * math.sin(math.radians(angle))
             Y = (speed * 200) * math.cos(math.radians(angle))
@@ -84,10 +83,11 @@ def buildKML(patterns, latitude, longitude):
         coordinates3 = reproject3857to4326(origin, count)+'\n'+reproject3857to4326(points[-1], count)+'\n'+reproject3857to4326(points[-1], count-70)+'\n'+reproject3857to4326(origin, count-70) 
         coordinates4 = pointsReproject+pointsReproject1
         
-        poly = KML.Placemark(
-                KML.description('Speed: '+str(dictSpeed[str(speed)])),
+        poly = KML.Placemark(        
+                KML.description('<b>Direction:</b> {0}</br><b>Speed:</b> {1} m/s'.format(dictDirection1[str(direction)],
+                                                                                     dictSpeed[str(speed)])),
                 KML.TimeStamp(KML.when(count)),
-                KML.name('Localization: '+str(latitude)+','+str(longitude)),
+                KML.name('Localization: </br>'+str(latitude)+','+str(longitude)),
                 KML.styleUrl('#color'+str(speed)),
                 KML.Polygon(
                     KML.extrude('0'),
@@ -174,7 +174,7 @@ def buildKML(patterns, latitude, longitude):
         count+=100
 
 def drawPatterns(table, param):
-    query = 'SELECT * FROM stations ORDER BY latitude, longitude limit 2'
+    query = 'SELECT * FROM stations ORDER BY latitude, longitude'
     stations = db.resultQuery(query)
     for station in stations:
         query = 'SELECT max({0}) FROM {1} WHERE latitude={2} and longitude={3}'.format(param, table, station[1], station[2])
@@ -235,10 +235,10 @@ def main():
                 )    
         folder.append(style)
     
-    #nameKML = 'len_pattern'
+    nameKML = 'len_pattern'
     #nameKML = 'frequency'
     #nameKML = 'diff_speed'
-    nameKML = 'diff_direction'
+    #nameKML = 'diff_direction'
         
     drawPatterns('patternsbyhourclosed50', nameKML)       
     outfile = open(nameKML+'.kml','wb')
