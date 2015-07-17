@@ -3,7 +3,7 @@
 
 \subsection{Obtención de datos}
 
-El proceso de obtención de datos se lo realizó tomando imágenes satelitales que provee el satélite
+El proceso de obtención de datos se realizó tomando imágenes satelitales que provee el satélite
 Landsat 7. En este proceso se descargaron 1362 imágenes satelitales desde el año 1999 hasta el año 2015, que cubren el 
 departamento de Nariño. Para cubrir todo el departamento fue necesario descargar las imagenes satelitales con 
 los siguientes paths y rows: (009,059), (009,060), (010,058), (010,059), (011,059) 
@@ -21,21 +21,19 @@ el área que cubre el departamento de Nariño, como lo muestra la figura~\ref{fi
 
 \begin{figure}
   \centering
-  \subfigure[Imágenes Satélitales de Nariño]{\label{Imágenes Satélitales Nariño} \includegraphics[width= 5cm]{cut1.png}}
+  \subfigure[Imágenes Satélitales de Nariño]{\label{Imágenes Satélitales Nariño} \includegraphics[width= 7cm]{cut1.png}}
   \vfill
-  \subfigure[Imágenes recortadas de Nariño]{\label{Imágenes recortadas de Nariño}\includegraphics[width= 5cm]{cut2.png}}
+  \subfigure[Imágenes recortadas de Nariño]{\label{Imágenes recortadas de Nariño}\includegraphics[width= 7cm]{cut2.png}}
   \caption{Prepocesamiento}
   \label{fig:Recortar imágenes}
 \end{figure}
 
-
 De igual manera este proceso se lo realizó para el mapa de biomasa, como se muestra en la figura~\ref{fig:mapaNarino}
-
 
 \begin{figure}
   \centering
-  \includegraphics[width = 5cm]{mapaNarino.png}
-  \caption{Mapa de Nariño .}
+  \includegraphics[width = 7cm]{mapaNarino.png}
+  \caption{Mapa de biomasa en Nariño \cite{baccini2012estimated}}
   \label{fig:mapaNarino}
 \end{figure}
 
@@ -46,7 +44,7 @@ como lo muestra la figura~\ref{fig:landsatET}, la cual tiene 4 tablas.
 
 \begin{figure}
   \centering
-  \includegraphics[width = 8cm]{landsatET.pdf}
+  \includegraphics[width = 9cm]{landsatET.pdf}
   \caption{Modelo entidad-relacion Landsat}
   \label{fig:landsatET}
 \end{figure}
@@ -56,7 +54,7 @@ Tabla date\_landsat: en la cual se almacenan las fechas de las imágenes satelit
 Tabla reflectance: en la cual se almacenan los datos capturados y convertidos en reflentance,
 de las bandas landsat (1 - 5,7) y la temperatura en grados kelvin de la banda 6.
 
-Tabla discarded: en la cual se almacenan datos que fueron descartados, por varias rasones,
+Tabla discarded: en la cual se almacenan datos que fueron descartados, por varias razones,
 son nubes calientes, nubes frias, datos ambiguos o no son vegetación.
 
 Tabla biomass: en la cual se almacenan los datos de biomassa del mapa de \cite{baccini2012estimated}.
@@ -66,16 +64,42 @@ de las imágenes satélitales y lo transforma en valor en reflectance. En este p
 nubes, frias, datos ambiguos como lo muestra el algoritmo propuesto por \cite{irish2000landsat}, además se aplico 
 un filtro adicional, el NVDI(normalized difference vegetation index) para trabajar unicamente con datos de vegetación.
 
+En la tabla XX se muestra una relación de los datos obtenidos.
+
+\begin{table}
+\caption{Datos obtenidos en en el proceso de procesamiento y limpieza  de datos}
+\label{tab:metricas}
+\centering
+\scalebox{0.7}{
+\begin{tabular}{c c c}
+\toprule
+ Nombre & Valor& Detalle  \\
+\midrule
+Imágenes landsat procesadas & 1321 & Imágenes de Nariño de 2000 a 2014 \\
+Datos Totales & 51.076.512 & Registros Totales desde año 2000 a 2014 \\
+Datos biomasa & 81.993 & Registros de biomasa para año 2000 a 2003 de  \cite{baccini2012estimated}\\
+Nube caliente & 3.731.768 & Registros de 2000 a 2014 \\
+Nube Fria & 27.827.009 & Registros de 2000 a 2014 \\
+No vegetacion & 3.459.210 & Registros de 2000 a 2014 \\
+Ambiguo & 11.987.340 & Registros de 2000 a 2014 \\
+Datos Validos Reflectance & 4.071.185 & Registros de 2000 a 2014 \\
+
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+
 \subsection{Análisis de regresión}
 
-El análisis de regresión se lo realizó iterando los valores de las bandas agrupados en cada punto entre el año 2000 y 2003 datos con los que se realiza la
-regresión frente al valor de biomasa obtenido en \cite{baccini2012estimated}, y asi tener un promedio con más muestras
-en cada punto y obtener el mejor modelo, esta iteración se la realizó desde 1 muestra hasta 45 muestras, obteniendo el mejor modelo con 35 muestras
-las cuales tienen 1009 datos. Con menos muestras hay más datos y eso hace que no se encuentre un buen modelo, pero cuando hay mas muestras los datos son menores
-y esto también hace que el resultado del modelo tampoco sea bueno.
+El análisis de regresión se realizó tomando los valores de las bandas landsat obtenidas año 2000 y 2003 y el valor de biomasa obtenido en \cite{baccini2012estimated},
+para poder obtener un mejor modelo se agrupó y se saco un promedio con valores de las bandas landsat en cada punto, se fue iterando con  valores que superaban al menos N número de
+muestras, siendo N desde 1 hasta 45 muestras, el mejor modelo obtenido fué cuando el número de muestas en cada punto superaba al menos las 35 muestras, este conjunto
+de datos obtenido tenía 1009 registros. El comportamiento en las demás iteraciones muestra que con menos muestras hay más registros y eso hace que no se encuentre un buen modelo,
+pero cuando hay mas muestras los registros son menores y esto también hace que el resultado del modelo tampoco sea bueno.
 
-En la tabla~\ref{tab:metricas} se muestra las métricas de los modelos analizadas con 35 muestras y 1009 datos, que es el modelo escogido, esta tabla 
-se la realizó usando el paquete de mineria de datos rminer.
+En la tabla~\ref{tab:metricas} se muestra las métricas de los modelos analizadas con 35 muestras y 1009 datos, el cual es el mejor modelo, esta tabla 
+se la realizó usando la biblioteca de código abierto rminer presentada por \cite{cortez2010data} para la herramienta R.
 
 \begin{table}
 \caption{Métricas de modelos analizados con 35 muestras y 1009 datos}
@@ -103,12 +127,20 @@ cppls & 10337.63121 & 30.67546 & 64.61552 & 38.59290 & 0.72023 & 0.51873 \\
 \end{tabular}}
 \end{table}
 
-\subsection{Validación}
-
-Se uso el paquete R Boruta propuesto \cite{kursa2010feature}, el cual es un nuevo algoritmo de selección de características 
+En este proceso tambien se usó el paquete R Boruta \cite{kursa2010feature}, el cual es un nuevo algoritmo de selección de características 
 para encontrar todas las variables relevantes. El algoritmo está diseñado como un recubrimiento alrededor 
-del algoritmo de clasificación random forest. Se elimina de forma iterativa las características 
-que se probaron mediante una prueba estadística para ser menos relevante que las sondas al azar. 
+del algoritmo de clasificación random forest. Esto para saber si todas las bandas de landsat utilizadas eran relevantes para encontrar biomasa, 
+en la figura~\ref{fig:boruta} se puede observar la relevancia de las bandas landsat para encontrar biomasa en el mejor modelo.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 9cm]{boruta.pdf}
+  \caption{Relevancia de bandas landsat en el análisis de regresión}
+  \label{fig:boruta}
+\end{figure}
+
+
+
 
 
 
