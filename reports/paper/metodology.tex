@@ -19,14 +19,14 @@ que cubren el departamento de Nariño, estan en distintos sistemas de coordenada
 lo reproyecto al sitema EPSG:3857. Así como también se recorto las imágenes con el fin de unicamente tener 
 el área que cubre el departamento de Nariño, como lo muestra la figura~\ref{fig:Recortar imágenes}
 
-\begin{figure*}
+\begin{figure}
   \centering
   \subfigure[Imágenes Satélitales de Nariño]{\label{Imágenes Satélitales Nariño} \includegraphics[width= 5cm]{cut1.png}}
   \vfill
   \subfigure[Imágenes recortadas de Nariño]{\label{Imágenes recortadas de Nariño}\includegraphics[width= 5cm]{cut2.png}}
   \caption{Prepocesamiento}
   \label{fig:Recortar imágenes}
-\end{figure*}
+\end{figure}
 
 
 De igual manera este proceso se lo realizó para el mapa de biomasa, como se muestra en la figura~\ref{fig:mapaNarino}
@@ -68,8 +68,47 @@ un filtro adicional, el NVDI(normalized difference vegetation index) para trabaj
 
 \subsection{Análisis de regresión}
 
-Estamos enteros!!!
+El análisis de regresión se lo realizó iterando los valores de las bandas agrupados en cada punto entre el año 2000 y 2003 datos con los que se realiza la
+regresión frente al valor de biomasa obtenido en \cite{baccini2012estimated}, y asi tener un promedio con más muestras
+en cada punto y obtener el mejor modelo, esta iteración se la realizó desde 1 muestra hasta 45 muestras, obteniendo el mejor modelo con 35 muestras
+las cuales tienen 1009 datos. Con menos muestras hay más datos y eso hace que no se encuentre un buen modelo, pero cuando hay mas muestras los datos son menores
+y esto también hace que el resultado del modelo tampoco sea bueno.
 
+En la tabla~\ref{tab:metricas} se muestra las métricas de los modelos analizadas con 35 muestras y 1009 datos, que es el modelo escogido, esta tabla 
+se la realizó usando el paquete de mineria de datos rminer.
+
+\begin{table}
+\caption{Métricas de modelos analizados con 35 muestras y 1009 datos}
+\label{tab:metricas}
+\centering
+\scalebox{0.7}{
+\begin{tabular}{c c c c c c c}
+\toprule
+ & SAE& MAE & RAE & RMSE & COR & R2 \\
+\midrule
+ctree & 10406.58225 & 30.88007 & 65.04650 & 40.02893 & 0.69401 & 0.48165 \\
+rpart & 10197.95826 & 30.26100 & 63.74249 & 39.37592 & 0.70520 & 0.49730 \\
+kknn & 9147.51425 & 27.14396 & 57.17667 & 36.86581 & 0.74955 & 0.56182 \\
+mlp & 9179.79310 & 27.23974 & 57.37843 & 34.70711 & 0.78122 & 0.61031 \\
+mlpe & 8746.27740 & 25.95335 & 54.66874 & 34.57953 & 0.78309 & 0.61323 \\
+ksvm & \textbf{8462.61487} & \textbf{25.11162} & \textbf{52.89570} & 34.67742 & \textbf{0.79830} & \textbf{0.63729} \\
+randomForest & 8807.76477 & 26.13580 & 55.05306 & 34.70615 & 0.78239 & 0.61214 \\
+mr & 10410.13919 & 30.89062 & 65.06873 & 38.61068 & 0.72000 & 0.51840 \\
+mars & 8842.91866 & 26.24011 & 55.27279 & \textbf{33.96852} & 0.79161 & 0.62665 \\
+cubist & 9012.54150 & 26.74345 & 56.33302 & 35.70576 & 0.77611 & 0.60235 \\
+pcr & 10337.63121 & 30.67546 & 64.61552 & 38.59290 & 0.72023 & 0.51873 \\
+plsr & 10337.63121 & 30.67546 & 64.61552 & 38.59290 & 0.72023 & 0.51873 \\
+cppls & 10337.63121 & 30.67546 & 64.61552 & 38.59290 & 0.72023 & 0.51873 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{Validación}
+
+Se uso el paquete R Boruta propuesto \cite{kursa2010feature}, el cual es un nuevo algoritmo de selección de características 
+para encontrar todas las variables relevantes. El algoritmo está diseñado como un recubrimiento alrededor 
+del algoritmo de clasificación random forest. Se elimina de forma iterativa las características 
+que se probaron mediante una prueba estadística para ser menos relevante que las sondas al azar. 
 
 
 
