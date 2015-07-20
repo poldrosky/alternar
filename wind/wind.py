@@ -81,7 +81,7 @@ def classifyDirection(value, dictClass):
     return '01'
 
 
-query = 'SELECT DISTINCT latitude, longitude FROM timeseries50 ORDER BY latitude, longitude'
+query = 'SELECT latitude, longitude FROM stations ORDER BY latitude, longitude'
 stations = db.resultQuery(query)
 
 for station in stations:
