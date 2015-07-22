@@ -235,15 +235,14 @@ def main():
                 )    
         folder.append(style)
     
-    nameKML = 'len_pattern'
-    #nameKML = 'frequency'
-    #nameKML = 'diff_speed'
-    #nameKML = 'diff_direction'
-        
-    drawPatterns('patternsbyhourclosed50', nameKML)       
-    outfile = open(nameKML+'.kml','wb')
-    outfile.write(etree.tostring(folder, pretty_print=True))
+    nameKML = ['diff_direction', 'len_pattern', 'frequency', 'diff_speed']
     
+    for name in nameKML:
+        drawPatterns('patternsclosed50', nameKML)       
+        outfile = open(nameKML+'.kml','wb')
+        outfile.write(etree.tostring(folder, pretty_print=True))
+        outfile.close()    
+
 if __name__ == '__main__':
     main()
     
