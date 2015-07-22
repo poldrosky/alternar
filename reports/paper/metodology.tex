@@ -31,8 +31,8 @@ De igual manera este proceso se lo realizó para el mapa de biomasa, como se mue
 
 \begin{figure}
   \centering
-  \includegraphics[width = 7cm]{mapaNarino.png}
-  \caption{Mapa de biomasa en Nariño \cite{baccini2008afirst}}
+  \includegraphics[width = 8cm]{mapaNarino.pdf}
+  \caption{Mapa de biomasa en Nariño de 2000-2003 \cite{baccini2008afirst}}
   \label{fig:mapaNarino}
 \end{figure}
 
@@ -145,4 +145,15 @@ El método Kriging recibe como entrada datos de la muestra, y una malla dependie
 obtuvieron aplicando el modelo obtenido en el análisis de regresión a datos agrupados en cada punto por mes, año y uno general entre el año 2000 a 2014; y la 
  malla se construyó con puntos regulares espaciados cada 450 metros. 
  
- las figuras xxx, figura yyy,a se muestra los mapas obtenidos por mes, año y general entre el año 2000 a 2014 respectivamente. 
+ En la figura~\ref{fig:MapasBiomasa}, se muestra los mapas obtenidos por mes, año y general entre el año 2000 a 2014. 
+ 
+ \begin{figure}
+  \centering
+  \subfigure[Por meses]{\label{Por meses} \includegraphics[width= 8cm]{meses.pdf}}
+  \vfill
+  \subfigure[Por años]{\label{Por años}\includegraphics[width= 8cm]{anios.pdf}}
+  \vfill
+  \subfigure[General de 2000-2014]{\label{General de 2000-2014}\includegraphics[width= 8cm]{total.pdf}}
+  \caption{Mapas de Biomasa}
+  \label{fig:MapasBiomasa}
+\end{figure}
