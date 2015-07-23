@@ -224,20 +224,19 @@ def drawPatterns(table, param):
     
 def main():
     global folder
-    folder = KML.Folder()    
-    for i in range(1,14):
-        style = KML.Style(
-                    KML.PolyStyle(
-                        KML.color(colors[str(i)]),
-                        KML.colorMode('normal')
-                        ),
-                    id="color"+str(i)
-                )    
-        folder.append(style)
+    namesKML = ['diff_direction', 'len_pattern', 'frequency', 'diff_speed']
     
-    nameKML = ['diff_direction', 'len_pattern', 'frequency', 'diff_speed']
-    
-    for name in nameKML:
+    for nameKML in namesKML:
+        folder = KML.Folder()    
+        for i in range(1,14):
+            style = KML.Style(
+                        KML.PolyStyle(
+                            KML.color(colors[str(i)]),
+                            KML.colorMode('normal')
+                            ),
+                        id="color"+str(i)
+                    )    
+            folder.append(style)
         drawPatterns('patternsclosed50', nameKML)       
         outfile = open(nameKML+'.kml','wb')
         outfile.write(etree.tostring(folder, pretty_print=True))
