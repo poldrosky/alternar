@@ -1,0 +1,118 @@
+\documentclass[conference]{IEEEtran}
+
+\ifCLASSINFOpdf
+   \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+   \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+   \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  \DeclareGraphicsExtensions{.eps}
+\fi
+
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{algorithmic}
+\usepackage[Algoritmo]{algorithm}
+\usepackage[spanish,USenglish]{babel}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black, urlcolor=black, filecolor=black bookmarks=false]{hyperref}
+\usepackage{subfigure}
+
+
+\addto\captionsspanish{
+ \def\tablename{Tabla}}
+
+
+\begin{document}
+
+\pagestyle{empty}  
+
+\selectlanguage{spanish}
+
+\title{Wind}
+
+\author{\IEEEauthorblockN{GIEE}
+\IEEEauthorblockA{Universidad de Nariño\\
+San Juan de Pasto, Colombia\\
+Email: }
+\and
+\IEEEauthorblockN{GIIWW}
+\IEEEauthorblockA{Universidad de Nariño\\
+San Juan de Pasto, Colombia\\
+Email: }
+}
+
+\maketitle
+
+\selectlanguage{USenglish}
+\begin{abstract}
+
+En este artículo se presentan los componentes de una investigación orientada
+ a analizar los datos de series de tiempo que provee 3TIER viento recopiladas desde
+ el año 1980 hasta 2015 en el departamento de Nariño (Colombia) con el objetivo
+ de descubrir patrones secuenciales en el comportamiento de la velocidad
+ y dirección del viento.
+ Se busca poder predecir con suficiente anticipación anomalías en el incremento
+ o disminución de estas características para contribuir en la identificación
+ de las ubicaciones más idóneas para la implementación de una futura solución
+ eólica como alternativa energética.
+\end{abstract}
+ 
+\selectlanguage{spanish}
+
+
+\begin{IEEEkeywords}
+wind, time series 
+\end{IEEEkeywords}
+
+\thispagestyle{empty} 
+
+\IEEEpeerreviewmaketitle
+
+
+%\input{introduction.tex}
+\input{relateWork.tex}
+
+
+%\appendices
+%\section{Repositorio}
+%El código fuente y conjunto de datos se encuentran en el repositorio de github.
+
+
+\ifCLASSOPTIONcompsoc
+  % The Computer Society usually uses the plural form
+  \section*{Agradecimientos}
+\else
+  % regular IEEE prefers the singular form
+  \section*{Agradecimientos}
+\fi
+
+Universidad de Nariño, Universidad de los Andes y Sistema de Regalias.
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+\bibliographystyle{IEEEtran}
+
+\bibliography{IEEEabrv,bibliography}
+
+
+
+\end{document}
