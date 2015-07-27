@@ -1,0 +1,88 @@
+---
+title: "ANALISIS DE OPORTUNDIDADES ENERGÉTICAS CON FUENTES. ALTERNATIVAS EN EL DEPARTAMENTO DE NARIÑO - ALTERNAR"
+author: Grupo de Investigación GIIEE
+date: "05/21/2015"
+output: 
+  pdf_document:
+    number_sections: yes
+    toc: true
+fontsize: 10pt
+classoption: landscape
+---
+#Análisis de Regresión para Irradiance
+
+Este documento contiene un análisis para encontrar modelos de regresion de irradiance
+en el departamento de Nariño usando el paquete de minería de datos rminer, se evaluan 13 métodos de regresión y las métricas de error para estos.
+
+
+```{r, results='hide', echo=FALSE}
+library('DBI')
+library('RPostgreSQL')
+library('stringr')
+library('kknn')
+library('rminer')
+source('xtable_printbold.R')
+
+drv <- dbDriver("PostgreSQL")
+con <- dbConnect(drv, dbname="db",host="localhost",port=1234,
+                 user="user",password="pass")
+
+models=c("ctree", "rpart", "kknn", "mlp", "mlpe","ksvm", "randomForest", "mr",
+         "mars", "pcr", "plsr", "cppls")
+
+
+tableIrradiance <- function(value){
+query <- paste("SELECT * FROM(
+SELECT
+  latitude, longitude, avg(band8) as band8
+FROM 
+  radianceb8avg
+JOIN
+	date_landsat
+USING
+	(id_landsat)
+GROUP BY
+	latitude, longitude
+having
+	count(*) >=", value, ") as foo
+JOIN
+	irradiance_grid_450
+USING(latitude, longitude)")
+
+table <- dbGetQuery(con, query)
+return (table)
+}
+
+metricMatrix <- function(i){
+  irradiance <- tableIrradiance(i)
+  irradiance <- irradiance[,c(3:4)]
+  cat("\\subsection{Conjunto de ",length(irradiance[,1])," datos y ",i ,"muestras}")
+  H=holdout(irradiance$value,ratio=2/3,seed=12345)
+  metrica <- c()
+  matrix <- c()
+  for(m in models){
+    #cat("model:",m,"\n")
+    M=fit(value~.,irradiance[H$tr,],model=m)
+    P=predict(M,irradiance[H$ts,])
+    metrica <- mmetric(irradiance$value[H$ts],P,"ALL")
+    matrix<- rbind(matrix, metrica)
+  }
+  rownames(matrix) <- models
+  matrix <- data.frame(matrix) 
+  return (matrix)
+}
+
+```
+
+
+```{r, results='asis', echo=FALSE}
+library(xtable)
+cat("\\clearpage")
+options(xtable.comment = FALSE)
+for(i in seq(5, 45, 5)){
+  matrix <- metricMatrix(i)
+  matrix <- matrix[,c(1,2,6,10,16,18)]
+  printbold(xtable(matrix, digits=5, caption = paste("Métricas de modelos analizados con ",i," muestras")), each = "column", max = c(F,F,F,F,T,T))  
+  cat("\\clearpage")  
+}
+```
