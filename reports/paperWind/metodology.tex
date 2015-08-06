@@ -1,27 +1,6 @@
 \section{Medotología}
 
 
-Antes de aplicar técnicas de detección de patrones secuenciales se hace necesario 
-seleccionar y limpiar las series de tiempo disponibles para asegurar que
-se ajusten al formato necesario. De igual manera, se requiere que las series de
-tiempo se agrupen dentro un conjunto de datos unificado al cual se aplicaran las
-primeras técnicas de exploración de datos para entender calidad de los datos,
-las posibilidades de análisis y plantear una primera estrategia de análisis.
-Al mismo tiempo, es importante identificar y estudiar las técnicas y algoritmos
- de detección de patrones secuenciales presentes en la literatura. Conocer
-al detalle las diferentes implementaciones, casos de estudio y fundamentación
-teórica de los mismos resulta vital durante la fase de ejecución. Una vez los
-algoritmos hayan sido seleccionados y documentados se aplicarán a las series de
-tiempo previamente depuradas.
-Los resultados de esta ejecución exigirán una etapa de interpretación y discusión
- de los resultados donde se deberán seleccionar o implementar diferentes
-3técnicas de visualización. Frecuentemente, al aplicar técnicas de minería de datos
-se produce una gran cantidad de resultados donde las técnicas de visualización y
-filtrado resultan fundamentales para el la compresión del conocimiento generado.
-La interpretación de los resultados se plasmará en un reporte de investigación
-como base para la publicación de un artículo científico como resultado de la
-investigación.
-
 \subsection{Obtención de datos}
 
 La primera parte de la investigación consistió en la identificación y exploración
@@ -36,16 +15,96 @@ Las series de tiempo son conjuntos de reánalisis de datos MERRA (Modern Era Ret
 tiene una mayor resolucion espacial y temporal (por hora), cada punto contiene
 atributos como: latitude, longitud, timestamp, presión, temperatura, velocidad y direccion del viento
 
-\subsection{Limpieza de datos}
+\subsection{Procesamiento de datos}
+
+Las series de tiempo fueron procesadas para ser subidas en una base de datos, la figura~\ref{fig:windET} muestra el modelo
+entidad relación con las siguientes tablas:
+
+Tabla stations: esta tabla contiene las 480 estaciones con latitud y longitud, de las series de tiempo entregadas por Vaisala Inc.
+
+Tabla timeseries50 y timeseries120: se guardan las series de tiempo desde el año 1980 a 2014 a 50 y 120 metros de altura respectivamente.
+
+Tabla beststations: en esta tabla se guarda las estaciones que con un análisis muestra las mejores 50 estaciones.
+
+Tabla patternbyhourclosed50 y patternbyhourclosed120: en esta tabla se guardaran los patrones detectados en el análisis
+de asociación que se mostrará mas adelante con las series de tiempo a 50 y 120 metros de altura.
 
 
-\subsection{Selección de técnicas de análisis}
+\begin{figure}
+  \centering
+  \includegraphics[width = 9cm]{windET.pdf}
+  \caption{Modelo entidad relación wind}
+  \label{fig:windET}
+\end{figure}
+
+
+\subsection{Anális exploratorio de datos}
+
+Aquí se coloca la parte de exploración de datos.
+
+
+\section{Construcción mapas de velocidad de viento}
+
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 8cm]{meses.pdf}
+  \caption{Velocidad del viento por meses a 50m}
+  \label{fig:meses}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 8cm]{anios.pdf}
+  \caption{Velocidad del viento por años a 50m}
+  \label{fig:anios}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 8cm]{total.pdf}
+  \caption{Velocidad del viento general a 50m}
+  \label{fig:total}
+\end{figure}
+
+
 
 \subsection{Detección de patrones}
 
-Para la detección de patrones se utilizó el algoritmo lcm\_seq propuesto por UNO, ......
+Para la detección de patrones se utilizó el algoritmo lcm\_seq propuesto por \cite{uno_lcm_seq},
+este algoritmo es una variación de LCM para mineria
+LCM\_seq is a variation of LCM for minería de secuencias. 
+Este algoritmo encuentra todos los patrones de secuencias que aparecen con frecuencia
+en una base de datos dada, cada transacción es considerada una secuencia. El algoritmo sigue el esquema 
+llamado lapso de prefijo, pero las estructuras de datos y método de procesamiento se basan en LCM.
 
-\subsection{Visualización y análisis de resultados}
+
+Para aplicar este algoritmo se construyo un script el cual convierte los datos de las series de tiempo al
+formato de LCM\_seq,  
+
+
+Los resultados de esta ejecución exigirán una etapa de interpretación y discusión
+ de los resultados donde se deberán seleccionar o implementar diferentes
+3técnicas de visualización. Frecuentemente, al aplicar técnicas de minería de datos
+se produce una gran cantidad de resultados donde las técnicas de visualización y
+filtrado resultan fundamentales para el la compresión del conocimiento generado.
+
+\subsection{Visualización de patrones}
+
+Para la visualizazión de patrones se tubo en cuenta cuatro atributos de los patrones encontrados, como lo es
+la frecuencia, longitud del patrón, diferente velocidad y diferente dirección. Para esta visualización se
+construyeron archivos KML(Keyhole markup language) el cual es un lenguaje marcado basado en XML para representar
+datos geográficos en tres dimensiones, los KMLs se que se contruyeron fueron con las mejores estaciones (50) que resultaron
+en el análisis exploratorio, en la figura~\ref{fig:speedpattern} se puede mirar el patron que tiene la mayor frecuencia en el
+mejor punto a 50 metros.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 8cm]{speedpattern.png}
+  \caption{Punto xx con diferentes velocidades a 50 metros}
+  \label{fig:speedpattern}
+\end{figure}
 
 
 
