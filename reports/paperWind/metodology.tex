@@ -38,14 +38,23 @@ de asociación que se mostrará mas adelante con las series de tiempo a 50 y 120
 \end{figure}
 
 
-\subsection{Anális exploratorio de datos}
+%\subsection{Anális exploratorio de datos}
 
-Aquí se coloca la parte de exploración de datos.
-
-
-\section{Construcción mapas de velocidad de viento}
+%Aquí se coloca la parte de exploración de datos.
 
 
+\subsection{Construcción mapas de velocidad de viento}
+
+Para la construcción de mapas de biomasa se utilizó el método Kriging que provee una solución al problema 
+de la estimación basada en un modelo continuo de variación espacial estocástica, el objetivo de Kriging es el de estimar el valor de una 
+variable aleatoria, Z, en uno o más puntos no muestreados o sobre grandes bloques. 
+
+El método Kriging recibe como entrada datos de la muestra, y una malla dependiendo de la resolución que se quiera obtener, por ello los datos de muestra se
+obtuvieron al descomponer la dirección del viento en sus componentes rectangulares multiplicarlas por la velocidad y luego agruparlos en cada punto por mes, año y uno general.
+; y la 
+ malla se construyó con puntos regulares espaciados cada 450 metros. 
+ 
+ En la figura~\ref{fig:meses}, figura~\ref{fig:anios}, figura~\ref{fig:total}  se muestra los mapas obtenidos por meses, años y general entre el año 2000 a 2014 respectivamente. 
 
 \begin{figure}
   \centering
@@ -81,12 +90,38 @@ llamado lapso de prefijo, pero las estructuras de datos y método de procesamien
 
 
 Para aplicar este algoritmo se construyo un script el cual convierte los datos de las series de tiempo al
-formato de LCM\_seq,  
+formato de LCM\_seq, para esto se categorizó la dirección del viento en 8 bines, y la velocidad del viento en 13 bines,
+como lo muestra la tabla~\reg{table:iddirspeed}, al categorizar según el valor de entrada se concatena el ID de dirección y de velocidad del viento.
 
+\begin{table}
+\caption{IDs de velocidad y dirección de viento para cada grupo}
+\label{table:iddirspeed}
+\centering
+\scalebox{0.7}{
+\begin{tabular}{c c c c}
+\toprule
+ ID\_Speed & Speed(m/s)& ID\_Direction & Degree \\
+\midrule
+1 & 0 - 0.3 & 1 & 337.5 - 22.5 \\
+2 & 0.3 - 1.6& 2 & 22.5 - 67.5 \\
+3 & 1.6 - 3.4& 3 & 67.5 - 112.5 \\
+4 & 3.4 - 5.5& 4 & 112.5 - 157.5 \\
+5 & 5.5 - 8.0& 5 & 157.5 - 202.5 \\
+6 & 8 - 10.8& 6 & 202.5 - 247.5 \\
+7 & 10.8 - 13.9& 7 & 247.5 - 292.5 \\
+8 & 13.9 - 17.2& 8 & 292.5 - 337.5\\
+9 & 17.2 - 20.8& & \\
+10 & 20.8 - 24.4& & \\
+11 & 24.4 - 28.5& & \\
+12 & 28.5 - 32.7& & \\
+13 & 32.7 - inf& & \\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 Los resultados de esta ejecución exigirán una etapa de interpretación y discusión
  de los resultados donde se deberán seleccionar o implementar diferentes
-3técnicas de visualización. Frecuentemente, al aplicar técnicas de minería de datos
+técnicas de visualización. Frecuentemente, al aplicar técnicas de minería de datos
 se produce una gran cantidad de resultados donde las técnicas de visualización y
 filtrado resultan fundamentales para el la compresión del conocimiento generado.
 
@@ -95,14 +130,15 @@ filtrado resultan fundamentales para el la compresión del conocimiento generado
 Para la visualizazión de patrones se tubo en cuenta cuatro atributos de los patrones encontrados, como lo es
 la frecuencia, longitud del patrón, diferente velocidad y diferente dirección. Para esta visualización se
 construyeron archivos KML(Keyhole markup language) el cual es un lenguaje marcado basado en XML para representar
-datos geográficos en tres dimensiones, los KMLs se que se contruyeron fueron con las mejores estaciones (50) que resultaron
-en el análisis exploratorio, en la figura~\ref{fig:speedpattern} se puede mirar el patron que tiene la mayor frecuencia en el
-mejor punto a 50 metros.
+datos geográficos en tres dimensiones, los KMLs se que se contruyeron fueron con las 50 estaciones de mayor potencial,
+en la figura~\ref{fig:speedpattern} se puede mirar el patron que tiene diferentes de velocidades a 50 metros, 
+los KML's que se construyeron se los puede descargar del repositorio del
+proyecto \footnote{https://github.com/poldrosky/alternar}.
 
 \begin{figure}
   \centering
   \includegraphics[width = 8cm]{speedpattern.png}
-  \caption{Punto xx con diferentes velocidades a 50 metros}
+  \caption{Patron con diferentes velocidades a 50 metros}
   \label{fig:speedpattern}
 \end{figure}
 
