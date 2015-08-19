@@ -44,14 +44,11 @@ A.~Baccini, N.~Laporte, S.~J. Goetz, M.~Sun, and H.~Dong,
 \BIBentrySTDinterwordspacing
 
 \bibitem{baccini_estimated_2012}
-\BIBentryALTinterwordspacing
 A.~Baccini, S.~J. Goetz, W.~S. Walker, N.~T. Laporte, M.~Sun, D.~Sulla-Menashe,
   J.~Hackler, P.~S.~A. Beck, R.~Dubayah, M.~A. Friedl, S.~Samanta, and R.~A.
   Houghton, ``{Estimated carbon dioxide emissions from tropical deforestation
   improved by carbon-density maps},'' \emph{Nature Climate Change}, vol.~2,
-  no.~3, p. 182–185, Jan. 2012. [Online]. Available:
-  \url{http://tiles.arcgis.com/tiles/tWF28TdwCm3ZaV7m/arcgis/rest/services/PantropicBiomassFull/MapServer}
-\BIBentrySTDinterwordspacing
+  no.~3, p. 182–185, Jan. 2012.
 
 \bibitem{WHRC}
 W.~H.~R. Center, ``Pantropical national level carbon stock dataset,''
