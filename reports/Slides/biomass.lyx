@@ -521,14 +521,7 @@ ios de libre acceso de Landsat.
 \end_layout
 
 \begin_layout Itemize
-Seleccionar las técnicas de regresión y parámetros más apropiados 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "cortez2010sensitivity"
-
-\end_inset
-
-.
+Seleccionar las técnicas de regresión y parámetros más apropiados.
 \end_layout
 
 \begin_layout Itemize
@@ -549,12 +542,16 @@ Extrapolar y visualizar los resultados obtenidos.
 Ejecución de la propuesta...
 \end_layout
 
+\begin_layout Subsection
+Los datos...
+\end_layout
+
 \begin_layout Frame
 \begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-Los datos
+Landsat 7
 \end_layout
 
 \end_inset
@@ -589,7 +586,7 @@ Landsat 7 (L7) Enhanced Thematic Mapper Plus (ETM+)
 status open
 
 \begin_layout Plain Layout
-Los datos
+Landsat 7
 \end_layout
 
 \end_inset
@@ -638,7 +635,7 @@ Una banda térmica a 60m.
 status open
 
 \begin_layout Plain Layout
-Los datos
+Landsat 7
 \end_layout
 
 \end_inset
@@ -673,7 +670,7 @@ Landsat 7 (L7) Enhanced Thematic Mapper Plus (ETM+)
 status open
 
 \begin_layout Plain Layout
-Los datos
+Landsat 7
 \end_layout
 
 \end_inset
@@ -692,6 +689,416 @@ Landsat 7 (L7) Enhanced Thematic Mapper Plus (ETM+)
 	filename Figures/landsat_bands_all.gif
 	lyxscale 50
 	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Landsat 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Earth Explorer"
+target "http://earthexplorer.usgs.gov/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/EarthExplorer.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pantropical National Level Carbon Stock Dataset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "The Woods Hole Research Center"
+target "http://www.whrc.org/mapping/pantropical/carbon_dataset.html"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/Woods Hole Research Center.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "baccini2012estimated"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pantropical National Level Carbon Stock Dataset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "The Woods Hole Research Center"
+target "http://www.whrc.org/mapping/pantropical/carbon_dataset.html"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/Colombia.png
+	lyxscale 50
+	height 80theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Pre-procesamiento...
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Landsat ETM+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Combinación, recorte, cálculo de reflectancia y eliminación de píxeles nublados.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/cut2.png
+	lyxscale 50
+	height 75theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Woods Hole Research Center
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Clip y eliminación de píxeles nulos
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapaNarino.pdf
+	lyxscale 50
+	height 75theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Gestión en bases de datos relacional
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Esquema de la base de datos procesada...
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/landsatET.pdf
+	lyxscale 50
+	height 60theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Modelado...
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Selección de técnicas de regresión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Paquete rminer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "cortez2010datamining"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "cortez2010sensitivity"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/regression.pdf
+	lyxscale 50
+	height 75theight%
+	BoundingBox 25bp 250bp 700bp 575bp
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Extrapolado y visualización de resultados...
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Por meses
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapMonthsBiomass.pdf
+	lyxscale 50
+	height 75theight%
+	BoundingBox 0bp 0bp 477bp 394bp
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Por años
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapYearsBiomass.pdf
+	lyxscale 50
+	height 75theight%
+	BoundingBox 0bp 0bp 283bp 200bp
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+General
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapGeneralBiomass.pdf
+	lyxscale 50
+	height 75theight%
+	BoundingBox 0bp 0bp 504bp 504bp
 
 \end_inset
 
