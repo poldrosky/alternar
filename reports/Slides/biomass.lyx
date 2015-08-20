@@ -975,6 +975,89 @@ Selección de técnicas de regresión
 
 \begin_deeper
 \begin_layout Itemize
+Conjunto de datos...
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+1321 imágenes procesadas.
+\end_layout
+
+\begin_layout Itemize
+15 años (2000 – 2014).
+ 
+\end_layout
+
+\begin_layout Itemize
+51'076.512 puntos disponibles.
+\end_layout
+
+\begin_layout Itemize
+4'071.185 puntos con mediciones válidas (no nublados).
+\end_layout
+
+\begin_layout Itemize
+81.993 puntos entre los años 2000-03 y con al menos 4 mediciones disponibles
+ que se pueden asociar a un valor nominal de biomasa.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Selección de técnicas de regresión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Conjunto de datos...
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/data.png
+	lyxscale 50
+	width 100text%
+	BoundingBox 0bp 0bp 1401bp 408bp
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Selección de técnicas de regresión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
 Paquete rminer 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -984,8 +1067,235 @@ key "cortez2010datamining"
 
 , 
 \begin_inset CommandInset citation
+LatexCommand cite
+key "cortez2015atutorial"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ColumnsTopAligned
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+Algoritmos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+10cm
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+ctree – conditional inference tree
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+rpart – decision tree
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+kknn – k-nearest neighbor
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+mlp – multilayer perceptron with one hidden layer
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+mlpe – multilayer perceptron ensemble
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+ksvm – support vector machine
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+randomForest – random forest algorithm
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+mr – multiple regression
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+mars – multivariate adaptive regression splines
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+cubist – M5 rule-based model
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+pcr – principal component regression
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+plsr – partial least squares regression
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+cppls – canonical powered partial least squares
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Selección de técnicas de regresión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Paquete rminer 
+\begin_inset CommandInset citation
 LatexCommand citep
-key "cortez2010sensitivity"
+key "cortez2010datamining"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cortez2015atutorial"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ColumnsTopAligned
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+Métricas de validación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+7cm
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+SAE – sum absolute error/deviation (regression, "<", [0,Inf[).
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+MAE – mean absolute error (regression, "<", [0,Inf[).
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+RAE – relative absolute error (regression, "<", [0%,Inf[).
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+RMSE – root mean squared error (regression, "<", [0,Inf[).
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+COR – correlation (regression, ">", [-1,1]).
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+R2 – coefficient of determination R^2 (regression, ">", squared pearson
+ correlation coefficient: [0,1]).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Selección de técnicas de regresión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Resultados...
+\begin_inset Newline newline
+\end_inset
+
+
+\size tiny
+Disponible en 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://grias.udenar.edu.co:9191/resources/Energy/RAG.pdf"
+target "http://grias.udenar.edu.co:9191/resources/Energy/RAG.pdf"
 
 \end_inset
 
@@ -1011,7 +1321,7 @@ key "cortez2010sensitivity"
 \end_layout
 
 \begin_layout Subsection
-Extrapolado y visualización de resultados...
+Implementación y visualización de resultados...
 \end_layout
 
 \begin_layout Frame
@@ -1019,7 +1329,168 @@ Extrapolado y visualización de resultados...
 status open
 
 \begin_layout Plain Layout
-Por meses
+Implementación del modelo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Aplicar el modelo obtenido a los puntos disponibles.
+\end_layout
+
+\begin_layout Enumerate
+Seleccionar una muestra representativa (
+\begin_inset Formula $\sim$
+\end_inset
+
+5000 muestras).
+\end_layout
+
+\begin_layout Enumerate
+Aplicar técnicas de interpolación espacial (kriging 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bivand2013applied"
+
+\end_inset
+
+) para extrapolar el modelo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+library(rgdal) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+library(maptools) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+library(gstat) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+library(sp) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+library(geoR)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+#Crear un modelo del variograma
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+mod<-vgm(psill=var(data$Value),model="Sph",range=sqrt(areaSpatialGrid(study.grid)
+)/4,nugget=0) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+#Ajustar el variograma
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+fit_ols<-fit.variogram(variogram(Value~1,data),model=mod,fit.method=6) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+#Aplicar interpolación
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+map<-krige(Value~1,data,model=fit_ols,newdata=study.grid) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+#Escribir el mapa a disco
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+writeGDAL(map["var1.pred"], fname=nameGeotiff, drivername = "GTiff", type
+ = "Float32", mvFlag = 255)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Visualización por meses
 \end_layout
 
 \end_inset
@@ -1051,7 +1522,7 @@ Por meses
 status open
 
 \begin_layout Plain Layout
-Por años
+Visualización por años
 \end_layout
 
 \end_inset
@@ -1083,7 +1554,7 @@ Por años
 status open
 
 \begin_layout Plain Layout
-General
+Visualización General
 \end_layout
 
 \end_inset
