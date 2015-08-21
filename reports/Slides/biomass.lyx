@@ -259,6 +259,53 @@ tableofcontents[
 status open
 
 \begin_layout Plain Layout
+Disponible en...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+Presentación disponible en
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+
+\size normal
+\begin_inset CommandInset href
+LatexCommand href
+name "http://grias.udenar.edu.co:9191/resources/Energy/biomass.pdf"
+target "http://grias.udenar.edu.co:9191/resources/Energy/biomass.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 Agenda
 \end_layout
 
@@ -1023,6 +1070,31 @@ Selección de técnicas de regresión
 \begin_deeper
 \begin_layout Itemize
 Conjunto de datos...
+\size tiny
+
+\begin_inset Newline newline
+\end_inset
+
+Disponible en 
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+
+\size tiny
+\begin_inset CommandInset href
+LatexCommand href
+name "http://grias.udenar.edu.co:9191/resources/Energy/biomass.zip"
+target "http://grias.udenar.edu.co:9191/resources/Energy/biomass.zip"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
