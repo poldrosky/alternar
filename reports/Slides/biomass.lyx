@@ -997,7 +997,7 @@ Conjunto de datos...
 \end_layout
 
 \begin_layout Itemize
-81.993 puntos entre los años 2000-03 y con al menos 4 mediciones disponibles
+110.776 puntos entre los años 2000-03 y con al menos 4 mediciones disponibles
  que se pueden asociar a un valor nominal de biomasa.
 \end_layout
 
@@ -1292,10 +1292,21 @@ Resultados...
 
 \size tiny
 Disponible en 
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+
+\size tiny
 \begin_inset CommandInset href
 LatexCommand href
 name "http://grias.udenar.edu.co:9191/resources/Energy/RAG.pdf"
 target "http://grias.udenar.edu.co:9191/resources/Energy/RAG.pdf"
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -1358,7 +1369,7 @@ key "bivand2013applied"
 
 \end_inset
 
-) para extrapolar el modelo.
+) a una resolución de 450m.
 \end_layout
 
 \begin_layout Standard
@@ -1570,6 +1581,32 @@ Visualización General
 	lyxscale 50
 	height 75theight%
 	BoundingBox 0bp 0bp 504bp 504bp
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size tiny
+También disponibles en 
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size tiny
+\begin_inset CommandInset href
+LatexCommand href
+name "http://geoalternar.udenar.edu.co/"
+target "http://geoalternar.udenar.edu.co/"
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
