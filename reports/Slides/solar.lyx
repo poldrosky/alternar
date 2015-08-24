@@ -993,9 +993,9 @@ Esquema de la base de datos procesada...
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/landsatET.pdf
+	filename Figures/irradianceET.pdf
 	lyxscale 50
-	height 60theight%
+	height 70theight%
 
 \end_inset
 
@@ -1106,8 +1106,8 @@ target "http://grias.udenar.edu.co:9191/resources/Energy/solar.zip"
 \begin_inset Graphics
 	filename Figures/solar_data.png
 	lyxscale 50
-	width 100text%
-	BoundingBox 0bp 0bp 1401bp 408bp
+	width 90text%
+	BoundingBox 0bp 0bp 1450bp 645bp
 
 \end_inset
 
@@ -1600,10 +1600,10 @@ Visualización por meses
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapMonthsBiomass.pdf
+	filename Figures/mapSolarMonths.pdf
 	lyxscale 50
-	height 75theight%
-	BoundingBox 0bp 0bp 477bp 394bp
+	width 75text%
+	BoundingBox 0bp 0bp 707bp 577bp
 
 \end_inset
 
@@ -1664,10 +1664,10 @@ Visualización General
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapGeneralBiomass.pdf
+	filename Figures/mapGeneralSolar.pdf
 	lyxscale 50
 	height 75theight%
-	BoundingBox 0bp 0bp 504bp 504bp
+	BoundingBox 0bp 0bp 581bp 581bp
 
 \end_inset
 
