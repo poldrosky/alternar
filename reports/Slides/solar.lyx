@@ -913,7 +913,11 @@ Landsat ETM+
 
 \begin_deeper
 \begin_layout Itemize
-Combinación, recorte, cálculo de reflectancia y eliminación de píxeles nublados.
+Combinación, recorte, cálculo de reflectancia, temperatura (
+\begin_inset Formula $^{o}$
+\end_inset
+
+K) y eliminación de píxeles nublados.
 \end_layout
 
 \begin_layout Standard
@@ -1044,8 +1048,8 @@ Conjunto de datos...
 \end_layout
 
 \begin_layout Itemize
-110.776 puntos entre los años 2000-03 y con al menos 4 mediciones disponibles
- que se pueden asociar a un valor nominal de irradiación solar.
+421 puntos con al menos 4 mediciones disponibles que se pueden asociar a
+ un valor nominal de irradiación solar.
 \end_layout
 
 \end_deeper
@@ -1100,7 +1104,7 @@ target "http://grias.udenar.edu.co:9191/resources/Energy/solar.zip"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Figures/data.png
+	filename Figures/solar_data.png
 	lyxscale 50
 	width 100text%
 	BoundingBox 0bp 0bp 1401bp 408bp
@@ -1442,22 +1446,16 @@ key "bivand2013applied"
 \end_inset
 
 )
-\size footnotesize
-
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-
-\size footnotesize
 Se utilizó una resolución espacial de 450m aunque resoluciones más finas
  son posibles.
 \end_layout
 
 \end_inset
 
-
-\size default
 .
 \end_layout
 
