@@ -1,0 +1,1711 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usetheme{Warsaw}
+% or ...
+\useoutertheme{infolines}
+\addtobeamertemplate{headline}{}{\vskip2pt}
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+
+
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor{} / \insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\usepackage{pifont}
+
+%\hypersetup{%
+%  urlcolor=blue,
+%  linkcolor=gray%
+%}
+
+\def\newblock{}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman times
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Resultados propuestas de investigación.
+ 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Resultados de investigación: Biomasa 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+Avances en el proyecto 
+\begin_inset Quotes eld
+\end_inset
+
+Análisis de Oportunidades Energéticas con Fuentes Alternativas en el Departament
+o de Nariño - ALTERNAR
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Componente: Biomasa
+\end_layout
+
+\begin_layout Author
+Grupo de Investigación en Ingeniería Eléctrica y Electrónica
+\begin_inset Flex InstituteMark
+status open
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+GIIEE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+\begin_inset Flex InstituteMark
+status collapsed
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+Departamento de Ingeniería Electrónica
+\begin_inset Newline newline
+\end_inset
+
+Universidad de Nariño
+\end_layout
+
+\begin_layout Date
+Agosto 2015
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+frame<beamer>{
+\end_layout
+
+\begin_layout Plain Layout
+
+    	
+\backslash
+frametitle{Agenda}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+    	
+\backslash
+tableofcontents[      
+\end_layout
+
+\begin_layout Plain Layout
+
+			currentsection
+\end_layout
+
+\begin_layout Plain Layout
+
+		] 
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Disponible en...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+Presentación disponible en
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+
+\size normal
+\begin_inset CommandInset href
+LatexCommand href
+name "http://grias.udenar.edu.co:9191/resources/Energy/biomass.pdf"
+target "http://grias.udenar.edu.co:9191/resources/Energy/biomass.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Agenda
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Planteamiento del problema.
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Planteamiento del problema
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ubicación de potenciales lugares donde las condiciones de biomasa resulten
+ apropiadas.
+\end_layout
+
+\begin_layout Itemize
+No existen series de tiempo disponibles para la región.
+\end_layout
+
+\begin_layout Itemize
+Estos dependen de un trabajo de campo en la zona (costoso).
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Algunas alternativas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Acceso a un amplio repositorio de imágenes satelitales (Landsat).
+\end_layout
+
+\begin_layout Itemize
+Acceso a estudios previos de estimación de biomasa (2002-03).
+\end_layout
+
+\begin_layout Itemize
+Disponibilidad de implementaciones para la generación de modelos de regresión.
+\end_layout
+
+\begin_layout Itemize
+Diversos estudios han explorado el uso de imágenes satelitales para la estimació
+n de biomasa.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Trabajos relacionados.
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Trabajos relacionados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset citation
+LatexCommand cite
+key "klemas2013remotesensing"
+
+\end_inset
+
+ presenta una metodología para detectar cambios en los niveles de biomasa
+ en diferentes zonas costeras de USA usando imágenes Lidar y regresión lineal.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset citation
+LatexCommand cite
+key "baccini2008afirst"
+
+\end_inset
+
+ usan imágenes MODIS y árboles de decisión para estimar el índice AGB (above-gro
+und biomass) en una extensa área del África tropical.
+\end_layout
+
+\begin_layout Itemize
+De manera similar, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mitchard2009usingsatellite"
+
+\end_inset
+
+ usan imágenes de radar para predecir AGB en cuatro reservas y parques naturales
+ africanos clasificando diversos tipos de corteza terrestre.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Trabajos relacionados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset citation
+LatexCommand cite
+key "muukkonen2007biomass"
+
+\end_inset
+
+ usan imágenes MODIS y ASTER para estimar biomasa con el fin de levantar
+ un inventario de captura de carbono.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset citation
+LatexCommand cite
+key "powell2010quantification"
+
+\end_inset
+
+ utilizan nuevas técnicas de regresión para la generación de modelos de
+ biomasa utilizando esta vez imágenes Landsat.
+\end_layout
+
+\begin_layout Itemize
+En 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hall2006modeling"
+
+\end_inset
+
+ se introduce el método bioSTRUCT el cual genera correlaciones entre las
+ bandas de imágenes Landsat y valores nominales de AGB medidas en laboratorio.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+La propuesta...
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Objetivo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Calcular modelos de regresión de biomasa a partir de bandas de imágenes
+ satelitales Landsat para la generación de mapas de biomasa en el departamento
+ de Nariño.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Metodología
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Obtener un banco de imágenes satelitales del área de estudio desde los repositor
+ios de libre acceso de Landsat.
+\end_layout
+
+\begin_layout Itemize
+Seleccionar las técnicas de regresión y parámetros más apropiados.
+\end_layout
+
+\begin_layout Itemize
+Aplicar las técnicas seleccionadas sobre los datos procesados para la obtención
+ de los modelos de regresión.
+\end_layout
+
+\begin_layout Itemize
+Extrapolar y visualizar los resultados obtenidos.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Ejecución de la propuesta...
+\end_layout
+
+\begin_layout Subsection
+Los datos...
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Landsat 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Landsat 7 (L7) Enhanced Thematic Mapper Plus (ETM+)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/landsat7_orbit2.jpg
+	lyxscale 10
+	height 70theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Landsat 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Landsat 7 (L7) Enhanced Thematic Mapper Plus (ETM+)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Disponible desde Abril de 1999.
+\end_layout
+
+\begin_layout Itemize
+Intervalo de repetición cada 16 días.
+\end_layout
+
+\begin_layout Itemize
+Una banda pancromática con resolución espacial de 15m.
+\end_layout
+
+\begin_layout Itemize
+Tres bandas visibles para el azul, verde, rojo a 30m.
+\end_layout
+
+\begin_layout Itemize
+Tres bandas infrarojas a 30m.
+\end_layout
+
+\begin_layout Itemize
+Una banda térmica a 60m.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Landsat 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Landsat 7 (L7) Enhanced Thematic Mapper Plus (ETM+)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/landsat7_bands.jpg
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Landsat 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Landsat 7 (L7) Enhanced Thematic Mapper Plus (ETM+)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/landsat_bands_all.gif
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Landsat 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Earth Explorer"
+target "http://earthexplorer.usgs.gov/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/EarthExplorer.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pantropical National Level Carbon Stock Dataset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "The Woods Hole Research Center"
+target "http://www.whrc.org/mapping/pantropical/carbon_dataset.html"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/Woods Hole Research Center.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "baccini2012estimated"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pantropical National Level Carbon Stock Dataset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "The Woods Hole Research Center"
+target "http://www.whrc.org/mapping/pantropical/carbon_dataset.html"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/Colombia.png
+	lyxscale 50
+	height 80theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Pre-procesamiento...
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Landsat ETM+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Combinación, recorte, cálculo de reflectancia y eliminación de píxeles nublados.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/cut2.png
+	lyxscale 50
+	height 70theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Woods Hole Research Center
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Clip y eliminación de píxeles nulos
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapaNarino.pdf
+	lyxscale 50
+	height 75theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Gestión en bases de datos relacional
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Esquema de la base de datos procesada...
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/landsatET.pdf
+	lyxscale 50
+	height 60theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Modelado...
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Selección de técnicas de regresión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Conjunto de datos...
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+1321 imágenes procesadas.
+\end_layout
+
+\begin_layout Itemize
+15 años (2000 – 2014).
+ 
+\end_layout
+
+\begin_layout Itemize
+51'076.512 puntos disponibles.
+\end_layout
+
+\begin_layout Itemize
+4'071.185 puntos con mediciones válidas (no nublados).
+\end_layout
+
+\begin_layout Itemize
+110.776 puntos entre los años 2000-03 y con al menos 4 mediciones disponibles
+ que se pueden asociar a un valor nominal de biomasa.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Selección de técnicas de regresión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Conjunto de datos...
+\size tiny
+
+\begin_inset Newline newline
+\end_inset
+
+Disponible en 
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+
+\size tiny
+\begin_inset CommandInset href
+LatexCommand href
+name "http://grias.udenar.edu.co:9191/resources/Energy/biomass.zip"
+target "http://grias.udenar.edu.co:9191/resources/Energy/biomass.zip"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/data.png
+	lyxscale 50
+	width 100text%
+	BoundingBox 0bp 0bp 1401bp 408bp
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Selección de técnicas de regresión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Paquete rminer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "cortez2010datamining"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cortez2015atutorial"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ColumnsTopAligned
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+Algoritmos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+10cm
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+ctree – conditional inference tree
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+rpart – decision tree
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+kknn – k-nearest neighbor
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+mlp – multilayer perceptron with one hidden layer
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+mlpe – multilayer perceptron ensemble
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+ksvm – support vector machine
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+randomForest – random forest algorithm
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+mr – multiple regression
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+mars – multivariate adaptive regression splines
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+cubist – M5 rule-based model
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+pcr – principal component regression
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+plsr – partial least squares regression
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+cppls – canonical powered partial least squares
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Selección de técnicas de regresión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Paquete rminer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "cortez2010datamining"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cortez2015atutorial"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ColumnsTopAligned
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+Métricas de validación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+7cm
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+SAE – sum absolute error/deviation (regression, "<", [0,Inf[).
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+MAE – mean absolute error (regression, "<", [0,Inf[).
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+RAE – relative absolute error (regression, "<", [0%,Inf[).
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+RMSE – root mean squared error (regression, "<", [0,Inf[).
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+COR – correlation (regression, ">", [-1,1]).
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+R2 – coefficient of determination R^2 (regression, ">", squared pearson
+ correlation coefficient: [0,1]).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Selección de técnicas de regresión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Resultados...
+\begin_inset Newline newline
+\end_inset
+
+
+\size tiny
+Disponible en 
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+
+\size tiny
+\begin_inset CommandInset href
+LatexCommand href
+name "http://grias.udenar.edu.co:9191/resources/Energy/RAG.pdf"
+target "http://grias.udenar.edu.co:9191/resources/Energy/RAG.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figures/regression.pdf
+	lyxscale 50
+	height 75theight%
+	BoundingBox 25bp 250bp 700bp 575bp
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection
+Implementación y visualización de resultados...
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Implementación del modelo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Aplicar el modelo obtenido a los puntos disponibles.
+\end_layout
+
+\begin_layout Enumerate
+Seleccionar una muestra representativa (
+\begin_inset Formula $\sim$
+\end_inset
+
+5000 muestras).
+\end_layout
+
+\begin_layout Enumerate
+Aplicar técnicas de interpolación espacial (kriging 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bivand2013applied"
+
+\end_inset
+
+) a una resolución de 450m.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+library(rgdal) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+library(maptools) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+library(gstat) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+library(sp) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+library(geoR)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+#Crear un modelo del variograma
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+mod<-vgm(psill=var(data$Value),model="Sph",range=sqrt(areaSpatialGrid(study.grid)
+)/4,nugget=0) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+#Ajustar el variograma
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+fit_ols<-fit.variogram(variogram(Value~1,data),model=mod,fit.method=6) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+#Aplicar interpolación
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+map<-krige(Value~1,data,model=fit_ols,newdata=study.grid) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+#Escribir el mapa a disco
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size tiny
+writeGDAL(map["var1.pred"], fname=nameGeotiff, drivername = "GTiff", type
+ = "Float32", mvFlag = 255)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Visualización por meses
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapMonthsBiomass.pdf
+	lyxscale 50
+	height 75theight%
+	BoundingBox 0bp 0bp 477bp 394bp
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Visualización por años
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapYearsBiomass.pdf
+	lyxscale 50
+	height 75theight%
+	BoundingBox 0bp 0bp 283bp 200bp
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Visualización General
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapGeneralBiomass.pdf
+	lyxscale 50
+	height 75theight%
+	BoundingBox 0bp 0bp 504bp 504bp
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size tiny
+También disponibles en 
+\begin_inset Flex Emphasize
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size tiny
+\begin_inset CommandInset href
+LatexCommand href
+name "http://geoalternar.udenar.edu.co/"
+target "http://geoalternar.udenar.edu.co/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section*
+Referencias.
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Biomass3"
+options "plainnat"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
