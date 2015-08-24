@@ -119,7 +119,7 @@ Resultados propuestas de investigación.
 status open
 
 \begin_layout Plain Layout
-Resultados de investigación: Biomasa 
+Resultados de investigación: Solar 
 \end_layout
 
 \end_inset
@@ -138,7 +138,7 @@ o de Nariño - ALTERNAR
 \end_inset
 
 .
- Componente: Biomasa
+ Componente: Solar
 \end_layout
 
 \begin_layout Author
@@ -283,8 +283,8 @@ status open
 \size normal
 \begin_inset CommandInset href
 LatexCommand href
-name "http://grias.udenar.edu.co:9191/resources/Energy/biomass.pdf"
-target "http://grias.udenar.edu.co:9191/resources/Energy/biomass.pdf"
+name "http://grias.udenar.edu.co:9191/resources/Energy/solar.pdf"
+target "http://grias.udenar.edu.co:9191/resources/Energy/solar.pdf"
 
 \end_inset
 
@@ -360,8 +360,8 @@ Planteamiento del problema
 
 \begin_deeper
 \begin_layout Itemize
-Ubicación de potenciales lugares donde las condiciones de biomasa resulten
- apropiadas.
+Localización de ubicaciones donde se concentre el mayor potencial de irradiación
+ solar.
 \end_layout
 
 \begin_layout Itemize
@@ -369,7 +369,8 @@ No existen series de tiempo disponibles para la región.
 \end_layout
 
 \begin_layout Itemize
-Estos dependen de un trabajo de campo en la zona (costoso).
+Estos dependen de un trabajo de campo en la zona e instalación de equipos
+ (costoso).
 \end_layout
 
 \end_deeper
@@ -396,7 +397,7 @@ Acceso a un amplio repositorio de imágenes satelitales (Landsat).
 \end_layout
 
 \begin_layout Itemize
-Acceso a estudios previos de estimación de biomasa (2002-03).
+Acceso a una plataforma de consulta por parte de un proveedor externo (3TIER).
 \end_layout
 
 \begin_layout Itemize
@@ -404,8 +405,8 @@ Disponibilidad de implementaciones para la generación de modelos de regresión.
 \end_layout
 
 \begin_layout Itemize
-Diversos estudios han explorado el uso de imágenes satelitales para la estimació
-n de biomasa.
+Diversos estudios han explorado el uso de imágenes satelitales y/o sensores
+ remotos para la estimación de potencial solar.
 \end_layout
 
 \end_deeper
@@ -430,35 +431,35 @@ Trabajos relacionados
 \begin_layout Itemize
 \begin_inset CommandInset citation
 LatexCommand cite
-key "klemas2013remotesensing"
+key "hammer2003solarenergy"
 
 \end_inset
 
- presenta una metodología para detectar cambios en los niveles de biomasa
- en diferentes zonas costeras de USA usando imágenes Lidar y regresión lineal.
+ presentan el modelo HELIOSAT para calcular los niveles de radiación solar
+ en superficie a partir de imágenes satelitales geoestacionarias.
 \end_layout
 
 \begin_layout Itemize
 \begin_inset CommandInset citation
 LatexCommand cite
-key "baccini2008afirst"
+key "kaku2009creating"
 
 \end_inset
 
- usan imágenes MODIS y árboles de decisión para estimar el índice AGB (above-gro
-und biomass) en una extensa área del África tropical.
+ construyeron mapas solares de alta resolución comparando metodologías basadas
+ en imágenes satelitales y modelamiento climático.
 \end_layout
 
 \begin_layout Itemize
-De manera similar, 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "mitchard2009usingsatellite"
+key "diagne2012solarirradiation"
 
 \end_inset
 
- usan imágenes de radar para predecir AGB en cuatro reservas y parques naturales
- africanos clasificando diversos tipos de corteza terrestre.
+ hacen una recopilación del estado de arte en cuanto a métodos para la predicció
+n de radiación solar también basados en imágenes por satélite o modelos
+ climáticos.
 \end_layout
 
 \end_deeper
@@ -483,35 +484,36 @@ Trabajos relacionados
 \begin_layout Itemize
 \begin_inset CommandInset citation
 LatexCommand cite
-key "muukkonen2007biomass"
+key "wang2012shortterm"
 
 \end_inset
 
- usan imágenes MODIS y ASTER para estimar biomasa con el fin de levantar
- un inventario de captura de carbono.
+ son exitosos al proponer un nuevo modelo basado en redes neuronales apropiado
+ para pronosticar el potencial solar a corto plazo bajo condiciones meteorológic
+as en constante cambio.
 \end_layout
 
 \begin_layout Itemize
 \begin_inset CommandInset citation
 LatexCommand cite
-key "powell2010quantification"
+key "hashimoto2012prediction"
 
 \end_inset
 
- utilizan nuevas técnicas de regresión para la generación de modelos de
- biomasa utilizando esta vez imágenes Landsat.
+ calculan la caída de potencial y fluctuaciones en la generación a partir
+ del seguimiento tridimensional de nubes y su impacto sobre paneles solares.
 \end_layout
 
 \begin_layout Itemize
-En 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "hall2006modeling"
+key "peng20143dcloud"
 
 \end_inset
 
- se introduce el método bioSTRUCT el cual genera correlaciones entre las
- bandas de imágenes Landsat y valores nominales de AGB medidas en laboratorio.
+ utilizan visores totales del cielo para obtener imágenes de la presencia
+ de nubosidad e incorporan datos históricos para predecir el movimiento
+ de las nubes y su impacto en redes de energía inteligentes.
 \end_layout
 
 \end_deeper
@@ -538,9 +540,9 @@ Objetivo
 
 \begin_deeper
 \begin_layout Standard
-Calcular modelos de regresión de biomasa a partir de bandas de imágenes
- satelitales Landsat para la generación de mapas de biomasa en el departamento
- de Nariño.
+Calcular modelos de regresión de potencial solar a partir de la reflectancia
+ en las bandas de imágenes satelitales Landsat para la generación de mapas
+ de potencial solar en el Departamento de Nariño.
 \end_layout
 
 \end_deeper
@@ -794,7 +796,7 @@ target "http://earthexplorer.usgs.gov/"
 status open
 
 \begin_layout Plain Layout
-Pantropical National Level Carbon Stock Dataset
+3TIER Solar Prospecting Tools
 \end_layout
 
 \end_inset
@@ -806,8 +808,8 @@ Pantropical National Level Carbon Stock Dataset
 \begin_layout Itemize
 \begin_inset CommandInset href
 LatexCommand href
-name "The Woods Hole Research Center"
-target "http://www.whrc.org/mapping/pantropical/carbon_dataset.html"
+name "3TIER Solar Prospecting Tools"
+target "https://www.3tier.com/"
 
 \end_inset
 
@@ -817,9 +819,9 @@ target "http://www.whrc.org/mapping/pantropical/carbon_dataset.html"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Figures/Woods Hole Research Center.png
-	lyxscale 50
-	width 70text%
+	filename Figures/Solar-Energy-Map-Worlwide.jpg
+	lyxscale 25
+	width 80text%
 
 \end_inset
 
@@ -828,11 +830,9 @@ target "http://www.whrc.org/mapping/pantropical/carbon_dataset.html"
 \end_inset
 
 
-\size scriptsize
-
 \begin_inset CommandInset citation
 LatexCommand citep
-key "baccini2012estimated"
+key "vaisalainc2015vaisala"
 
 \end_inset
 
@@ -857,7 +857,7 @@ key "baccini2012estimated"
 status open
 
 \begin_layout Plain Layout
-Pantropical National Level Carbon Stock Dataset
+3TIER Solar Prospecting Tools
 \end_layout
 
 \end_inset
@@ -869,20 +869,20 @@ Pantropical National Level Carbon Stock Dataset
 \begin_layout Itemize
 \begin_inset CommandInset href
 LatexCommand href
-name "The Woods Hole Research Center"
-target "http://www.whrc.org/mapping/pantropical/carbon_dataset.html"
+name "3TIER Solar Prospecting Tools"
+target "https://www.3tier.com/"
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Figures/Colombia.png
+	filename Figures/3tier2.png
 	lyxscale 50
-	height 80theight%
+	width 80text%
 
 \end_inset
 
@@ -938,7 +938,7 @@ Combinación, recorte, cálculo de reflectancia y eliminación de píxeles nubla
 status open
 
 \begin_layout Plain Layout
-The Woods Hole Research Center
+3TIER Solar Prospecting Tools
 \end_layout
 
 \end_inset
@@ -948,13 +948,13 @@ The Woods Hole Research Center
 
 \begin_deeper
 \begin_layout Itemize
-Clip y eliminación de píxeles nulos
+Muestreo manual (480 puntos)...
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapaNarino.pdf
+	filename Figures/sample.png
 	lyxscale 50
 	height 75theight%
 
@@ -1045,7 +1045,7 @@ Conjunto de datos...
 
 \begin_layout Itemize
 110.776 puntos entre los años 2000-03 y con al menos 4 mediciones disponibles
- que se pueden asociar a un valor nominal de biomasa.
+ que se pueden asociar a un valor nominal de irradiación solar.
 \end_layout
 
 \end_deeper
@@ -1084,8 +1084,8 @@ status open
 \size tiny
 \begin_inset CommandInset href
 LatexCommand href
-name "http://grias.udenar.edu.co:9191/resources/Energy/biomass.zip"
-target "http://grias.udenar.edu.co:9191/resources/Energy/biomass.zip"
+name "http://grias.udenar.edu.co:9191/resources/Energy/solar.zip"
+target "http://grias.udenar.edu.co:9191/resources/Energy/solar.zip"
 
 \end_inset
 
@@ -1372,8 +1372,8 @@ status open
 \size tiny
 \begin_inset CommandInset href
 LatexCommand href
-name "http://grias.udenar.edu.co:9191/resources/Energy/RAG.pdf"
-target "http://grias.udenar.edu.co:9191/resources/Energy/RAG.pdf"
+name "http://grias.udenar.edu.co:9191/resources/Energy/RAGS.pdf"
+target "http://grias.udenar.edu.co:9191/resources/Energy/RAGS.pdf"
 
 \end_inset
 
@@ -1441,7 +1441,24 @@ key "bivand2013applied"
 
 \end_inset
 
-) a una resolución de 450m.
+)
+\size footnotesize
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Se utilizó una resolución espacial de 450m aunque resoluciones más finas
+ son posibles.
+\end_layout
+
+\end_inset
+
+
+\size default
+.
 \end_layout
 
 \begin_layout Standard
@@ -1699,7 +1716,7 @@ Referencias.
 \size scriptsize
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "Biomass3"
+bibfiles "solar3"
 options "plainnat"
 
 \end_inset
