@@ -30,6 +30,8 @@
 
 \usepackage{pifont}
 
+
+
 %\hypersetup{%
 %  urlcolor=blue,
 %  linkcolor=gray%
@@ -40,8 +42,8 @@
 \use_default_options false
 \maintain_unincluded_children false
 \language spanish
-\language_package babel
-\inputencoding utf8
+\language_package none
+\inputencoding default
 \fontencoding global
 \font_roman times
 \font_sans default
@@ -1392,10 +1394,9 @@ target "http://grias.udenar.edu.co:9191/resources/Energy/RAGS.pdf"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Figures/RAGS.pdf
+	filename Figures/regression_solar.png
 	lyxscale 50
-	height 75theight%
-	BoundingBox 0bp 0bp 792bp 612bp
+	width 80text%
 
 \end_inset
 
