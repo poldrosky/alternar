@@ -40,8 +40,8 @@
 \use_default_options false
 \maintain_unincluded_children false
 \language spanish
-\language_package default
-\inputencoding auto
+\language_package babel
+\inputencoding utf8
 \fontencoding global
 \font_roman times
 \font_sans default
@@ -923,7 +923,7 @@ K) y eliminación de píxeles nublados.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/cut2.png
+	filename /home/and/Documents/Energy/Reports/alternar.git/trunk/reports/paperBiomass/cut2.png
 	lyxscale 50
 	height 70theight%
 
@@ -1392,10 +1392,10 @@ target "http://grias.udenar.edu.co:9191/resources/Energy/RAGS.pdf"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Figures/regression.pdf
+	filename Figures/RAGS.pdf
 	lyxscale 50
 	height 75theight%
-	BoundingBox 25bp 250bp 700bp 575bp
+	BoundingBox 0bp 0bp 792bp 612bp
 
 \end_inset
 
@@ -1632,10 +1632,9 @@ Visualización por años
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/and/Projects/Energy/Reports/alternar.git/trunk/reports/paperBiomass/mapYearsBiomass.pdf
+	filename Figures/mapSolarYears.pdf
 	lyxscale 50
-	height 75theight%
-	BoundingBox 0bp 0bp 283bp 200bp
+	width 75text%
 
 \end_inset
 
