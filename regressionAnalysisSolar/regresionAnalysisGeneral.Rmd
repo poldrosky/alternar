@@ -24,65 +24,47 @@ library('rminer')
 source('xtable_printbold.R')
 
 drv <- dbDriver("PostgreSQL")
-con <- dbConnect(drv, dbname="db",host="localhost",port=1234,
-                 user="user",password="pass")
+con <- dbConnect(drv, dbname="landsat",host="localhost",port=5432,
+                 user="omar",password="V3Mu02GR")
 
 models=c("ctree", "rpart", "kknn", "mlp", "mlpe","ksvm", "randomForest", "mr",
-         "mars", "pcr", "plsr", "cppls")
+         "mars", "cubist", "pcr", "plsr", "cppls")
 
 
-tableIrradiance <- function(value){
-query <- paste("SELECT * FROM(
+query <- 'SELECT * FROM(
 SELECT
-  latitude, longitude, avg(band8) as band8
+  latitude, longitude, avg(band1) as band1, avg(band2) as band2,
+   avg(band3) as band3, avg(band4) as band4, avg(band5) as band5,
+	 avg(band6) as band6, avg(band7) as band7
 FROM 
-  radianceb8avg
-JOIN
-	date_landsat
-USING
-	(id_landsat)
+	reflectance
 GROUP BY
-	latitude, longitude
-having
-	count(*) >=", value, ") as foo
+	latitude, longitude) as foo
 JOIN
 	irradiance_grid_450
-USING(latitude, longitude)")
+USING(latitude, longitude)'
 
-table <- dbGetQuery(con, query)
-return (table)
-}
+tableIrradiance <- dbGetQuery(con, query)
 
-metricMatrix <- function(i){
-  irradiance <- tableIrradiance(i)
-  irradiance <- irradiance[,c(3:4)]
-  cat("\\subsection{Conjunto de ",length(irradiance[,1])," datos y ",i ,"muestras}")
-  H=holdout(irradiance$value,ratio=2/3,seed=12345)
-  metrica <- c()
-  matrix <- c()
-  for(m in models){
-    #cat("model:",m,"\n")
+irradiance <- tableIrradiance[,c(3:10)]
+H=holdout(irradiance$value,ratio=2/3,seed=12345)
+metrica <- c()
+matrix <- c()
+for(m in models){
     M=fit(value~.,irradiance[H$tr,],model=m)
     P=predict(M,irradiance[H$ts,])
     metrica <- mmetric(irradiance$value[H$ts],P,"ALL")
     matrix<- rbind(matrix, metrica)
+    savemining(M,m)
   }
   rownames(matrix) <- models
   matrix <- data.frame(matrix) 
-  return (matrix)
-}
-
 ```
 
 
 ```{r, results='asis', echo=FALSE}
 library(xtable)
-cat("\\clearpage")
 options(xtable.comment = FALSE)
-for(i in seq(5, 45, 5)){
-  matrix <- metricMatrix(i)
-  matrix <- matrix[,c(1,2,6,10,16,18)]
-  printbold(xtable(matrix, digits=5, caption = paste("Métricas de modelos analizados con ",i," muestras")), each = "column", max = c(F,F,F,F,T,T))  
-  cat("\\clearpage")  
-}
+matrix <- matrix[,c(1,2,6,10,16,18)]
+printbold(xtable(matrix, digits=5, caption = paste("Métricas de modelos analizados")), each = "column", max = c(F,F,F,F,T,T)) 
 ```
