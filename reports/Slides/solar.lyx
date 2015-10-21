@@ -925,7 +925,7 @@ K) y eliminación de píxeles nublados.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/and/Documents/Energy/Reports/alternar.git/trunk/reports/paperBiomass/cut2.png
+	filename ../paperBiomass/cut2.png
 	lyxscale 50
 	height 70theight%
 
