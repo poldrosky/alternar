@@ -1,40 +1,38 @@
 \section{Trabajos Relacionados}
 
-El estudio de índices de biomasa ha sido ampliamente registrado por diferentes 
-estudios. Muchos de ellos demuestran la utilidad del uso de imágenes
-satelitales a diferentes resoluciones. Por lo general, estos estudios parten de un 
-trabajo de campo donde se calcula el valor nominal de biomasa a diferentes
-muestras haciendo uso de técnicas tradicionales en laboratorio. Posteriormente,
-se utilizan estos resultados y las diferentes bandas proveídas por las imágenes
-de satélite para inferir un modelo utilizando alguna técnica de regresión que
-después es extrapolada al resto del área de estudio.
+Dada la creciente demanda por la generación y apropiamiento de las energías limpias, el estudio de alternativas energéticas basadas en paneles 
+solares también ha venido en aumento. Sin embargo, un componente clave para la implementación de una solución de este tipo es analizar de antemano 
+las posibles ubicaciones con mayor potencial de generación eléctrica a base de radiación solar. Diversos estudios han consolidado el uso de imágenes 
+satelitales de libre acceso como herramientas fundamentales para este propósito. \cite{kaku2009creating} realizó la construcción de mapas solares de alta resolución comparando metodologías basadas en imágenes satelitales y modelamiento 
+climático. Para estos modelos de radiacion se contemplan condiciones propias del terreno como la latitud , el terreno,
+estación, hora del día y condicione atmosférica(nubes, polvo, polucion, vapor de agua y efectos de la montaña).
 
-Por ejemplo, \cite{klemas2013remotesensing} usa esta metodología para detectar cambios en
-los niveles de biomasa en diferentes zonas costeras de los Estados Unidos utilizando
-imágenes LIDAR y regresión lineal. De forma análoga, \cite{baccini2008afirst}
-usa imágenes MODIS y árboles de decisión (en adición a las técnicas
-tradicionales de regresión) para estimar el índice AGB (Above-Ground Biomass)
-en una extensa área del África tropical. Similiar a este trabajo, \cite{mitchard2009usingsatellite}
-utilizan imágenes de radar para predecir AGB en cuatro reservas y parques
-nacionales africanos clasificando diferentes tipos de corteza terrestre.
-\cite{muukkonen2007biomass} hacen también uso de imágenes MODIS en
-conjunto con imágenes ASTER para estimar biomasa con el fin de levantar un
-inventario de captura de carbono. Un aporte importante de esta publicación es
-que comparten la metodología utilizada durante el proyecto como lo muestra la figura~\ref{fig:Mukkonnen01}. \cite{powell2010quantification}
-introducen el uso de nuevas técnicas de regresión (reduced major axis regression,
-gradient nearest neighbor imputation y ramdom forest regression trees) para la
-generación de modelos de biomasa esta vez analizando imágenes Landsat.
-En \cite{hall2006modeling} se introduce bioSTRUCT, un método para generar
-correlaciones entre los valores continuos medidos por las bandas de las imágenes
-satelitales y el AGB medido previamente usando técnicas de laboratorio. El
-artículo ilustra la metodología con un caso de estudio en Alberta (Canada) e
-imágenes Landsat ETM+ de libre acceso. Como resultado se obtienen formulas
-de regresión a partir de un número limitado de muestras que pueden extrapolarse
-al resto del área de estudio.
+\cite{hammer2003solarenergy} desarrolló el método HELIOSAT con el 
+objetivo de estimar los niveles de radiación solar a partir de imágenes satelitales geoestacionarias, el metodo se encuentra implementado 
+en un algoritmo que permite separar la irradiación de los componentes atmosférico de la irradiación en nubes para finalmente obtener la 
+irradiación superficial.\cite{diagne2012solarirradiation} realiza una recopilación de métodos para la predicción de radiación solar también basados en imágenes por satélite o modelos climáticos, en este estudio 
+se contempla la variación de la resolución espacial de la imágen satelital, tipos de sensores utilizados y la escala temporal.
 
-\begin{figure}
-  \centering
-  \includegraphics[width = 8cm]{Mukkonnen01.png}
-  \caption{Metodología propuesta por \cite{muukkonen2007biomass}}
-  \label{fig:Mukkonnen01}
-\end{figure}
+\cite{wang2012shortterm} obtuvo gran éxito al proponer un nuevo modelo basado en redes neuronales apropiado para pronosticar el potencial solar a corto 
+plazo bajo condiciones meteorológicas en constante cambio. \cite{sai2014estimation} señala dos enfoques para obtener radiación neta diaria utilizando los productos de Kalpana VHRR y Oceansat OCM2 mediante el manejo de  la radiación 
+de onda larga resultante del flujo de ondas entrantes y salientes, este resultado es computarizado usando la ecuación de Stefan Boltzmann para 
+corregir la humedad y la nubosidad,  también se realiza un enfoque basado en la estimación mediante la computación de un cielo despejado con el 
+flujo de ondas cortas de radiación que permiten obtener una radiación neta
+
+\cite{mas2011aplicaciones} y \cite{ garcia2011evaluacion} generan información de cobertura de suelo, y los métodos que permiten obtener más detalle conservando una fiabilidad 
+aceptable sobre la región del Tancítaro, Michoacán y comprende bosques templados y tropicales secos, pastizales y áreas 
+de cultivos. Enfocan el estudio en índices de vegetación mediante compuestos espectrales de 8 días e imágenes de reflectancia diarias que 
+fueron evaluados por medio de dos metodologías; la máxima verosimilitud y redes neuronales, en cada una de estas se incorporaron 
+dos tipos de datos auxiliares. Los resultados muestran que es posible obtener mapas confiables a partir de estos datos de baja resolución 
+si se usan categorías generales.
+
+\cite{kim2008estimation} destaca la correlación existente entre la radiación solar incidente en la superficie terrestre y la radiación solar reflejada al espacio; Adicionalmente 
+realiza un estudio comparativo en el análisis de  imágenes satelitales MODIS respecto a imágenes satelitales provenientes de SRB, Earth Observing System
+(EOS) y Tropical Rainfall Measuring Mission (TRMM), en este estudio se destaca los métodos para estimar la radiación neta obtenida de ondas cortas 
+medidas en la superficie.
+
+\cite{alvarezprocesamiento} prueban diferentes algorítmos para la detección de aerosoles sobre la superficie terrestre
+contempladas dentro de imágenes 
+satelitales MODIS, implementación del algorithmo Miller sobre las bandas de infrarojo y adicionalmente se realiza 
+una clasificación de los aerosoles detectado. \cite{hashimoto2012prediction} calcula la caída de potencial y
+fluctuaciones en la generación de energía a partir del seguimiento tridimensional de nubes y su impacto sobre paneles solares.
