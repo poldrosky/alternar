@@ -30,7 +30,7 @@ import gdal
 import numpy
 import Pdbc
 
-bandList = ['1','2','3','4','5','6','7','8','9','10']
+bandList = ['1','2','3','4','5','6','7','8','9','10', 'QUALITY']
 
 class Landsat(object):
     def __init__(self, nameFolder):
@@ -74,11 +74,12 @@ class Landsat(object):
         for b in bandList:
             metlist = self.acquireMetadata(b)
             BANDFILE = self.metadata[metlist[0]]
-            ML = self.metadata[metlist[1]]
-            AL = self.metadata[metlist[2]]            
-            if (b!='10'):
-                Mp = self.metadata[metlist[3]]
-                Ap = self.metadata[metlist[4]]
+            if (b!='QUALITY'):
+                ML = self.metadata[metlist[1]]
+                AL = self.metadata[metlist[2]]            
+                if (b!='10'):
+                    Mp = self.metadata[metlist[3]]
+                    Ap = self.metadata[metlist[4]]
             
             self.band[b] = Band(self.idLandsat, BANDFILE, ML, AL, Mp, Ap, b)
                                     
@@ -111,7 +112,7 @@ class Point(object):
         cols = landsat.band['1'].cols
         
         for b in bandList:
-            if(b!='10'):
+            if(b!='10' and b!='BQA'):
                 if(landsat.band[b].cols == cols):
                     self.DN[b] = landsat.band[b].array[x][y]
                     self.reflectance[b] = self.calcReflectance(landsat.band[b].Mp, landsat.band[b].Ap, self.DN[b], landsat.SE)
@@ -124,7 +125,13 @@ class Point(object):
                 self.DN[b] = landsat.band[b].array[x][y]
                 self.radiance[b] = self.calcRadiance(landsat.band[b].ML, landsat.band[b].AL, self.DN[b])
                 self.temp = self.calcTemp(landsat.K1, landsat.K2, self.radiance['10'])
+
+            elif(b=='QUALITY'):
+                self.DN[b] = landsat.band[b].array[x][y]
                     
+        self.NDVI = (self.reflectance['5'] - self.reflectance['4']) / (self.reflectance['5'] + self.reflectance['4'])
+        self.NDSI = (self.reflectance['3'] - self.reflectance['6']) / (self.reflectance['3'] + self.reflectance['6'])
+        
         self.idLandsat = landsat.idLandsat        
         self.pixelWidth = landsat.band[str(1)].pixelWidth
         self.pixelHeight = landsat.band[str(1)].pixelHeight
@@ -132,7 +139,62 @@ class Point(object):
         self.originY = landsat.band[str(1)].originY
         self.latitude = self.originX + (y * self.pixelWidth)
         self.longitude = self.originY + (x * self.pixelHeight)
+
+    def qualityAssessmentBand(self):
+        dictBQA ={'0':'No', '1':'Yes', '00':'Not Determined', '01':'No', '10':'Maybe', '11':'Yes'}
+
+        valueBinDN = str(format(self.DN['QUALITY'], '016b'))
+
+        cloud = valueBinDN[0:2]
+        cirrus = valueBinDN[2:4]
+        snowIce = valueBinDN[4:6]
+        vegetation = valueBinDN[6:8]
+        cloudShadow = valueBinDN[8:10]
+        water = valueBinDN[10:12]
+        reserved = valueBinDN[12:13]
+        terrainOcclusion = valueBinDN[13:14]
+        droppedFrame = valueBinDN[14:15]
+        designatedFill = valueBinDN[15:16]
+
+        self.BQA = [dictBQA[cloud],
+                    dictBQA[cirrus],
+                    dictBQA[snowIce],
+                    dictBQA[vegetation],
+                    dictBQA[cloudShadow],
+                    dictBQA[water],
+                    dictBQA[reserved],
+                    dictBQA[terrainOcclusion],
+                    dictBQA[droppedFrame],
+                    dictBQA[designatedFill]]
+
         
+    def cloud(self):
+        if(self.reflectance['4']<0.08):
+            if(self.reflectance['4']<=0.07):
+                return 'non-cloud'
+            else:
+                return 'ambiguos'
+        elif(self.NDSI<=-0.25 and self.NDSI>=0.7):
+            if(self.NDSI>0.8):
+                 return 'snow/ice'
+            else:
+                 return 'non-cloud'
+        elif(self.temp>300):
+            return 'non-cloud'
+        elif(((1-self.reflectance['6'])*self.temp)>225):
+            if(self.reflectance['6']>=0.8):
+                return 'ambiguos'
+            else:
+                return 'non-cloud'
+        elif((self.reflectance['5']/self.reflectance['4'])>=2.35):
+               return 'ambiguos'
+        elif((self.reflectance['5']/self.reflectance['3'])>=2.16248):
+               return 'ambiguos'
+        elif((self.reflectance['5']/self.reflectance['6'])<=1):
+               return 'ambiguous'
+        elif((self.reflectance['5']/self.reflectance['6'])>1):
+               return 'cloudy'
+                
     def calcRadiance (self, ML,AL, DN):
         'This function calculate Conversion to TOA Radiance'    
         ML = float(ML)
@@ -183,6 +245,8 @@ def rasterToDB(nameFolders):
                    landsat.band['9'].array[x][y]==0 or landsat.band['10'].array[x][y]==0):
                      continue
                 point = Point(landsat, x, y)
+                cloud = point.cloud()
+                point.qualityAssessmentBand()
                 data.append('{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}\t{11}'.format(point.idLandsat,
                                                                                                   point.latitude,
                                                                                                   point.longitude,
@@ -196,8 +260,16 @@ def rasterToDB(nameFolders):
                                                                                                   point.reflectance['8'],
                                                                                                   point.reflectance['9'],
                                                                                                   point.temp))
-                print(point.latitude, point.longitude, point.DN['1'], point.DN['8'], point.reflectance['1'], point.reflectance['8'], point.temp)
-                #input("prueba")
+                #print("NDSI: {0}".format(point.NDSI))
+                print(point.latitude, point.longitude, 
+                      point.reflectance['3'],
+                      point.reflectance['4'],
+                      point.reflectance['5'],
+                      point.reflectance['6'],
+                      point.temp,
+                      cloud)
+                print(point.BQA)
+                input("prueba")
 
                                                       
         data = '\n'.join(data)
