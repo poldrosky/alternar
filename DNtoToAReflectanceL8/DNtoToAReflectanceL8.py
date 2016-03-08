@@ -22,7 +22,6 @@
 #  
 #
 
-
 'This script process bands landsat 8, calculate radiance and reflectance and copy values of reflectace in db'
 
 import os, sys, math, time, csv, io
@@ -97,8 +96,8 @@ class Band(object):
         self.rows = self.dataset.RasterYSize
         self.pixelWidth = self.geoTransform[1]
         self.pixelHeight = self.geoTransform[5]
-        self.originX = self.geoTransform[0]
-        self.originY = self.geoTransform[3]
+        self.originX = float(self.geoTransform[0])
+        self.originY = float(self.geoTransform[3])
         self.array = self.dataset.ReadAsArray()
         
 class Point(object):
@@ -133,13 +132,13 @@ class Point(object):
         self.NDSI = (self.reflectance['3'] - self.reflectance['6']) / (self.reflectance['3'] + self.reflectance['6'])
         
         self.idLandsat = landsat.idLandsat        
-        self.pixelWidth = landsat.band[str(1)].pixelWidth
-        self.pixelHeight = landsat.band[str(1)].pixelHeight
-        self.originX = landsat.band[str(1)].originX
-        self.originY = landsat.band[str(1)].originY
-        self.latitude = self.originX + (y * self.pixelWidth)
-        self.longitude = self.originY + (x * self.pixelHeight)
-
+        pixelWidth = landsat.band[str(1)].pixelWidth
+        pixelHeight = landsat.band[str(1)].pixelHeight
+        originX = landsat.band[str(1)].originX
+        originY = landsat.band[str(1)].originY
+        self.latitude = originX + (y * pixelWidth)
+        self.longitude = originY + (x * pixelHeight)
+        
     def qualityAssessmentBand(self):
         dictBQA ={'0':'No', '1':'Yes', '00':'Not Determined', '01':'No', '10':'Maybe', '11':'Yes'}
 
@@ -156,7 +155,7 @@ class Point(object):
         droppedFrame = valueBinDN[14:15]
         designatedFill = valueBinDN[15:16]
 
-        self.BQA = [dictBQA[cloud],
+        bqa = [dictBQA[cloud],
                     dictBQA[cirrus],
                     dictBQA[snowIce],
                     dictBQA[vegetation],
@@ -167,8 +166,10 @@ class Point(object):
                     dictBQA[droppedFrame],
                     dictBQA[designatedFill]]
 
+        return bqa
+
         
-    def cloud(self):
+    def acca(self):
         if(self.reflectance['4']<0.08):
             if(self.reflectance['4']<=0.07):
                 return 'non-cloud'
@@ -181,7 +182,7 @@ class Point(object):
                  return 'non-cloud'
         elif(self.temp>300):
             return 'non-cloud'
-        elif(((1-self.reflectance['6'])*self.temp)>225):
+        elif(((1-self.reflectance['6'])*self.temp)>=225):
             if(self.reflectance['6']>=0.8):
                 return 'ambiguos'
             else:
@@ -193,7 +194,7 @@ class Point(object):
         elif((self.reflectance['5']/self.reflectance['6'])<=1):
                return 'ambiguous'
         elif((self.reflectance['5']/self.reflectance['6'])>1):
-               return 'cloudy'
+               return 'cloud'
                 
     def calcRadiance (self, ML,AL, DN):
         'This function calculate Conversion to TOA Radiance'    
@@ -227,56 +228,47 @@ class Point(object):
 
 def rasterToDB(nameFolders):
     for i in range(len(nameFolders)-1):
-        #if os.path.isfile(nameFolders[i]):
-        #    os.system('rm -R '+nameFolders[i].split('.')[0])
-        #os.system('mkdir '+nameFolders[i].split('.')[0])
-        #os.system('tar -xvf '+nameFolders[i]+' -C '+nameFolders[i].split('.')[0])              
+        if os.path.isfile(nameFolders[i]):
+            os.system('rm -R '+nameFolders[i].split('.')[0])
+        os.system('mkdir '+nameFolders[i].split('.')[0])
+        os.system('tar -xvf '+nameFolders[i]+' -C '+nameFolders[i].split('.')[0])              
         landsat = Landsat(nameFolders[i].split('.')[0])
-        #date_landsat = '{0}\t{1}'.format(landsat.idLandsat, landsat.DATE)
-        #db.copyToTable('date_landsat',io.StringIO(date_landsat))
-        data = []
+        date_landsat = '{0}\t{1}'.format(landsat.idLandsat, landsat.DATE)
+        db.copyToTable('date_landsat',io.StringIO(date_landsat))
+        reflectance = []
         discarded = []
-        for x in range(0,landsat.band['1'].rows,30):
-            for y in range(0,landsat.band['1'].cols,30):
-                if(landsat.band['1'].array[x][y]==0 or landsat.band['2'].array[x][y]==0 or
-                   landsat.band['3'].array[x][y]==0 or landsat.band['4'].array[x][y]==0 or
-                   landsat.band['5'].array[x][y]==0 or landsat.band['6'].array[x][y]==0 or
-                   landsat.band['7'].array[x][y]==0 or landsat.band['8'].array[x/2][y/2]==0 or
-                   landsat.band['9'].array[x][y]==0 or landsat.band['10'].array[x][y]==0):
-                     continue
+        for x in range(0,landsat.band['1'].rows,1):
+            for y in range(0,landsat.band['1'].cols,1):
+                #if(landsat.band['3'].array[x][y]==0 or landsat.band['4'].array[x][y]==0 or
+                #   landsat.band['5'].array[x][y]==0 or landsat.band['6'].array[x][y]==0 or
+                #   landsat.band['10'].array[x][y]==0):
+                #     continue
                 point = Point(landsat, x, y)
-                cloud = point.cloud()
-                point.qualityAssessmentBand()
-                data.append('{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}\t{11}'.format(point.idLandsat,
-                                                                                                  point.latitude,
-                                                                                                  point.longitude,
-                                                                                                  point.reflectance['1'],
-                                                                                                  point.reflectance['2'],
-                                                                                                  point.reflectance['3'],
-                                                                                                  point.reflectance['4'],
-                                                                                                  point.reflectance['5'],
-                                                                                                  point.reflectance['6'],
-                                                                                                  point.reflectance['7'],
-                                                                                                  point.reflectance['8'],
-                                                                                                  point.reflectance['9'],
-                                                                                                  point.temp))
-                #print("NDSI: {0}".format(point.NDSI))
-                print(point.latitude, point.longitude, 
-                      point.reflectance['3'],
-                      point.reflectance['4'],
-                      point.reflectance['5'],
-                      point.reflectance['6'],
-                      point.temp,
-                      cloud)
-                print(point.BQA)
-                input("prueba")
-
+                #acca = point.acca()
+                bqa = point.qualityAssessmentBand()                
+                if(bqa[0]!='Yes' and bqa[1]!='Yes' and bqa[2]!='Yes' and bqa[3]!='No' and bqa[4]!='Yes' and bqa[5]!='Yes'):
+                    reflectance.append('{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}\t{11}\t{12}'.format(point.idLandsat,
+                                                                                                      point.latitude,
+                                                                                                      point.longitude,
+                                                                                                      point.reflectance['1'],
+                                                                                                      point.reflectance['2'],
+                                                                                                      point.reflectance['3'],
+                                                                                                      point.reflectance['4'],
+                                                                                                      point.reflectance['5'],
+                                                                                                      point.reflectance['6'],
+                                                                                                      point.reflectance['7'],
+                                                                                                      point.reflectance['8'],
+                                                                                                      point.reflectance['9'],
+                                                                                                      point.temp))
+                else:
+                    discarded.append('{0}\t{1}\t{2}\t{3}'.format(point.idLandsat, point.latitude, point.longitude, point.DN['QUALITY']))
+        
                                                       
-        data = '\n'.join(data)
+        reflectance = '\n'.join(reflectance)
         discarded = '\n'.join(discarded)                
-        #db.copyToTable('reflectance',io.StringIO(reflectance))
-        #db.copyToTable('discarded',io.StringIO(discarded))
-        #os.system('rm -R '+nameFolders[i].split('.')[0])	
+        db.copyToTable('reflectance',io.StringIO(reflectance))
+        db.copyToTable('discarded',io.StringIO(discarded))
+        os.system('rm -R '+nameFolders[i].split('.')[0])	
                                   
 path = os.getcwd()
 path += '/L8'
@@ -284,7 +276,7 @@ os.chdir(path)
 
 tiempo1 = time.time()
 
-db = Pdbc.DBConnector('db', 'user', 'pass', 'ip', 'port')
+db = Pdbc.DBConnector('db', 'user', 'pass', 'server', 'port')
                         
 filterImg = 'LC8*'
 nameFolders = os.popen('ls '+filterImg+'bz').read().split("\n")
