@@ -1,0 +1,68 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,USenglish]{babel}
+
+% Include other packages here, before hyperref.
+\usepackage[breaklinks=true,bookmarks=false]{hyperref}
+
+\def\STSIVAPaperID{***} % *** Enter the STSIVA Paper ID here
+\def\STSIVACategory{C4} % *** Enter the STSIVA Paper Category here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+\ifcvprfinal\pagestyle{empty}\fi
+
+
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{Procesamiento de imágenes satelitales Landsat 7 ETM+ y MODIS MOD09GA para la estimación de irradiación solar en el departamento de Nariño (Colombia)}
+
+\author{First Author\\
+Institution1\\
+Institution1 address\\
+{\tt\small firstauthor@i1.oorg}
+% For a paper whose authors are all at the same institution,
+% omit the following lines up until the closing ``}''.
+% Additional authors and addresses can be added with ``\and'',
+% just like the second author.
+% To save space, use either the email address or home page, not both
+\and
+Second Author\\
+Institution2\\
+First line of institution2 address\\
+{\tt\small secondauthor@i2.org}
+}
+
+\maketitle
+%\thispagestyle{empty}
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+En las última decadas, la exploración de fuentes alternativas de energías se ha consolidado como una prioridad en la agenda de varios paises del mundo.  Colombia no es la excepción y a través de diversas estrategias ha buscado fomentar la apropiación e implementación de soluciones basadas en la explotación de recursos hidrológicos, eólicos, solares y biomásicos. El proyecto ``Análisis de Oportunidades Energéticas con Fuentes Alternativas en el Departamento de Nariño'' busca precisamente identificar el potencial energético de estas alternativas en dicha región del Sureste Colombiano.
+
+Dada la extensión del territorio, uno de los principales objetivos es localizar aquellas áreas dentro de la región con mayor potencial para iniciar las etapas de exploración y factibilidad.  Aunque se tiene contemplado la instalación de estaciones meteorológicas y de captura de datos, actualmente no se cuenta con datos históricos ni trabajo de campo previo de la zona. Uno de los principales desafios del proyecto es establecer una línea base y recopilar información que soporte la toma de decisiones para la instalación de las plantas piloto.  Iniciar una etapa de trabajo de campo resultaría restrictivo, dado los costos en tiempo y recursos económicos.
+
+Por otra parte, el procesamiento y análisis de imágenes satelitales ha probado ser una excelente opción a la hora de geolocalizar áreas con potencial energético.  En la actualidad, la comunidad científica cuenta con amplias bases de datos de libre acceso gracias a proyectos como Landsat y MODIS.  Los productos ofrecidos por dichos satelites ofrecen una alternativa viable dada sus características en cuanto a resolución espacial y temporal.
+
+Este trabajo busca resumir la metodología establecida para el procesamiento de imágenes satelitales Landsat 7 ETM+ y MODIS MOD09GA. En particular, nos centramos en la extracción del potencial solar a partir de la estimación de irradiación.  Exploramos operaciones básicas como la reproyección y recorte de las imágenes asi como la aplicación de algoritmos bien establecidos para la detección de nubosidad y cálculo de radiación y reflectancia.  
+
+Ante la ausencia y limitación en el acceso a trabajo de campo, proponemos usar los resultados de cada satélite como medida de validación.  Se utilizó una base de datos comercial para obtener datos de irradiación recientes y se construyeron modelos de regresión usando herramientas disponibles de código abierto para obtener mapas georreferenciados con el potencial solar para los últimos 15 años.  Al comparar los resultados obtenidos se estimó una correlación general del 94\%. 
+
+La metodología propuesta ha demostrado ser efectiva en otros ámbitos relacionados (biomasa y eólico) y atractiva en cuanto a la relación costo-beneficio siendo una alternativa viable ante la ausencia de trabajo de campo.
+
+\end{abstract}
+
+
+
+\end{document}
+
+
+

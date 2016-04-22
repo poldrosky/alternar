@@ -1,0 +1,61 @@
+\documentclass[conference,onecolumn]{IEEEtran}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,USenglish]{babel}
+
+\begin{document}
+
+\pagestyle{empty}  
+
+\title{Procesamiento de imágenes satelitales Landsat 7 ETM+ y MODIS MOD09GA para la estimación de irradiación solar en el departamento de Nariño (Colombia)}
+
+\author{
+\IEEEauthorblockN{Andrés Dario Pantoja}
+\IEEEauthorblockA{Universidad de Nariño\\
+Pasto, Colombia\\
+Email: ad\_pantoja@udenar.edu.co}
+\and
+\IEEEauthorblockN{Andrés Oswaldo Calderón}
+\IEEEauthorblockA{University of California\\
+Riverside, USA\\
+Email: acald@ucr.edu}
+\and
+\IEEEauthorblockN{Omar Ernesto Cabrera}
+\IEEEauthorblockA{Universidad de Nariño\\
+Pasto, Colombia\\
+Email: omarcabrerarosero@gmail.com}
+\and
+\IEEEauthorblockN{Bayron Champutiz}
+\IEEEauthorblockA{Universidad de Nariño\\
+Pasto, Colombia\\
+Email: edixred@gmail.com}
+}
+
+\maketitle
+
+\begin{abstract}
+
+En las última decadas, la exploración de fuentes alternativas de energías se ha consolidado como una prioridad en la agenda de varios paises del mundo.  Colombia no es la excepción y a través de diversas estrategias ha buscado fomentar la apropiación e implementación de soluciones basadas en la explotación de recursos hidrológicos, eólicos, solares y biomásicos. El proyecto ``Análisis de Oportunidades Energéticas con Fuentes Alternativas en el Departamento de Nariño'' busca precisamente identificar el potencial energético de estas alternativas en dicha región del Sureste Colombiano.
+
+Dada la extensión del territorio, uno de los principales objetivos es localizar aquellas áreas dentro de la región con mayor potencial para iniciar las etapas de exploración y factibilidad.  Aunque se tiene contemplado la instalación de estaciones meteorológicas y captura de datos, actualmente no se cuenta con datos históricos y trabajo de campo previo de la zona. Uno de los principales desafios del proyecto es establecer una línea base y recopilar información que soporte la toma de decisiones para la instalación de las plantas piloto.  Iniciar una etapa de trabajo de campo resultaría restrictivo, dado los costos en tiempo y recursos económicos.
+
+Por otra parte, el procesamiento y análisis de imágenes satelitales ha probado ser una excelente opción a la hora de geolocalizar áreas con potencial energético.  En la actualidad, la comunidad científica cuenta con amplias bases de datos de libre acceso gracias a proyectos como Landsat y MODIS.  Los productos ofrecidos por dichos sa
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+irradiance, solar, regression models analisys, Landsat, MODIS 
+\end{IEEEkeywords}
+
+\thispagestyle{empty} 
+
+\IEEEpeerreviewmaketitle
+
+%\input{introduction.tex}
+%\input{relateWork.tex}
+%\input{metodology.tex}
+%\input{correlation.tex}
+%\input{conclusion.tex}
+
+\end{document}
