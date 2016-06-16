@@ -4,23 +4,20 @@ El repositorio de imágenes satelitales Landsat es amplio y diverso.  Si bien se
 
 \begin{figure}
   \centering
-  \includegraphics[width = 8cm]{metodology.png}
+  \includegraphics[width = 0.5\textwidth]{metodology.png}
   \caption{Metodología}
   \label{fig:metodology}
 \end{figure}
 
 \subsection{Obtención de datos}
 
-El proceso de obtención de datos se realizó tomando imágenes satelitales proveidas por el sensor Landsat 7 ETM+. En este proceso se descargaron 1362 imágenes satelitales desde el año 1999 hasta mediados del año 2015. Para cubrir el departamento en su totalidad fue necesario descargar imágenes de cinco escenas diferentes.  La figura \ref{fig:cuts} detalle los respectivos identificadores (Path y Rows IDs) y extensión de cada una de las escenas usadas.
+El proceso de obtención de datos se realizó tomando imágenes satelitales proveidas por el sensor Landsat 7 ETM+. En este proceso se descargaron 1362 imágenes satelitales desde el año 1999 hasta mediados del año 2015. Para cubrir el departamento en su totalidad fue necesario descargar imágenes de cinco escenas diferentes.  La figura \ref{fig:cuts}a detalle los respectivos identificadores (Path ID y Row ID) y extensión de cada una de las escenas usadas.
 
-Durante esta etapa se tuvo acceso al mapa de biomasa construido por \cite{baccini2008afirst}.  Este es un mapa con resolución espacial de 1 $Km^2$ construido a partir de un modelo basado en imágenes MODIS recolectadas durante el año 2000 y 2003.
+Igualmente, durante esta etapa se tuvo acceso al mapa de biomasa construido por \cite{baccini2008afirst}.  Este es un mapa con resolución espacial de 1 $Km^2$ construido a partir de un modelo basado en imágenes MODIS recolectadas durante el año 2000 y 2003.
 
 \subsection{Preprocesamiento}
 
-En esta etapa de preprocesamiento se reproyecto las imágenes obtenidas, debido a que las cinco imágenes
-que cubren el departamento de Nariño, estan en distintos sistemas de coordenadas (EPSG:32618 y EPSG:32617) y se 
-lo reproyecto al sitema EPSG:3857. Así como también se recorto las imágenes con el fin de unicamente tener 
-el área que cubre el departamento de Nariño, como lo muestra la figura~\ref{fig:cuts}
+En esta etapa se realizó un trabajo básico de procesamiento sobre las imágenes adquiridas.  Primero, dada la extensión del área de estudio, las escenas descargadas tenían diferentes sistemas de coordenadas (EPSG:32618 y EPSG:32617).  Por motivos de visualización se decidió unificar el sistema de coordenadas usando EPSG:3857, popular entre las herramientas de mapeo y desarrollo de aplicaciones web.  Muchas de las escenas cubrían una gran área del Océano Pacifico así como de otros departamentos de la región.  Se recorto las imágenes para contener solo los datos referentes al departamento de Nariño.  La figura \ref{fig:cuts}b ilustra el resultado final de esta etapa.
 
 \begin{figure}
   \centering
