@@ -39,8 +39,7 @@ De igual manera este proceso se lo realizó para el mapa de biomasa, como se mue
 
 \subsection{Procesamiento y limpieza de datos}
 
-Se diseñó una base de datos para capturar los datos,
-como lo muestra la figura~\ref{fig:landsatET}, la cual tiene 4 tablas. 
+Con el objetivo de organizar los datos adquiridos se diseñó una base de datos a partir de cuatro entidades fundamentales: la fecha de la toma, los valores de reflectancia solar, los valores correspondientes de biomasa y las ubicaciones descartadas durante la limpieza de datos.  La figura \ref{fig:landsatET} ilustra el diseñó de la base de datos y los detalles de cada tabla se comentan a continuación:
 
 \begin{figure}
   \centering
@@ -49,47 +48,43 @@ como lo muestra la figura~\ref{fig:landsatET}, la cual tiene 4 tablas.
   \label{fig:landsatET}
 \end{figure}
 
-Tabla date\_landsat: en la cual se almacenan las fechas de las imágenes satelitales.
+\begin{itemize}
+ \item Tabla date\_landsat: en la cual se almacenan las fechas de las imágenes satelitales.
+ \item Tabla reflectance: en la cual se almacenan los datos capturados y convertidos a reflectancia solar, de las bandas Landsat (1-5 y 7) y la temperatura en grados kelvin de la banda 6.
+ \item Tabla discarded: en la cual se almacenan los datos que fueron descartados por diversas razones (son puntos nublados, datos ambiguos o no corresponden a vegetación).
+ \item Tabla biomass: en la cual se almacenan los datos de biomassa extraídos de \cite{baccini2008afirst}.
+\end{itemize}
 
-Tabla reflectance: en la cual se almacenan los datos capturados y convertidos en reflentance,
-de las bandas landsat (1 - 5,7) y la temperatura en grados kelvin de la banda 6.
-
-Tabla discarded: en la cual se almacenan datos que fueron descartados, por varias razones,
-son nubes calientes, nubes frias, datos ambiguos o no son vegetación.
-
-Tabla biomass: en la cual se almacenan los datos de biomassa del mapa de \cite{baccini2008afirst}.
-
-Para procesar las imágenes y llenar la base de datos se realizó un Script, el cual captura el Digital Number
-de las imágenes satélitales y lo transforma en valor en reflectance. En este procesamiento de imagenes, se adiciono al Script unos filtros para para detección de nubes calientes,
-nubes, frias, datos ambiguos como lo muestra el algoritmo propuesto por \cite{irish2000landsat}, además se aplico 
-un filtro adicional, el NVDI(normalized difference vegetation index) para trabajar unicamente con datos de vegetación.
-
-La tabla~\ref{tab:datos} muestra la relación de los datos obtenidos en este proceso.
+El procesamiento de las imágenes y alimentación de la base de datos se realizó a través de scripts y archivos procesados por lotes.  Entre los procesos realizados se transformó los valores originales extraídos de las imágenes (o digital numbers) a su correspondiente valor de reflectancia solar.  Se utilizó el algoritmo propuesto en \cite{irish2000landsat} para detectar puntos nublados en la zona clasificándolos como nubes frías, calientes o ambiguas.  Estos puntos se almacenaron con la intención de realizar posteriores estudios de nubosidad.  Finalmente, se aplicó un filtro adicional para calcular en índice NDVI (Normalized Difference Vegetation Index) con el objetivo de trabajar solo con aquellos puntos relacionados con vegetación y excluir áreas como cuerpos de agua o ciudades.  La tabla~\ref{tab:datos} muestra la relación de los datos obtenidos en este proceso.
 
 \begin{table}
 \caption{Datos obtenidos en en el proceso de procesamiento y limpieza  de datos}
 \label{tab:datos}
 \centering
-\scalebox{0.7}{
+%\scalebox{0.7}{
 \begin{tabular}{c c c}
 \toprule
  Nombre & Valor& Detalle  \\
 \midrule
-Datos biomasa & 81.993 & Registros de biomasa para año 2000 a 2003 de  \cite{baccini2008afirst}\\
-Datos biomasa usados & 140018 & Registros para construir el modelo grilla 450 metros\\
+Datos biomasa & 81.993 & Registros biomasa \\
+ & & (años 2000 a 2003 \cite{baccini2008afirst})\\
+Datos biomasa usados & 140018 & construcción del modelo\\
 \hline
-Imágenes landsat procesadas & 1321 & Imágenes de Nariño de 2000 a 2014 \\
-Nube caliente & 3.731.768 & Registros de 2000 a 2014 \\
-Nube Fria & 27.827.009 & Registros de 2000 a 2014 \\
-No vegetacion & 3.459.210 & Registros de 2000 a 2014 \\
-Ambiguo & 11.987.340 & Registros de 2000 a 2014 \\
+Imágenes Landsat& 1321 & Imágenes de Nariño\\
+procesadas & & (2000 a 2014) \\
+Nube caliente & 3.731.768 & Registros 2000 a 2014 \\
+Nube Fria & 27.827.009 & Registros 2000 a 2014 \\
+No vegetación & 3.459.210 & Registros 2000 a 2014 \\
+Ambiguo & 11.987.340 & Registros 2000 a 2014 \\
 \hline
 Total Datos Descartados & 47.005.327 & Total datos descartados \\
-Datos Validos Reflectance & 4.071.185 & Registros de 2000 a 2014 \\
+Datos Validos Reflectance & 4.071.185 & Registros 2000 a 2014 \\
 \hline
-Datos Totales & 51.076.512 & Registros Totales desde año 2000 a 2014 \\
+Datos Totales & 51.076.512 & Registros Totales\\
+& & (año 2000 a 2014) \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
+%}
 \end{table}
 
 \subsection{Análisis de regresión}
