@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{babyak_what_2004}
+Michael~A. Babyak.
+\newblock What you see may not be what you get: a brief, nontechnical
+  introduction to overfitting in regression-type models.
+\newblock {\em Psychosomatic medicine}, 66(3):411--421, 2004.
+
 \bibitem{baccini_estimated_2012}
 A.~Baccini, S.~J. Goetz, W.~S. Walker, N.~T. Laporte, M.~Sun, D.~Sulla-Menashe,
   J.~Hackler, P.~S.~A. Beck, R.~Dubayah, M.~A. Friedl, S.~Samanta, and R.~A.
@@ -14,6 +20,11 @@ A.~Baccini, N.~Laporte, S.~J. Goetz, M.~Sun, and H.~Dong.
   satellite imagery.
 \newblock {\em Environmental Research Letters}, 3(4):045011, oct 2008.
 
+\bibitem{bivand_applied_2013}
+Roger~S. Bivand, Edzer Pebesma, and Virgilio Gómez-Rubio.
+\newblock {\em Applied {Spatial} {Data} {Analysis} with {R}}.
+\newblock Springer New York, New York, NY, 2013.
+
 \bibitem{WHRC}
 Woods Hole~Research Center.
 \newblock Pantropical national level carbon stock dataset.
@@ -26,6 +37,11 @@ Paulo Cortez.
   the r/rminer tool.
 \newblock In {\em Advances in data mining. Applications and theoretical
   aspects}, pages 572--583. Springer, 2010.
+
+\bibitem{cressie_statistics_2015}
+Noel Cressie.
+\newblock {\em Statistics for {Spatial} {Data}}.
+\newblock Wiley-Interscience, Hoboken, NJ, 2 edition edition, July 2015.
 
 \bibitem{ministerio_de_minas_y_energia_plan_2008}
 Ministerio de~Minas~y Energia.

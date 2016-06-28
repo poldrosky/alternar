@@ -1,6 +1,6 @@
 
 \section{Metodología}
-El repositorio de imágenes satelitales Landsat es amplio y diverso.  Si bien se constituye como una gran herramienta para la comunidad científica, su uso requiere un tratamiento previo.  De igual manera, la construcción de un modelo preliminar de biomasa a partir de información secundaria exigue la selección y validación de diferentes técnicas de regresión disponibles.  Esta sección resume una metodología de cinco etapas para la construcción del modelo de biomasa para el departamento de Nariño.  La figura~\ref{fig:metodology} ilustra la metodología propuesta. A continuación se explica en más detalle cada una de las etapas.
+El repositorio de imágenes satelitales Landsat es amplio y diverso.  Si bien se constituye como una gran herramienta para la comunidad científica, su uso requiere un tratamiento previo.  De igual manera, la construcción de un modelo preliminar de biomasa a partir de información secundaria exige la selección y validación de diferentes técnicas de regresión disponibles.  Esta sección resume una metodología de cinco etapas para la construcción del modelo de biomasa para el departamento de Nariño.  La figura~\ref{fig:metodology} ilustra la metodología propuesta. A continuación se explica en más detalle cada una de las etapas.
 
 \begin{figure}
   \centering
@@ -52,7 +52,7 @@ Con el objetivo de organizar los datos adquiridos se diseñó una base de datos 
  \item Tabla date\_landsat: en la cual se almacenan las fechas de las imágenes satelitales.
  \item Tabla reflectance: en la cual se almacenan los datos capturados y convertidos a reflectancia solar, de las bandas Landsat (1-5 y 7) y la temperatura en grados kelvin de la banda 6.
  \item Tabla discarded: en la cual se almacenan los datos que fueron descartados por diversas razones (son puntos nublados, datos ambiguos o no corresponden a vegetación).
- \item Tabla biomass: en la cual se almacenan los datos de biomassa extraídos de \cite{baccini2008afirst}.
+ \item Tabla biomass: en la cual se almacenan los datos de biomasa extraídos de \cite{baccini2008afirst}.
 \end{itemize}
 
 El procesamiento de las imágenes y alimentación de la base de datos se realizó a través de scripts y archivos procesados por lotes.  Entre los procesos realizados se transformó los valores originales extraídos de las imágenes (o digital numbers) a su correspondiente valor de reflectancia solar.  Se utilizó el algoritmo propuesto en \cite{irish2000landsat} para detectar puntos nublados en la zona clasificándolos como nubes frías, calientes o ambiguas.  Estos puntos se almacenaron con la intención de realizar posteriores estudios de nubosidad.  Finalmente, se aplicó un filtro adicional para calcular en índice NDVI (Normalized Difference Vegetation Index) con el objetivo de trabajar solo con aquellos puntos relacionados con vegetación y excluir áreas como cuerpos de agua o ciudades.  La tabla~\ref{tab:datos} muestra la relación de los datos obtenidos en este proceso.
@@ -89,17 +89,25 @@ Datos Totales & 51.076.512 & Registros Totales\\
 
 \subsection{Análisis de regresión}
 
-El análisis de regresión se realizó tomando los valores de las bandas landsat obtenidas año 2000 y 2003 y el valor de biomasa obtenido en \cite{baccini2008afirst},
-para poder obtener un mejor modelo se agrupó y se saco un promedio con valores de las bandas landsat en cada punto, se fue iterando con  valores que superaban al menos N número de
-muestras, siendo N desde 1 hasta 45 muestras, el mejor modelo obtenido fué cuando el número de muestas en cada punto superaba al menos las 35 muestras, este conjunto
-de datos obtenido tenía 1009 registros. El comportamiento en las demás iteraciones muestra que con menos muestras hay más registros y eso hace que no se encuentre un buen modelo,
-pero cuando hay mas muestras los registros son menores y esto también hace que el resultado del modelo tampoco sea bueno.
+El análisis de regresión se realizó tomando los valores de las bandas Landsat obtenidas entre los años 2000 y 2003 y adicionando los valores correspondientes de biomasa para cada ubicación, dichos valores  se extrajeron de \cite{baccini2008afirst}.  Para poder obtener una mayor confiabilidad en el modelo solo se tuvo en cuenta aquellas ubicaciones con un número significativo de muestras.  Dada la alta nubosidad de la zona, muchos de los puntos contaban con pocas lecturas.  Por lo tanto, se consolidó un nuevo conjunto de datos con el promedio de aquellos puntos que superaban al menos un número considerable de lecturas validas.  
 
-En la tabla~\ref{tab:metricas} se muestra las métricas de los modelos analizadas con 35 muestras y 1009 datos, el cual es el mejor modelo, esta tabla 
-se la realizó usando la biblioteca de código abierto rminer presentada por \cite{cortez2010data} para la herramienta R.
+Se construyeron diferentes modelos, iterando el número de muestras por cada punto entre 10 y 45.  El mejor modelo se obtuvo cuando el número de muestras superaba las 35 lecturas.  El conjunto de datos final arrojó 1009 registros válidos.  El comportamiento en las demás iteraciones indica que con pocas muestras el conjunto de entrada es altamente hetereogeneo, guiado por aquellos puntos con pocas lecturas y alta variabilidad.  En cambio, al aumentar el número de lecturas, la variabilidad de las muestras baja pero con el alto riesgo de sobrecargar el modelo (\cite{babyak_what_2004}). 
+
+Antes de aplicar las técnicas de regresión, se procedió a evaluar la calidad y relevancia de las bandas de las imágenes Landsat con el objetivo de predecir valores de biomasa.  Se utilizó el algoritmo propuesto en \cite{kursa2010feature} para la extracción y evaluación de atributos. El algoritmo está diseñado como un recubrimiento alrededor del algoritmo de clasificación \texttt{random forest} y califica cada atributo en el conjunto de datos de acuerdo a su importancia a la hora de clasificar el atributo buscado. En la figura~\ref{fig:boruta} se puede observar la relevancia de todas las bandas Landsat (en verde) que se ubican por encima de los valores por defecto (en azul).  Esto indica que la relevancia de las bandas de las imágenes Landsat esta por encima del azar. Concluimos que todas las bandas resultan importantes a la hora de modelar biomasa.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 8cm]{boruta.pdf}
+  \caption{Relevancia de bandas Landsat en el análisis de regresión}
+  \label{fig:boruta}
+\end{figure}
+
+Con un nuevo conjunto de datos definido y evaluado, se continuó con la construcción de modelos de regresión utilizando diversas técnicas de análisis.  La biblioteca de código abierto \texttt{rminer}, presentada por \cite{cortez2010data} para la herramienta R, provee diferentes implementaciones y una interfaz que facilita la ejecución de diferentes pruebas y la extracción de modelos y sus correspondientes métricas de evaluación.  
+
+Se construyó un total de 13 modelos y se evaluaron 6 metricas por cada uno. La tabla \ref{tab:metricas} ilustra los resultados obtenidos. Las técnicas utilizadas fueron: ctree (conditional inference tree), rpart (decision tree), kknn (k-nearest neighbor), mlp (multilayer perceptron with one hidden layer), mlpe (multilayer perceptron ensemble), ksvm (support vector machine), randomForest (random forest algorithm), mr (multiple regression), mars (multivariate adaptive regression splines), cubist (rule-based model), pcr (principal component regression ), plsr (partial least squares regression) y cppls (canonical powered partial least squares).  Las metricas evaluadas fueron: SAE (sum absolute error), MAE (mean absolute error), RAE (relative absolute error), RMSE (root mean squared error), COR (correlation) y R2 (coefficient of determination $R^2$).
 
 \begin{table}
-\caption{Métricas de modelos analizados con 35 muestras y 1009 datos}
+\caption{Métricas de modelos analizados. Los valores en negrilla indican los mejores resultados para cada métrica.}
 \label{tab:metricas}
 \centering
 \scalebox{0.7}{
@@ -124,29 +132,11 @@ cppls & 10337.63121 & 30.67546 & 64.61552 & 38.59290 & 0.72023 & 0.51873 \\
 \end{tabular}}
 \end{table}
 
-En este proceso tambien se usó el paquete R Boruta \cite{kursa2010feature}, el cual es un nuevo algoritmo de selección de características 
-para encontrar todas las variables relevantes. El algoritmo está diseñado como un recubrimiento alrededor 
-del algoritmo de clasificación random forest. Esto para saber si todas las bandas de landsat utilizadas eran relevantes para encontrar biomasa, 
-en la figura~\ref{fig:boruta} se puede observar la relevancia de las bandas landsat para encontrar biomasa en el mejor modelo.
-
-\begin{figure}
-  \centering
-  \includegraphics[width = 8cm]{boruta.pdf}
-  \caption{Relevancia de bandas landsat en el análisis de regresión}
-  \label{fig:boruta}
-\end{figure}
-
 \subsection{Construcción de mapas}
 
-Para la construcción de mapas de biomasa se utilizó el método Kriging que provee una solución al problema 
-de la estimación basada en un modelo continuo de variación espacial estocástica, el objetivo de Kriging es el de estimar el valor de una 
-variable aleatoria, Z, en uno o más puntos no muestreados o sobre grandes bloques. 
+A partir de los resultados de la tabla \ref{tab:metricas} durante la construcción de mapas se utilizó el modelo \texttt{ksvm}.  Para la construcción de mapas de biomasa se utilizó el método Kriging (\cite{bivand_applied_2013, cressie_statistics_2015}).  Kriging provee una solución al problema de la estimación basada en un modelo continuo de variación espacial estocástica.  El objetivo de Kriging es el de estimar el valor de una variable aleatoria, en este caso biomasa, en uno o más puntos no muestreados o sobre grandes bloques. 
 
-El método Kriging recibe como entrada datos de la muestra, y una malla dependiendo de la resolución que se quiera obtener, por ello los datos de muestra se
-obtuvieron aplicando el modelo obtenido en el análisis de regresión a datos agrupados en cada punto por mes, año y uno general entre el año 2000 a 2014; y la 
- malla se construyó con puntos regulares espaciados cada 450 metros. 
- 
- En la figura~\ref{fig:biomasaMes}, figura~\ref{fig:biomasaAnio}, figura~\ref{fig:biomasaTotal}  se muestra los mapas obtenidos por meses, años y general entre el año 2000 a 2014 respectivamente. 
+El método Kriging recibe como entrada datos de la muestra y una malla dependiendo de la resolución que se quiera obtener. Para ello, se obtuvo una muestra de los datos obtenidos al aplicar el modelo seleccionado a datos agregados por mes y año y un mapa general que abarca el periodo de estudio.  La malla se construyó con puntos regulares espaciados cada 450 metros. En la figura~\ref{fig:biomasaMes}, figura~\ref{fig:biomasaAnio}, figura~\ref{fig:biomasaTotal}  se muestra los mapas obtenidos por meses, años y general respectivamente. 
  
 \begin{figure}
   \centering

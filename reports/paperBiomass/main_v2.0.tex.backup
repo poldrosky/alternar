@@ -1,0 +1,95 @@
+\documentclass[conference, spanish]{IEEEtran}
+
+\ifCLASSINFOpdf
+   \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+   \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+   \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  \DeclareGraphicsExtensions{.eps}
+\fi
+
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{subfigure}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black, urlcolor=black, filecolor=black bookmarks=false]{hyperref}
+
+\begin{document}
+
+\pagestyle{empty}  
+
+\title{Análisis de regresión para el cálculo de biomasa en el departamento de Nariño (Colombia) utilizando imágenes satelitales Landsat}
+
+\author{\IEEEauthorblockN{GIEE}
+\IEEEauthorblockA{Universidad de Nariño\\
+San Juan de Pasto, Colombia\\
+Email: }
+\and
+\IEEEauthorblockN{GIIWW}
+\IEEEauthorblockA{Universidad de Nariño\\
+San Juan de Pasto, Colombia\\
+Email: }
+}
+
+\maketitle
+
+\begin{abstract}
+
+En este artículo se describen los componentes básicos de la investigación aplicada que tiene como objetivo construir un primer mapa del potencial de biomasa en el departamento de Nariño (Colombia) a partir de imágenes satelitales Landsat de libre acceso. Se analizan las diferentes bandas de las imágenes satelitales disponibles y su relación con bases de datos previas de biomasa aplicando diferentes técnicas de regresión y obteniendo un modelo para la generación de mapas actualizados en el departamento de Nariño.
+
+\end{abstract}
+
+
+\begin{IEEEkeywords}
+biomass, regression models 
+\end{IEEEkeywords}
+
+\thispagestyle{empty} 
+
+\IEEEpeerreviewmaketitle
+
+
+\input{introduction_v2.0.tex}
+\input{relateWork.tex}
+\input{metodology_v2.0.tex}
+%\input{conclusion.tex}
+
+
+%\appendices
+%\section{Repositorio}
+%El código fuente y conjunto de datos se encuentran en el repositorio de github.
+
+
+\ifCLASSOPTIONcompsoc
+  % The Computer Society usually uses the plural form
+  \section*{Agradecimientos}
+\else
+  % regular IEEE prefers the singular form
+  \section*{Agradecimientos}
+\fi
+
+Esta investigación se hizo posible gracias a los recursos otorgados por el Sistemas General de Regalias en el marco de proyecto ``Análisis de Oportunidades Energéticas con Fuentes Alternativas en el Departamento de Nariño'' ejecutado por el programa de Ingeniería Electrónica de la Universidad de Nariño.
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+\end{document}
