@@ -136,25 +136,25 @@ cppls & 10337.63121 & 30.67546 & 64.61552 & 38.59290 & 0.72023 & 0.51873 \\
 
 A partir de los resultados de la tabla \ref{tab:metricas} durante la construcción de mapas se utilizó el modelo \texttt{ksvm}.  Para la construcción de mapas de biomasa se utilizó el método Kriging (\cite{bivand_applied_2013, cressie_statistics_2015}).  Kriging provee una solución al problema de la estimación basada en un modelo continuo de variación espacial estocástica.  El objetivo de Kriging es el de estimar el valor de una variable aleatoria, en este caso biomasa, en uno o más puntos no muestreados o sobre grandes bloques. 
 
-El método Kriging recibe como entrada datos de la muestra y una malla dependiendo de la resolución que se quiera obtener. Para ello, se obtuvo una muestra de los datos obtenidos al aplicar el modelo seleccionado a datos agregados por mes y año y un mapa general que abarca el periodo de estudio.  La malla se construyó con puntos regulares espaciados cada 450 metros. En la figura~\ref{fig:biomasaMes}, figura~\ref{fig:biomasaAnio}, figura~\ref{fig:biomasaTotal}  se muestra los mapas obtenidos por meses, años y general respectivamente. 
+El método Kriging recibe como entrada un muestreo de datos y una malla dependiendo de la resolución que se quiera obtener. Para ello, se obtuvo una muestra de los datos obtenidos al aplicar el modelo seleccionado a datos agregados por mes y año y un mapa general que abarca el periodo de estudio.  La malla se construyó con puntos regulares espaciados cada 450 metros. En la figura~\ref{fig:biomasaMes}, figura~\ref{fig:biomasaAnio}, figura~\ref{fig:biomasaTotal}  se muestra los mapas obtenidos por meses, años y general respectivamente. 
  
 \begin{figure}
   \centering
-  \includegraphics[width = 8cm]{mapMonthsBiomass.pdf}
-  \caption{Mapas biomasa por meses}
+  \includegraphics[width = 0.45\textwidth]{mapMonthsBiomass.pdf}
+  \caption{Mapas de biomasa por mes}
   \label{fig:biomasaMes}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width = 8cm]{mapYearsBiomass.pdf}
-  \caption{Mapas biomasa por años}
+  \includegraphics[width = 0.45\textwidth]{mapYearsBiomass.pdf}
+  \caption{Mapas de biomasa por año}
   \label{fig:biomasaAnio}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width = 8cm]{mapGeneralBiomass.pdf}
-  \caption{Mapas biomasa general años 2000-2014}
+  \includegraphics[width = 0.45\textwidth]{mapGeneralBiomass.pdf}
+  \caption{Mapa de biomasa general entre los años 2000 y 2014}
   \label{fig:biomasaTotal}
 \end{figure}
