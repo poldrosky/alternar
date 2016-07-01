@@ -31,6 +31,12 @@ Woods Hole~Research Center.
 \newblock \url{http://www.whrc.org/mapping/pantropical/carbon_dataset.html}.
 \newblock Accessed: 2015-08-15.
 
+\bibitem{chander_summary_2009}
+Gyanesh Chander, Brian~L. Markham, and Dennis~L. Helder.
+\newblock Summary of current radiometric calibration coefficients for {Landsat}
+  {MSS}, {TM}, {ETM}+, and {EO}-1 {ALI} sensors.
+\newblock {\em Remote sensing of environment}, 113(5):893--903, 2009.
+
 \bibitem{cortez2010data}
 Paulo Cortez.
 \newblock Data mining with neural networks and support vector machines using

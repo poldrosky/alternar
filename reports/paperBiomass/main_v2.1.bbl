@@ -1,0 +1,102 @@
+\begin{thebibliography}{10}
+
+\bibitem{babyak_what_2004}
+Michael~A. Babyak.
+\newblock What you see may not be what you get: a brief, nontechnical
+  introduction to overfitting in regression-type models.
+\newblock {\em Psychosomatic medicine}, 66(3):411--421, 2004.
+
+\bibitem{baccini_estimated_2012}
+A.~Baccini, S.~J. Goetz, W.~S. Walker, N.~T. Laporte, M.~Sun, D.~Sulla-Menashe,
+  J.~Hackler, P.~S.~A. Beck, R.~Dubayah, M.~A. Friedl, S.~Samanta, and R.~A.
+  Houghton.
+\newblock {Estimated carbon dioxide emissions from tropical deforestation
+  improved by carbon-density maps}.
+\newblock {\em Nature Climate Change}, 2(3):182–185, January 2012.
+
+\bibitem{baccini2008afirst}
+A.~Baccini, N.~Laporte, S.~J. Goetz, M.~Sun, and H.~Dong.
+\newblock A first map of tropical africa's above-ground biomass derived from
+  satellite imagery.
+\newblock {\em Environmental Research Letters}, 3(4):045011, oct 2008.
+
+\bibitem{bivand_applied_2013}
+Roger~S. Bivand, Edzer Pebesma, and Virgilio Gómez-Rubio.
+\newblock {\em Applied {Spatial} {Data} {Analysis} with {R}}.
+\newblock Springer New York, New York, NY, 2013.
+
+\bibitem{WHRC}
+Woods Hole~Research Center.
+\newblock Pantropical national level carbon stock dataset.
+\newblock \url{http://www.whrc.org/mapping/pantropical/carbon_dataset.html}.
+\newblock Accessed: 2015-08-15.
+
+\bibitem{cortez2010data}
+Paulo Cortez.
+\newblock Data mining with neural networks and support vector machines using
+  the r/rminer tool.
+\newblock In {\em Advances in data mining. Applications and theoretical
+  aspects}, pages 572--583. Springer, 2010.
+
+\bibitem{cressie_statistics_2015}
+Noel Cressie.
+\newblock {\em Statistics for {Spatial} {Data}}.
+\newblock Wiley-Interscience, Hoboken, NJ, 2 edition edition, July 2015.
+
+\bibitem{ministerio_de_minas_y_energia_plan_2008}
+Ministerio de~Minas~y Energia.
+\newblock Plan {Indicativo} de {Expansión} de la {Cobertura} del {Servicio} de
+  {Energía} {Eléctrica} 2006 - 2010.
+\newblock Technical report, Unidad de Planeación Minero Energética -
+  Ministerio de Minas, Colombia, 2008.
+
+\bibitem{hall2006modeling}
+R.J. Hall, R.S. Skakun, E.J. Arsenault, and B.S. Case.
+\newblock Modeling forest stand structure attributes using landsat {ETM}+ data:
+  Application to mapping of aboveground biomass and stand volume.
+\newblock {\em Forest Ecology and Management}, 225(1-3):378--390, apr 2006.
+
+\bibitem{irish2000landsat}
+Richard~R Irish.
+\newblock Landsat 7 automatic cloud cover assessment.
+\newblock In {\em AeroSense 2000}, pages 348--355. International Society for
+  Optics and Photonics, 2000.
+
+\bibitem{klemas2013remotesensing}
+Victor Klemas.
+\newblock Remote sensing of coastal wetland biomass: An overview.
+\newblock {\em Journal of Coastal Research}, 290:1016--1028, sep 2013.
+
+\bibitem{kursa2010feature}
+Miron~B Kursa, Witold~R Rudnicki, et~al.
+\newblock Feature selection with the boruta package, 2010.
+
+\bibitem{mitchard2009usingsatellite}
+E.~T.~A. Mitchard, S.~S. Saatchi, I.~H. Woodhouse, G.~Nangendo, N.~S. Ribeiro,
+  M.~Williams, C.~M. Ryan, S.~L. Lewis, T.~R. Feldpausch, and P.~Meir.
+\newblock Using satellite radar backscatter to predict above-ground woody
+  biomass: A consistent relationship across four different african landscapes.
+\newblock {\em Geophysical Research Letters}, 36(23), 2009.
+
+\bibitem{muukkonen2007biomass}
+P.~Muukkonen and J.~Heiskanen.
+\newblock Biomass estimation over a large area based on standwise forest
+  inventory data and {ASTER} and {MODIS} satellite data: A possibility to
+  verify carbon inventories.
+\newblock {\em Remote Sensing of Environment}, 107(4):617--624, apr 2007.
+
+\bibitem{powell2010quantification}
+Scott~L. Powell, Warren~B. Cohen, Sean~P. Healey, Robert~E. Kennedy,
+  Gretchen~G. Moisen, Kenneth~B. Pierce, and Janet~L. Ohmann.
+\newblock Quantification of live aboveground forest biomass dynamics with
+  landsat time-series and field inventory data: A comparison of empirical
+  modeling approaches.
+\newblock {\em Remote Sensing of Environment}, 114(5):1053--1068, may 2010.
+
+\bibitem{landsat}
+U.S.~Geological Survey.
+\newblock Landsat missions.
+\newblock \url{http://landsat.usgs.gov/}.
+\newblock Accessed: 2015-08-15.
+
+\end{thebibliography}

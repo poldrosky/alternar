@@ -17,7 +17,7 @@ Igualmente, durante esta etapa se tuvo acceso al mapa de biomasa construido por 
 
 \subsection{Preprocesamiento}
 
-En esta etapa se realizó un trabajo básico de procesamiento sobre las imágenes adquiridas.  Primero, dada la extensión del área de estudio, las escenas descargadas tenían diferentes sistemas de coordenadas (EPSG:32618 y EPSG:32617).  Por motivos de visualización se decidió unificar el sistema de coordenadas usando EPSG:3857, popular entre las herramientas de mapeo y desarrollo de aplicaciones web.  Muchas de las escenas cubrían una gran área del Océano Pacifico así como de otros departamentos de la región.  Se recorto las imágenes para contener solo los datos referentes al departamento de Nariño.  La figura \ref{fig:cuts}b ilustra el resultado final de esta etapa.
+En esta etapa se realizó un trabajo básico de procesamiento sobre las imágenes adquiridas.  Primero, dada la extensión del área de estudio, las escenas descargadas tenían diferentes sistemas de coordenadas (EPSG:32618 y EPSG:32617).  Por motivos de visualización se decidió unificar el sistema de coordenadas usando EPSG:3857, popular entre las herramientas de mapeo y desarrollo de aplicaciones web.  Muchas de las escenas cubrían una gran área del Océano Pacífico así como de otros departamentos de la región.  Se recorto las imágenes para contener solo los datos referentes al departamento de Nariño.  La figura \ref{fig:cuts}b ilustra el resultado final de esta etapa.
 
 \begin{figure}
   \centering
@@ -28,18 +28,18 @@ En esta etapa se realizó un trabajo básico de procesamiento sobre las imágene
   \label{fig:cuts}
 \end{figure}
 
-De igual manera este proceso se lo realizó para el mapa de biomasa, como se muestra en la figura~\ref{fig:mapaNarino}
+Un proceso similar se realizó para el mapa de biomasa, como se muestra en la figura~\ref{fig:mapaNarino}.
 
 \begin{figure}
   \centering
-  \includegraphics[width = 8cm]{mapaNarino.pdf}
-  \caption{Mapa de biomasa en Nariño de 2000-2003 \cite{baccini2008afirst}. Los valores se expresan en toneladas por hectárea ($Mg ha^{−1}$}).
+  \includegraphics[width = 0.45\textwidth]{mapaNarino.png}
+  \caption{Mapa de biomasa en Nariño de 2000-2003 \cite{baccini2008afirst}. Los valores se expresan en toneladas por hectárea ($Mg ha^{−1}$).}
   \label{fig:mapaNarino}
 \end{figure}
 
 \subsection{Procesamiento y limpieza de datos}
 
-Con el objetivo de organizar los datos adquiridos se diseñó una base de datos a partir de cuatro entidades fundamentales: la fecha de la toma, los valores de reflectancia solar, los valores correspondientes de biomasa y las ubicaciones descartadas durante la limpieza de datos.  La figura \ref{fig:landsatET} ilustra el diseñó de la base de datos y los detalles de cada tabla se comentan a continuación:
+Con el objetivo de organizar los datos adquiridos se diseñó una base de datos a partir de cuatro entidades fundamentales: la fecha de la toma, los valores de reflectancia provenientes de cada imagen, los valores correspondientes de biomasa y las ubicaciones descartadas durante la limpieza de datos.  La figura \ref{fig:landsatET} ilustra el diseñó de la base de datos y los detalles de cada tabla se comentan a continuación:
 
 \begin{figure}
   \centering
@@ -50,18 +50,20 @@ Con el objetivo de organizar los datos adquiridos se diseñó una base de datos 
 
 \begin{itemize}
  \item Tabla date\_landsat: en la cual se almacenan las fechas de las imágenes satelitales.
- \item Tabla reflectance: en la cual se almacenan los datos capturados y convertidos a reflectancia solar, de las bandas Landsat (1-5 y 7) y la temperatura en grados kelvin de la banda 6.
+ \item Tabla reflectance: en la cual se almacenan los datos capturados y convertidos a reflectancia, de las bandas Landsat (1-5 y 7) y la temperatura en grados kelvin de la banda 6.
  \item Tabla discarded: en la cual se almacenan los datos que fueron descartados por diversas razones (son puntos nublados, datos ambiguos o no corresponden a vegetación).
  \item Tabla biomass: en la cual se almacenan los datos de biomasa extraídos de \cite{baccini2008afirst}.
 \end{itemize}
 
-El procesamiento de las imágenes y alimentación de la base de datos se realizó a través de scripts y archivos procesados por lotes.  Entre los procesos realizados se transformó los valores originales extraídos de las imágenes (o digital numbers) a su correspondiente valor de reflectancia solar.  Se utilizó el algoritmo propuesto en \cite{irish2000landsat} para detectar puntos nublados en la zona clasificándolos como nubes frías, calientes o ambiguas.  Estos puntos se almacenaron con la intención de realizar posteriores estudios de nubosidad.  Finalmente, se aplicó un filtro adicional para calcular en índice NDVI (Normalized Difference Vegetation Index) con el objetivo de trabajar solo con aquellos puntos relacionados con vegetación y excluir áreas como cuerpos de agua o ciudades.  La tabla~\ref{tab:datos} muestra la relación de los datos obtenidos en este proceso.
+El procesamiento de las imágenes y alimentación de la base de datos se realizó a través de scripts y archivos procesados por lotes.  Entre los procesos realizados se transformó los valores originales extraídos de las imágenes (o digital numbers) a su correspondiente valor de reflectancia. Se recomienda usar valores de reflectancia dado que esta magnitud, al ser el radio entre la luz emitida y reflejada, resulta menos susceptible a los efectos de sombras o inclinación solar \cite{chander_summary_2009}. 
+
+Se utilizó el algoritmo propuesto en \cite{irish2000landsat} para detectar puntos nublados en la zona clasificándolos como nubes frías, calientes o ambiguas.  Estos puntos se almacenaron con la intención de realizar posteriores estudios de nubosidad.  Finalmente, se aplicó un filtro adicional para calcular en índice NDVI (Normalized Difference Vegetation Index) con el objetivo de trabajar solo con aquellos puntos relacionados con vegetación y excluir áreas como cuerpos de agua o ciudades.  La tabla~\ref{tab:datos} muestra la relación de los datos obtenidos en este proceso.
 
 \begin{table}
 \caption{Datos obtenidos en en el proceso de procesamiento y limpieza  de datos}
 \label{tab:datos}
 \centering
-%\scalebox{0.7}{
+\scalebox{0.9}{
 \begin{tabular}{c c c}
 \toprule
  Nombre & Valor& Detalle  \\
@@ -84,12 +86,12 @@ Datos Totales & 51.076.512 & Registros Totales\\
 & & (año 2000 a 2014) \\
 \bottomrule
 \end{tabular}
-%}
+}
 \end{table}
 
 \subsection{Análisis de regresión}
 
-El análisis de regresión se realizó tomando los valores de las bandas Landsat obtenidas entre los años 2000 y 2003 y adicionando los valores correspondientes de biomasa para cada ubicación, dichos valores  se extrajeron de \cite{baccini2008afirst}.  Para poder obtener una mayor confiabilidad en el modelo solo se tuvo en cuenta aquellas ubicaciones con un número significativo de muestras.  Dada la alta nubosidad de la zona, muchos de los puntos contaban con pocas lecturas.  Por lo tanto, se consolidó un nuevo conjunto de datos con el promedio de aquellos puntos que superaban al menos un número considerable de lecturas validas.  
+El análisis de regresión se realizó tomando los valores de las bandas Landsat obtenidas entre los años 2000 y 2003 y adicionando los valores correspondientes de biomasa para cada ubicación.  Dichos valores  se extrajeron de \cite{baccini2008afirst}.  Para poder obtener una mayor confiabilidad en el modelo solo se tuvo en cuenta aquellas ubicaciones con un número significativo de muestras.  Dada la alta nubosidad de la zona, muchos de los puntos contaban con pocas lecturas.  Por lo tanto, se consolidó un nuevo conjunto de datos con el promedio de aquellos puntos que superaban al menos un número considerable de lecturas válidas.  
 
 Se construyeron diferentes modelos, iterando el número de muestras por cada punto entre 10 y 45.  El mejor modelo se obtuvo cuando el número de muestras superaba las 35 lecturas.  El conjunto de datos final arrojó 1009 registros válidos.  El comportamiento en las demás iteraciones indica que con pocas muestras el conjunto de entrada es altamente hetereogeneo, guiado por aquellos puntos con pocas lecturas y alta variabilidad.  En cambio, al aumentar el número de lecturas, la variabilidad de las muestras baja pero con el alto riesgo de sobrecargar el modelo \cite{babyak_what_2004}. 
 
@@ -110,7 +112,7 @@ Se construyó un total de 13 modelos y se evaluaron 6 metricas por cada uno. La 
 \caption{Métricas de modelos analizados. Los valores en negrilla indican los mejores resultados para cada métrica.}
 \label{tab:metricas}
 \centering
-\scalebox{0.7}{
+\scalebox{0.8}{
 \begin{tabular}{c c c c c c c}
 \toprule
  & SAE& MAE & RAE & RMSE & COR & R2 \\
@@ -132,11 +134,13 @@ cppls & 10337.63121 & 30.67546 & 64.61552 & 38.59290 & 0.72023 & 0.51873 \\
 \end{tabular}}
 \end{table}
 
+A partir de la tabla \ref{tab:metricas} y analizando los resultados de las diferentes métricas, las evaluaciones obtenidas al aplicar la técnica de support vector machines (\texttt{ksvm}) resultan ser las más confiables.  Este modelo será utilizado en la posterior etapa para la construcción y visualización de mapas.  
+
 \subsection{Construcción de mapas}
 
-A partir de los resultados de la tabla \ref{tab:metricas} durante la construcción de mapas se utilizó el modelo \texttt{ksvm}.  Para la construcción de mapas de biomasa se utilizó el método Kriging (\cite{bivand_applied_2013, cressie_statistics_2015}).  Kriging provee una solución al problema de la estimación basada en un modelo continuo de variación espacial estocástica.  El objetivo de Kriging es el de estimar el valor de una variable aleatoria, en este caso biomasa, en uno o más puntos no muestreados o sobre grandes bloques. 
+Para la construcción de mapas de biomasa se utilizó el método Kriging (\cite{bivand_applied_2013, cressie_statistics_2015}).  Kriging provee una solución al problema de la estimación basada en un modelo continuo de variación espacial estocástica.  El objetivo de Kriging es el de estimar el valor de una variable aleatoria, en este caso biomasa, en uno o más puntos no muestreados o sobre grandes bloques. 
 
-El método Kriging recibe como entrada un muestreo de datos y una malla dependiendo de la resolución que se quiera obtener. Para ello, se obtuvo una muestra de los datos obtenidos al aplicar el modelo seleccionado a datos agregados por mes y año y un mapa general que abarca el periodo de estudio.  La malla se construyó con puntos regulares espaciados cada 450 metros. En la figura~\ref{fig:biomasaMes}, figura~\ref{fig:biomasaAnio}, figura~\ref{fig:biomasaTotal}  se muestra los mapas obtenidos por meses, años y general respectivamente. . Los valores de biomasa están expresados en toneladas por hectárea ($Mg ha^{−1}$}).
+El método Kriging recibe como entrada un muestreo de datos y una malla dependiendo de la resolución que se quiera obtener. Para ello, se obtuvo una muestra de los datos obtenidos al aplicar el modelo seleccionado a datos agregados por mes y año y un mapa general que abarca el periodo de estudio.  La malla se construyó con puntos regulares espaciados cada 450 metros. En la figuras~\ref{fig:biomasaMes},  \ref{fig:biomasaAnio} y \ref{fig:biomasaTotal}  se muestran los mapas obtenidos por meses, años y general respectivamente. Los valores de biomasa están expresados en toneladas por hectárea ($Mg ha^{−1}$).
  
 \begin{figure}
   \centering

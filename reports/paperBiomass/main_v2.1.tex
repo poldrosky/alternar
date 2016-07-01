@@ -1,0 +1,57 @@
+%% á é í ó ú ñ
+
+\documentclass[twocolumn]{article}
+\usepackage{graphicx}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{subfigure}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black, urlcolor=black, filecolor=black bookmarks=false]{hyperref}
+
+\begin{document}
+
+\pagestyle{empty}  
+
+\title{Análisis de regresión para el cálculo de biomasa en el departamento de Nariño (Colombia) utilizando imágenes satelitales Landsat}
+
+\author{GIEE \\
+Universidad de Nariño\\
+San Juan de Pasto, Colombia\\
+Email: }
+
+\author{GIEE \\
+Universidad de Nariño\\
+San Juan de Pasto, Colombia\\
+Email: }
+
+\maketitle
+
+\begin{abstract}
+
+En este artículo se describe la metodología utilizada para la construcción de un primer mapa del potencial de biomasa en el departamento de Nariño (Colombia) a partir de imágenes satelitales Landsat de libre acceso. Se analizan las diferentes bandas de las imágenes satelitales disponibles y su relación con bases de datos previas de biomasa aplicando diferentes técnicas de regresión y obteniendo un modelo para la generación de mapas actualizados en el departamento de Nariño.
+
+\end{abstract}
+
+\thispagestyle{empty} 
+
+\input{introduction_v2.0.tex}
+\input{relateWork_v2.0.tex}
+\input{metodology_v2.0.tex}
+%\input{conclusion.tex}
+
+
+%\appendices
+%\section{Repositorio}
+%El código fuente y conjunto de datos se encuentran en el repositorio de github.
+
+\section*{Agradecimientos}
+
+Esta investigación se hizo posible gracias a los recursos otorgados por el Sistemas General de Regalias en el marco de proyecto ``Análisis de Oportunidades Energéticas con Fuentes Alternativas en el Departamento de Nariño'' ejecutado por el programa de Ingeniería Electrónica de la Universidad de Nariño.
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+\end{document}
