@@ -11,7 +11,7 @@ El repositorio de imágenes satelitales Landsat es amplio y diverso.  Si bien se
 
 \subsection{Obtención de datos}
 
-El proceso de obtención de datos se realizó tomando imágenes satelitales proveidas por el sensor Landsat 7 ETM+. En este proceso se descargaron 1362 imágenes satelitales desde el año 1999 hasta mediados del año 2015. Para cubrir el departamento en su totalidad fue necesario descargar imágenes de cinco escenas diferentes.  La figura \ref{fig:cuts}a detalle los respectivos identificadores (Path ID y Row ID) y extensión de cada una de las escenas usadas.
+El proceso de obtención de datos se realizó tomando imágenes satelitales proveidas por el sensor Landsat 7 ETM+. En este proceso se descargaron 1362 imágenes satelitales desde el año 1999 hasta mediados del año 2015. Para cubrir el departamento en su totalidad fue necesario descargar imágenes de cinco escenas diferentes.  La figura \ref{fig:cuts}a detalla los respectivos identificadores (Path ID y Row ID) y extensión de cada una de las escenas usadas.
 
 Igualmente, durante esta etapa se tuvo acceso al mapa de biomasa construido por \cite{baccini2008afirst}.  Este es un mapa con resolución espacial de 1 $Km^2$ construido a partir de un modelo basado en imágenes MODIS recolectadas durante el año 2000 y 2003.
 
@@ -106,7 +106,36 @@ Antes de aplicar las técnicas de regresión, se procedió a evaluar la calidad 
 
 Con un nuevo conjunto de datos definido y evaluado, se continuó con la construcción de modelos de regresión utilizando diversas técnicas de análisis.  La biblioteca de código abierto \texttt{rminer}, presentada por \cite{cortez2010data} para la herramienta R, provee diferentes implementaciones y una interfaz que facilita la ejecución de diferentes pruebas y la extracción de modelos y sus correspondientes métricas de evaluación.  
 
-Se construyó un total de 13 modelos y se evaluaron 6 metricas por cada uno. La tabla \ref{tab:metricas} ilustra los resultados obtenidos. Las técnicas utilizadas fueron: ctree (conditional inference tree), rpart (decision tree), kknn (k-nearest neighbor), mlp (multilayer perceptron with one hidden layer), mlpe (multilayer perceptron ensemble), ksvm (support vector machine), randomForest (random forest algorithm), mr (multiple regression), mars (multivariate adaptive regression splines), cubist (rule-based model), pcr (principal component regression ), plsr (partial least squares regression) y cppls (canonical powered partial least squares).  Las metricas evaluadas fueron: SAE (sum absolute error), MAE (mean absolute error), RAE (relative absolute error), RMSE (root mean squared error), COR (correlation) y R2 (coefficient of determination $R^2$).
+% Se construyó un total de 13 modelos y se evaluaron 6 metricas por cada uno. La tabla \ref{tab:metricas} ilustra los resultados obtenidos. Las técnicas utilizadas fueron: ctree (conditional inference tree), rpart (decision tree), kknn (k-nearest neighbor), mlp (multilayer perceptron with one hidden layer), mlpe (multilayer perceptron ensemble), ksvm (support vector machine), randomForest (random forest algorithm), mr (multiple regression), mars (multivariate adaptive regression splines), cubist (rule-based model), pcr (principal component regression ), plsr (partial least squares regression) y cppls (canonical powered partial least squares).  Las metricas evaluadas fueron: SAE (sum absolute error), MAE (mean absolute error), RAE (relative absolute error), RMSE (root mean squared error), COR (correlation) y R2 (coefficient of determination $R^2$).
+
+Se construyó un total de 13 modelos y se evaluaron 6 métricas por cada uno.  Las técnicas utilizadas se relacionan en la tabla \ref{tab:tecnicas} mientras que las metricas evaluadas fueron SAE (sum absolute error), MAE (mean absolute error), RAE (relative absolute error), RMSE (root mean squared error), COR (correlation) y R2 (coefficient of determination $R^2$).  La tabla \ref{tab:metricas} ilustra los resultados obtenidos.
+
+\begin{table}
+\caption{Técnicas de regresión aplicadas al conjunto de datos.}
+\label{tab:tecnicas}
+\centering
+%\scalebox{0.8}{
+\begin{tabular}{c c c c c c c}
+\toprule
+Acrónimo & Modelo de regresión \\
+\midrule
+ ctree & conditional inference tree\\
+ rpart  & decision tree\\
+ kknn  & k-nearest neighbor\\ 
+ mlp  & multilayer perceptron with one hidden layer\\ 
+ mlpe  & multilayer perceptron ensemble\\
+ ksvm  & support vector machine\\ 
+ randomForest  & random forest algorithm\\ 
+ mr  & multiple regression\\ 
+ mars  & multivariate adaptive regression splines\\ 
+ cubist  & rule-based model\\ 
+ pcr &  principal component regression \\
+ plsr  & partial least squares regression \\
+ cppls  & canonical powered partial least squares\\
+\bottomrule
+\end{tabular}
+%}
+\end{table}
 
 \begin{table}
 \caption{Métricas de modelos analizados. Los valores en negrilla indican los mejores resultados para cada métrica.}
